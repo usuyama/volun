@@ -1,0 +1,48 @@
+<h1>Editing content</h1>
+
+<% form_for(@content) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_field :body %>
+  </p>
+  <p>
+    <%= f.label :display %><br />
+    <%= f.check_box :display %>
+  </p>
+  <p>
+    <%= f.label :banner_id %><br />
+    <%= f.text_field :banner_id %>
+  </p>
+  <p>
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </p>
+  <p>
+    <%= f.label :customer_id %><br />
+    <%= f.text_field :customer_id %>
+  </p>
+  <p>
+    <%= f.label :banner_size_id %><br />
+    <%= f.text_field :banner_size_id %>
+  </p>
+  <p>
+    <%= f.label :publish_at %><br />
+    <%= f.datetime_select :publish_at %>
+  </p>
+  <p>
+    <%= f.label :close_at %><br />
+    <%= f.datetime_select :close_at %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @content %> |
+<%= link_to 'Back', contents_path %>

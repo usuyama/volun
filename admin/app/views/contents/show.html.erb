@@ -1,0 +1,48 @@
+<p>
+  <b>Title:</b>
+  <%=h @content.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @content.body %>
+</p>
+
+<p>
+  <b>Display:</b>
+  <%=h @content.display %>
+</p>
+
+<p>
+  <b>Banner:</b>
+  <%=h @content.banner_id %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @content.type %>
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%=h @content.customer_id %>
+</p>
+
+<p>
+  <b>Banner size:</b>
+  <%=h @content.banner_size_id %>
+</p>
+
+<p>
+  <b>Publish at:</b>
+  <%=h @content.publish_at %>
+</p>
+
+<p>
+  <b>Close at:</b>
+  <%=h @content.close_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_content_path(@content) %> |
+<%= link_to 'Back', contents_path %>
