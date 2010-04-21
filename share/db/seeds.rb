@@ -17,3 +17,8 @@ Content.delete_all
 10.times do
   Content.create!(:title => Faker::Lorem.words, :body => Faker::Lorem.paragraph)
 end
+
+Tag.delete_all
+10.times do
+  Tag.create!(:name => Faker::Lorem.words(1))
+end
