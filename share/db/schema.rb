@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20100421043458) do
     t.string   "body"
     t.boolean  "display"
     t.integer  "banner_id"
-    t.string   "type"
+    t.string   "type",           :default => "Tour"
     t.integer  "customer_id"
     t.integer  "banner_size_id"
     t.datetime "publish_at"
@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(:version => 20100421043458) do
   end
 
   create_table "customers", :force => true do |t|
-    t.string   "name"
     t.string   "salt"
     t.string   "organization_name"
     t.string   "address"
@@ -64,7 +63,7 @@ ActiveRecord::Schema.define(:version => 20100421043458) do
     t.datetime "updated_at"
     t.string   "login"
     t.string   "crypted_password",          :limit => 40
-    t.string   "remeber_token"
+    t.string   "remember_token"
     t.datetime "remember_token_expires_at"
   end
 

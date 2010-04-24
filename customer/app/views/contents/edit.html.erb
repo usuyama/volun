@@ -1,6 +1,6 @@
 <h1>Editing content</h1>
 
-<% form_for(@content) do |f| %>
+<% form_for([current_customer,@content]) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -20,14 +20,6 @@
     <%= f.text_field :banner_id %>
   </p>
   <p>
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
-  </p>
-  <p>
-    <%= f.label :customer_id %><br />
-    <%= f.text_field :customer_id %>
-  </p>
-  <p>
     <%= f.label :banner_size_id %><br />
     <%= f.text_field :banner_size_id %>
   </p>
@@ -44,5 +36,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @content %> |
-<%= link_to 'Back', contents_path %>
+<%= link_to 'Show', [current_customer,@content] %> |
+<%= link_to 'Back', customer_contents_path %>

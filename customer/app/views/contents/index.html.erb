@@ -7,7 +7,6 @@
     <th>Display</th>
     <th>Banner</th>
     <th>Type</th>
-    <th>Customer</th>
     <th>Banner size</th>
     <th>Publish at</th>
     <th>Close at</th>
@@ -20,17 +19,16 @@
     <td><%=h content.display %></td>
     <td><%=h content.banner_id %></td>
     <td><%=h content.type %></td>
-    <td><%=h content.customer_id %></td>
     <td><%=h content.banner_size_id %></td>
     <td><%=h content.publish_at %></td>
     <td><%=h content.close_at %></td>
-    <td><%= link_to 'Show', content %></td>
-    <td><%= link_to 'Edit', edit_content_path(content) %></td>
-    <td><%= link_to 'Destroy', content, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', [current_customer,content] %></td>
+    <td><%= link_to 'Edit', edit_customer_content_path(current_customer,content) %></td>
+    <td><%= link_to 'Destroy', [current_customer,content], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New content', new_content_path %>
+<%= link_to 'New content', new_customer_content_path(current_customer) %>
