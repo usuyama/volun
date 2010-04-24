@@ -46,7 +46,7 @@ class ContentsController < ApplicationController
 
     respond_to do |format|
       if current_customer.contents << @content
-        flash[:notice] = 'Content was successfully created.'
+        flash[:notice] = 'コンテンツの作成が完了しました。'
         format.html { redirect_to([current_customer,@content]) }
         format.xml  { render :xml => @content, :status => :created, :location =>[current_customer @content] }
       else
@@ -63,7 +63,7 @@ class ContentsController < ApplicationController
 
     respond_to do |format|
       if @content.update_attributes(params[:content].merge(:customer_id => current_customer.id))
-        flash[:notice] = 'Content was successfully updated.'
+        flash[:notice] = 'コンテンツの更新が完了しました'
         format.html { redirect_to([current_customer,@content]) }
         format.xml  { head :ok }
       else
@@ -90,7 +90,7 @@ private
   def user_checked
     unless params[:customer_id].to_i == current_customer.id
       redirect_to customer_contents_path(current_customer)
-      flash[:alert] = "access to '#{request.path}' failed"
+      flash[:alert] = "アクセスに失敗しました"
       end
   end
 end

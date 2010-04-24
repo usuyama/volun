@@ -1,33 +1,32 @@
-<h1>Editing customer</h1>
-
+<h1>カスタマー情報の編集</h1>
+<%= error_messages_for :customer %>
 <% form_for(current_customer) do |f| %>
   <%= f.error_messages %>
-
   <p>
-    <%= f.label :login %><br />
+    <%= f.label "ユーザー名" %><br />
     <%= f.text_field :login %>
   </p>
 
   <p>
-    <%= f.label :organization_name %><br />
+    <%= f.label "部署名" %><br />
     <%= f.text_field :organization_name %>
   </p>
   <p>
-    <%= f.label :address %><br />
+    <%= f.label "住所" %><br />
     <%= f.text_field :address %>
   </p>
   <p>
-    <%= f.label :email %><br />
+    <%= f.label "メールアドレス" %><br />
     <%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :person_in_charge %><br />
+    <%= f.label "担当者の名前" %><br />
     <%= f.text_field :person_in_charge %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit '更新' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @customer %> |
-<%= link_to 'Back', customers_path %>
+<%= link_to '確認', @customer %> |
+<%= link_to '戻る', customers_path %>

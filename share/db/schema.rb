@@ -12,11 +12,14 @@
 ActiveRecord::Schema.define(:version => 20100421043458) do
 
   create_table "admins", :force => true do |t|
-    t.string   "name"
-    t.string   "password_hash"
-    t.string   "password_salt"
+    t.string   "login"
+    t.string   "email"
+    t.string   "crypted_password",          :limit => 40
+    t.string   "salt",                      :limit => 40
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_token"
+    t.datetime "remember_token_expires_at"
   end
 
   create_table "appliers", :force => true do |t|
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20100421043458) do
     t.string   "body"
     t.boolean  "display"
     t.integer  "banner_id"
-    t.string   "type",           :default => "Tour"
+    t.boolean  "content_type"
     t.integer  "customer_id"
     t.integer  "banner_size_id"
     t.datetime "publish_at"

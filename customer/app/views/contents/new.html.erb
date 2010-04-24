@@ -1,27 +1,23 @@
-<h1>New content</h1>
+<h1>新しいコンテンツの作成</h1>
 
 <% form_for([current_customer,@content]) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :title %><br />
+    <%= f.label "タイトル" %><br />
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :body %><br />
-    <%= f.text_field :body %>
+    <%= f.label "内容(html可)" %><br />
+    <%= f.text_area :body %>
   </p>
   <p>
-    <%= f.label :display %><br />
+    <%= f.label "表示するかどうか" %><br />
     <%= f.check_box :display %>
   </p>
   <p>
     <%= f.label :banner_id %><br />
     <%= f.text_field :banner_id %>
-  </p>
-  <p>
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
   </p>
   <p>
     <%= f.label :banner_size_id %><br />
@@ -36,8 +32,8 @@
     <%= f.datetime_select :close_at %>
   </p>
   <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit '作成' %>
   </p>
 <% end %>
 
-<%= link_to 'Back', customer_contents_path %>
+<%= link_to '戻る', customer_contents_path %>

@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  before_filter :login_required
   # GET /tags
   # GET /tags.xml
   def index

@@ -1,26 +1,21 @@
 <p>
-  <b>Title:</b>
+  <b>タイトル:</b>
   <%=h @content.title %>
 </p>
 
 <p>
-  <b>Body:</b>
+  <b>内容:</b>
   <%=h @content.body %>
 </p>
 
 <p>
-  <b>Display:</b>
+  <b>表示するかどうか:</b>
   <%=h @content.display %>
 </p>
 
 <p>
   <b>Banner:</b>
   <%=h @content.banner_id %>
-</p>
-
-<p>
-  <b>Type:</b>
-  <%=h @content.type %>
 </p>
 
 <p>
@@ -39,5 +34,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_customer_content_path(current_customer,@content) %> |
-<%= link_to 'Back', customer_contents_path %>
+<%= link_to '編集', edit_customer_content_path(current_customer,@content) %> |
+<%= link_to '戻る', customer_contents_path %>
