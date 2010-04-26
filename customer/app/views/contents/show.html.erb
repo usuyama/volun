@@ -33,6 +33,8 @@
   <%=h @content.close_at %>
 </p>
 
+<%= image_tag @content.content_image.url(:small) %>
+
 
 <%= link_to '編集', edit_customer_content_path(current_customer,@content) %> |
 <%= link_to '戻る', customer_contents_path %>

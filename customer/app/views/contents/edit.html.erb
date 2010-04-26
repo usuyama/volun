@@ -1,16 +1,20 @@
 <h1>コンテンツを編集する</h1>
 
-<% form_for([current_customer,@content]) do |f| %>
+<% form_for([current_customer,@content],:html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label "タイトル" %><br />
-    <%= f.text_field :title %>
+<p>
+  <%= f.label "タイトル" %><br />
+  <%= f.text_field :title %>
   </p>
   <p>
     <%= f.label "内容(HTML可)" %><br />
     <%= f.text_area :body %>
   </p>
+<p>
+  <%= f.label "コンテンツで使う画像" %><br />
+  <%= f.file_field :content_image %>
+</p>
   <p>
     <%= f.label "表示するか" %><br />
     <%= f.check_box :display %>
