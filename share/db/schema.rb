@@ -12,11 +12,14 @@
 ActiveRecord::Schema.define(:version => 20100421164006) do
 
   create_table "admins", :force => true do |t|
-    t.string   "name"
-    t.string   "password_hash"
-    t.string   "password_salt"
+    t.string   "login"
+    t.string   "email"
+    t.string   "crypted_password",          :limit => 40
+    t.string   "salt",                      :limit => 40
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_token"
+    t.datetime "remember_token_expires_at"
   end
 
   create_table "appliers", :force => true do |t|
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20100421164006) do
     t.string   "body"
     t.boolean  "display"
     t.integer  "banner_id"
-    t.string   "type"
+    t.boolean  "content_type"
     t.integer  "customer_id"
     t.integer  "banner_size_id"
     t.datetime "publish_at"
@@ -54,15 +57,17 @@ ActiveRecord::Schema.define(:version => 20100421164006) do
   end
 
   create_table "customers", :force => true do |t|
-    t.string   "name"
-    t.string   "password_hash"
-    t.string   "password_salt"
+    t.string   "salt"
     t.string   "organization_name"
     t.string   "address"
     t.string   "email"
     t.string   "person_in_charge"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "login"
+    t.string   "crypted_password",          :limit => 40
+    t.string   "remember_token"
+    t.datetime "remember_token_expires_at"
   end
 
   create_table "tags", :force => true do |t|
@@ -73,7 +78,6 @@ ActiveRecord::Schema.define(:version => 20100421164006) do
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40
-    t.string   "name",                      :limit => 100, :default => ""
     t.string   "email",                     :limit => 100
     t.string   "crypted_password",          :limit => 40
     t.string   "salt",                      :limit => 40

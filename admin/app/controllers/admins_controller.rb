@@ -1,85 +1,28 @@
 class AdminsController < ApplicationController
-  # GET /admins
-  # GET /admins.xml
-  def index
-    @admins = Admin.all
+before_filter :login_required ,:except => [:new,:create]
+  # Be sure to include AuthenticationSystem in Application Controller instead
+ # include AuthenticatedSystem
+  
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @admins }
-    end
-  end
-
-  # GET /admins/1
-  # GET /admins/1.xml
-  def show
-    @admin = Admin.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @admin }
-    end
-  end
-
-  # GET /admins/new
-  # GET /admins/new.xml
+  # render new.rhtml
   def new
-    @admin = Admin.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @admin }
-    end
   end
 
-  # GET /admins/1/edit
-  def edit
-    @admin = Admin.find(params[:id])
-  end
-
-  # POST /admins
-  # POST /admins.xml
   def create
+    cookies.delete :auth_token
+    # protects against session fixation attacks, wreaks havoc with 
+    # request forgery protection.
+    # uncomment at your own risk
+    # reset_session
     @admin = Admin.new(params[:admin])
-
-    respond_to do |format|
-      if @admin.save
-        flash[:notice] = 'Admin was successfully created.'
-        format.html { redirect_to(@admin) }
-        format.xml  { render :xml => @admin, :status => :created, :location => @admin }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @admin.errors, :status => :unprocessable_entity }
-      end
+    @admin.save
+    if @admin.errors.empty?
+      self.current_admin = @admin
+      redirect_back_or_default('/')
+      flash[:notice] = "Thanks for signing up!"
+    else
+      render :action => 'new'
     end
   end
 
-  # PUT /admins/1
-  # PUT /admins/1.xml
-  def update
-    @admin = Admin.find(params[:id])
-
-    respond_to do |format|
-      if @admin.update_attributes(params[:admin])
-        flash[:notice] = 'Admin was successfully updated.'
-        format.html { redirect_to(@admin) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @admin.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /admins/1
-  # DELETE /admins/1.xml
-  def destroy
-    @admin = Admin.find(params[:id])
-    @admin.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(admins_url) }
-      format.xml  { head :ok }
-    end
-  end
 end

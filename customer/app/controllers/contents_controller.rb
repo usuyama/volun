@@ -1,8 +1,10 @@
 class ContentsController < ApplicationController
+  before_filter :login_required
+  before_filter :user_checked
   # GET /contents
   # GET /contents.xml
   def index
-    @contents = Content.all
+    @contents = current_customer.contents
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class ContentsController < ApplicationController
   # GET /contents/1
   # GET /contents/1.xml
   def show
-    @content = Content.find(params[:id])
+    @content =current_customer.contents.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +36,7 @@ class ContentsController < ApplicationController
 
   # GET /contents/1/edit
   def edit
-    @content = Content.find(params[:id])
+    @content = current_customer.contents.find(params[:id])
   end
 
   # POST /contents
@@ -43,10 +45,10 @@ class ContentsController < ApplicationController
     @content = Content.new(params[:content])
 
     respond_to do |format|
-      if @content.save
-        flash[:notice] = 'Content was successfully created.'
-        format.html { redirect_to(@content) }
-        format.xml  { render :xml => @content, :status => :created, :location => @content }
+      if current_customer.contents << @content
+        flash[:notice] = 'コンテンツの作成が完了しました。'
+        format.html { redirect_to([current_customer,@content]) }
+        format.xml  { render :xml => @content, :status => :created, :location =>[current_customer @content] }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @content.errors, :status => :unprocessable_entity }
@@ -57,12 +59,12 @@ class ContentsController < ApplicationController
   # PUT /contents/1
   # PUT /contents/1.xml
   def update
-    @content = Content.find(params[:id])
+    @content = current_customer.contents.find(params[:id])
 
     respond_to do |format|
-      if @content.update_attributes(params[:content])
-        flash[:notice] = 'Content was successfully updated.'
-        format.html { redirect_to(@content) }
+      if @content.update_attributes(params[:content].merge(:customer_id => current_customer.id))
+        flash[:notice] = 'コンテンツの更新が完了しました'
+        format.html { redirect_to([current_customer,@content]) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -74,12 +76,21 @@ class ContentsController < ApplicationController
   # DELETE /contents/1
   # DELETE /contents/1.xml
   def destroy
-    @content = Content.find(params[:id])
+    @content = current_customer.contents.find(params[:id])
     @content.destroy
 
     respond_to do |format|
-      format.html { redirect_to(contents_url) }
+      format.html { redirect_to(customer_contents_url) }
       format.xml  { head :ok }
     end
+  end
+
+private
+
+  def user_checked
+    unless params[:customer_id].to_i == current_customer.id
+      redirect_to customer_contents_path(current_customer)
+      flash[:alert] = "アクセスに失敗しました"
+      end
   end
 end

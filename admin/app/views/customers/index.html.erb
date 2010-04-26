@@ -3,8 +3,6 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Password hash</th>
-    <th>Password salt</th>
     <th>Organization name</th>
     <th>Address</th>
     <th>Email</th>
@@ -13,9 +11,7 @@
 
 <% @customers.each do |customer| %>
   <tr>
-    <td><%=h customer.name %></td>
-    <td><%=h customer.password_hash %></td>
-    <td><%=h customer.password_salt %></td>
+    <td><%=h customer.login %></td>
     <td><%=h customer.organization_name %></td>
     <td><%=h customer.address %></td>
     <td><%=h customer.email %></td>

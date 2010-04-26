@@ -1,0 +1,28 @@
+<p>
+  <b>ユーザー名:</b>
+  <%=h @customer.login %>
+</p>
+
+<p>
+  <b>部署名:</b>
+  <%=h @customer.organization_name %>
+</p>
+
+<p>
+  <b>住所:</b>
+  <%=h @customer.address %>
+</p>
+
+<p>
+  <b>メールアドレス:</b>
+  <%=h @customer.email %>
+</p>
+
+<p>
+  <b>担当者名:</b>
+  <%=h @customer.person_in_charge %>
+</p>
+
+
+<%= link_to '編集', edit_customer_path(@customer) %> |
+<%= link_to '戻る', customers_path %>

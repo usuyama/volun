@@ -1,23 +1,16 @@
-<h1>New admin</h1>
+<%= error_messages_for :admin %>
+<% form_for :admin, :url => admins_path do |f| -%>
+<p><label for="login">Login</label><br/>
+<%= f.text_field :login %></p>
 
-<% form_for(@admin) do |f| %>
-  <%= f.error_messages %>
+<p><label for="email">Email</label><br/>
+<%= f.text_field :email %></p>
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :password_hash %><br />
-    <%= f.text_field :password_hash %>
-  </p>
-  <p>
-    <%= f.label :password_salt %><br />
-    <%= f.text_field :password_salt %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
+<p><label for="password">Password</label><br/>
+<%= f.password_field :password %></p>
 
-<%= link_to 'Back', admins_path %>
+<p><label for="password_confirmation">Confirm Password</label><br/>
+<%= f.password_field :password_confirmation %></p>
+
+<p><%= submit_tag 'Sign up' %></p>
+<% end -%>

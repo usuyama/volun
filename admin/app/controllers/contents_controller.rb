@@ -1,4 +1,5 @@
 class ContentsController < ApplicationController
+  before_filter :login_required
   # GET /contents
   # GET /contents.xml
   def index

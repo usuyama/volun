@@ -1,13 +1,11 @@
-<h1>Listing contents</h1>
+<h1>コンテンツ一覧</h1>
 
 <table>
   <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th>Display</th>
+    <th>タイトル</th>
+    <th>内容</th>
+    <th>表示するか</th>
     <th>Banner</th>
-    <th>Type</th>
-    <th>Customer</th>
     <th>Banner size</th>
     <th>Publish at</th>
     <th>Close at</th>
@@ -19,18 +17,16 @@
     <td><%=h content.body %></td>
     <td><%=h content.display %></td>
     <td><%=h content.banner_id %></td>
-    <td><%=h content.type %></td>
-    <td><%=h content.customer_id %></td>
     <td><%=h content.banner_size_id %></td>
     <td><%=h content.publish_at %></td>
     <td><%=h content.close_at %></td>
-    <td><%= link_to 'Show', content %></td>
-    <td><%= link_to 'Edit', edit_content_path(content) %></td>
-    <td><%= link_to 'Destroy', content, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'コンテンツを確認', [current_customer,content] %></td>
+    <td><%= link_to 'コンテンツを編集', edit_customer_content_path(current_customer,content) %></td>
+    <td><%= link_to 'コンテンツを消す', [current_customer,content], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New content', new_content_path %>
+<%= link_to '新しいコンテンツを作る', new_customer_content_path(current_customer) %>
