@@ -2,6 +2,7 @@ class Content < ActiveRecord::Base
   belongs_to :customer
   has_one :banner_image
   has_many :users, :through => :appliers
+  has_many :tags, :through => :contents_tags
   has_attached_file :content_image, :styles => { :small => "150x150>" },
                   :url  => "/assets/contents/:id/:style/:basename.:extension",
                   :path => ":rails_root/public/assets/contents/:id/:style/:basename.:extension"
