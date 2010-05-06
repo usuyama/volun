@@ -12,6 +12,9 @@ xml.rss :version => "2.0" do
         xml.pubDate content.created_at.to_s(:rfc822)
         xml.link content_url(content, :html)
       end
+      xml.image do
+        xml.url content.content_image.url(:small)
+      end
     end
   end
 end

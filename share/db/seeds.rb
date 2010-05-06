@@ -13,12 +13,16 @@ rescue
   exit 1
 end
 
-Content.delete_all
-10.times do
-  Content.create!(:title => Faker::Lorem.words, :body => Faker::Lorem.paragraph)
-end
+#Content.delete_all
+#10.times do
+#  Content.create!(:title => Faker::Lorem.words, :body => Faker::Lorem.paragraph)
+#end
 
 Tag.delete_all
 10.times do
   Tag.create!(:name => Faker::Lorem.words(1))
 end
+
+Admin.delete_all
+Admin.create!(:login => "test", :password => "password", :password_confirmation => "password", :email => "test@realglobe.jp")
+
