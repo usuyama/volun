@@ -1,6 +1,6 @@
 <h1>Editing content</h1>
 
-<% form_for(@content) do |f| %>
+<% form_for(@content, :html => { :multipart => true })do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -9,9 +9,21 @@
   </p>
   <p>
     <%= f.label :body %><br />
-    <%= f.text_field :body %>
+    <%= f.text_area :body %>
   </p>
+<% for content_image in @content.content_images %>
+<% fields_for "content[content_image_attributes][]", content_image do |f2| %>
+<p>
+コンテンツで使う画像：<%= f2.file_field :content_image %>
+</p>
+<% end %>
+<% end %>
+
   <p>
+  <%= f.label "コンテンツのバナー" %><br />
+  <%= f.file_field :banner %>
+</p>
+<p>
     <%= f.label :display %><br />
     <%= f.check_box :display %>
   </p>
