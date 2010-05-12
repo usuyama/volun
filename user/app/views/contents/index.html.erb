@@ -2,11 +2,31 @@
 <html lang="en">
   <head>
     <title>Voluntourism</title>
+    <script type="text/javascript" src="javascripts/slider.js"></script>
     <script type="text/javascript">
-      // target frames per second
-    const FPS = 50;
-    var x = 0;
-    var y = 0;
+      // Preloading the images used for the slider handle
+    var imgList = ["slider-disabled.png", "slider-disabled-1.png", "slider.png", "slider-1.png"];
+    var preloadImg = []
+    for(var i = 0, imgSrc; imgSrc = imgList[i]; i++) {
+      preloadImg[i] = new Image();
+      preloadImg[i].src = "images/" + imgSrc;
+    };
+    MYAPP = {};
+  </script>
+  <script type="text/javascript">
+    function changeScrollSpeed()
+    {
+      var v = parseInt(document.getElementById('slider').value);
+      MYAPP.FPS = v;
+      clearInterval(MYAPP.intervalID);
+      init();
+    };
+  </script>
+  <script type="text/javascript">
+    // target frames per second
+  MYAPP.FPS = 50;
+  var x = 0;
+  var y = 0;
     var cell_width = 360;
     var cell_height = 240;
     const loop = cell_height * 4;
@@ -34,7 +54,7 @@ function init()
 //                          this.drawRect(360 * (calcPosition(e) % 3), 240 * (calcPosition(e) / 3), 360, 240);
 //                          }, false);
   context2D = canvas.getContext('2d');
-  setInterval(draw, 1000 / FPS);
+  MYAPP.intervalID = setInterval(draw, 1000 / MYAPP.FPS);
 }
 
 function calcPosition(e)
@@ -80,6 +100,7 @@ function draw()
 <style type="text/css">
   body { font-family: Arial,Helvetica,sans-serif;}
 </style>
+<link rel="stylesheet" type="text/css" media="screen, projection" href="stylesheets/slider.css" />
   </head>
   <body>
     <table>
@@ -88,6 +109,7 @@ function draw()
         <td>login: <input type="text"> password: <input type="password"></td>
       </tr>
     </table>
+        <input  name="slider" id="slider" type="text" title="Range: 10 - 100" class="fd_range_10_100 fd_classname_extraclass fd_callback_changeScrollSpeed" value="50" />
     <hr>
     <canvas id="canvas" width="1080" height="480">
     <p>Please use a 'real' browser.</p>
