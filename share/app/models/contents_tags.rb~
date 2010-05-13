@@ -1,2 +1,0 @@
-class ContentsTags < ActiveRecord::Base
-end
