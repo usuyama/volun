@@ -2,6 +2,8 @@ class Content < ActiveRecord::Base
   belongs_to :customer
   has_one :banner_image
   has_many :users, :through => :appliers
+  has_many :classifications
+  has_many :tags, :through => :classifications
 
   has_attached_file :content_image, :styles => { :small => "240x360>" }
 

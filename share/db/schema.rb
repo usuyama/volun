@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100425130146) do
+ActiveRecord::Schema.define(:version => 20100513050708) do
 
   create_table "admins", :force => true do |t|
     t.string   "login"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(:version => 20100425130146) do
     t.integer  "height"
     t.integer  "width"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "classifications", :force => true do |t|
+    t.integer  "content_id"
+    t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
