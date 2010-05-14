@@ -54,7 +54,7 @@ function init()
 //                          this.drawRect(360 * (calcPosition(e) % 3), 240 * (calcPosition(e) / 3), 360, 240);
 //                          }, false);
   context2D = canvas.getContext('2d');
-  MYAPP.intervalID = setInterval(draw, 1000 / MYAPP.FPS);
+  MYAPP.intervalID = setInterval(draw, 2000 / MYAPP.FPS);
 }
 
 function calcPosition(e)
@@ -85,16 +85,16 @@ function draw()
   context2D.clearRect(0, 0, canvas.width, canvas.height);
 
   <% @contents.each_with_index do |content, i| %>
-      context2D.drawImage(image<%= i %>, cell_width * <%= (i % 3) %>, cell_height * <%= (i / 3) %> + y);
-  context2D.drawImage(image<%= i %>, cell_width * <%= (i % 3) %>, cell_height * <%= (i / 3) %> + y + loop);
-<% end %>
-
-  <% (@contents.count % 3).times do |i| %>
-    context2D.drawImage(image<%= rand(@contents.count) %>, cell_width * <%= (2 - i) %>, cell_height * <%= (@contents.count / 3) %> + y);
-context2D.drawImage(image<%= rand(@contents.count) %>, cell_width * <%= (2 - i) %>, cell_height * <%= (@contents.count / 3) %> + y + loop);
+     context2D.drawImage(image<%= i %>, cell_width * <%= (i % 3) %>, cell_height * <%= (i / 3) %> + y);
+     context2D.drawImage(image<%= i %>, cell_width * <%= (i % 3) %>, cell_height * <%= (i / 3) %> + y + loop);
   <% end %>
 
-    y += 1 * yDirection;
+  <% (@contents.count % 3).times do |i| %>
+    context2D.drawImage(image<%= i %>, cell_width * <%= 2 - i %>, cell_height * <%= (@contents.count / 3) %> + y);
+    context2D.drawImage(image<%= i %>, cell_width * <%= 2 - i %>, cell_height * <%= (@contents.count / 3) %> + y + loop);
+  <% end %>
+
+    y += 2 * yDirection;
 
   if (y <= - loop)
   {
