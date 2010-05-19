@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class ContentsController < ApplicationController
   before_filter :login_required
   before_filter :user_checked
@@ -25,36 +26,37 @@ class ContentsController < ApplicationController
 
   # GET /contents/new
   # GET /contents/new.xml
-  def new
-    @content = Content.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @content }
-    end
-  end
+#  def new
+#    @content = Content.new
+#
+#   respond_to do |format|
+#    format.html # new.html.erb
+#      format.xml  { render :xml => @content }
+#    end
+#  end
 
   # GET /contents/1/edit
   def edit
     @content = current_customer.contents.find(params[:id])
-  end
+    3.times{@content.content_images.build()}
+ end
 
   # POST /contents
   # POST /contents.xml
-  def create
-    @content = Content.new(params[:content])
+  # def create
+#     @content = Content.new(params[:content])
 
-    respond_to do |format|
-      if current_customer.contents << @content
-        flash[:notice] = 'コンテンツの作成が完了しました。'
-        format.html { redirect_to([current_customer,@content]) }
-        format.xml  { render :xml => @content, :status => :created, :location =>[current_customer @content] }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @content.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
+#     respond_to do |format|
+#       if current_customer.contents << @content
+#         flash[:notice] = 'コンテンツの作成が完了しました。'
+#         format.html { redirect_to([current_customer,@content]) }
+#         format.xml  { render :xml => @content, :status => :created, :location =>[current_customer @content] }
+#       else
+#         format.html { render :action => "new" }
+#         format.xml  { render :xml => @content.errors, :status => :unprocessable_entity }
+#       end
+#     end
+#   end
 
   # PUT /contents/1
   # PUT /contents/1.xml

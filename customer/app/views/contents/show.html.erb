@@ -33,7 +33,7 @@
   <%=h @content.close_at %>
 </p>
 
-<%= image_tag @content.content_image.url(:small) %>
+<%= image_tag @content.banner.url(:small) %>
 
 
 <%= link_to '編集', edit_customer_content_path(current_customer,@content) %> |

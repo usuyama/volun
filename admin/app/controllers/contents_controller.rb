@@ -26,7 +26,7 @@ class ContentsController < ApplicationController
   # GET /contents/new.xml
   def new
     @content = Content.new
-
+    3.times {@content.content_images.build}
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @content }
@@ -36,6 +36,7 @@ class ContentsController < ApplicationController
   # GET /contents/1/edit
   def edit
     @content = Content.find(params[:id])
+    3.times{@content.content_images.build}
   end
 
   # POST /contents

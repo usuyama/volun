@@ -1,16 +1,10 @@
+# -*- coding: utf-8 -*-
 class Content < ActiveRecord::Base
   belongs_to :customer
   has_one :banner_image
   has_many :content_images
   has_many :users, :through => :appliers
-  has_many :classifications
-  has_many :tags, :through => :classifications
-
-  validates_presence_of :title,:customer_id,:body ,:message =>"æœªè¨˜å…¥ã®é …ç›®ãŒã‚ã‚Šã¾ã™"
-  validates_length_of :title, :in => 5..100, :message =>"é•·ã•ãŒä¸æ­£ã§ã™"
-  validates_length_of :body, :in => 5..1000, :message =>"é•·ã•ãŒä¸æ­£ã§ã™"
-  validates_numericality_of :banner_size_id,:customer_id,:banner_id
-
+  has_many :tags, :through => :contents_tags
   has_attached_file :banner, :styles => { :small => "150x150>" },
                   :url  => "/assets/banner/:id/:style/:basename.:extension",
   :path => ":rails_root/public/assets/banner/:id/:style/:basename.:extension"
@@ -19,14 +13,14 @@ class Content < ActiveRecord::Base
   validates_attachment_size :banner, :less_than => 5.megabytes, :on => :update
   validates_attachment_content_type :banner, :content_type => ['image/jpeg', 'image/png'], :on => :update
   validates_presence_of :customer_id
-  validates_presence_of :title,:body ,:message =>"æœªè¨˜å…¥ã®é …ç›®ãŒã‚ã‚Šã¾ã™", :on => :update
-  validates_length_of :title, :in => 5..100, :message =>"é•·ã•ãŒä¸æ­£ã§ã™", :on => :update
-  validates_length_of :body, :in => 5..1000, :message =>"é•·ã•ãŒä¸æ­£ã§ã™", :on => :update
+  validates_presence_of :title,:body ,:message =>"’Ì¤’µ­’Æş’¤Î’¹à’ÌÜ’¤¬’¤¢’¤ê’¤Ş’¤¹", :on => :update
+  validates_length_of :title, :in => 5..100, :message =>"’Ä¹’¤µ’¤¬’ÉÔ’Àµ’¤Ç’¤¹", :on => :update
+  validates_length_of :body, :in => 5..1000, :message =>"’Ä¹’¤µ’¤¬’ÉÔ’Àµ’¤Ç’¤¹", :on => :update
   validates_numericality_of :banner_size_id,:customer_id,:banner_id, :on => :update
 
   def content_image_attributes=(content_image_attributes)
     content_image_attributes.each do |attributes|
-      content_images.build(attributes)
+      content_imagesf.build(attributes)
     end
   end
   
