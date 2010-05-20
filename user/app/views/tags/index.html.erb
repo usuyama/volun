@@ -34,7 +34,7 @@ var xDirection = 1;
 var yDirection = -1;
 <% @contents.each_with_index do |content, i| %>
   var image<%= i %> = new Image();
-  image<%= i %>.src = '<%= content.content_image.url %>';
+  image<%= i %>.src = '<%= content.banner.url %>';
 <% end %>
 
     var canvas = null;
@@ -111,7 +111,19 @@ function draw()
     <table>
       <tr>
         <td><img src="images/volun.png"></td>
-        <td>login: <input type="text"> password: <input type="password"></td>
+        <% if logged_in? %>
+          <td>Hello, <%= current_user.login %></td>
+          <% form_tag logout_path do -%>
+            <td><%= submit_tag("logout") %></td>
+          <% end %>
+        <% else %>
+          <% form_tag login_path do -%>
+            <td><%= text_field_tag 'login' %></td>
+            <td><%= password_field_tag 'password' %></td>
+            <td><%= submit_tag("login") %></td>
+            <td>create new account <%= link_to "here", signup_path %></td>
+          <% end %>
+        <% end %>
       </tr>
     </table>
     <table>
@@ -121,7 +133,7 @@ function draw()
         <% end %>
       </tr>
     </table>
-        <input  name="slider" id="slider" type="text" title="Range: 10 - 100" class="fd_range_10_100 fd_classname_extraclass fd_callback_changeScrollSpeed" value="50" />
+    <input  name="slider" id="slider" type="text" title="Range: 10 - 100" class="fd_range_10_100 fd_classname_extraclass fd_callback_changeScrollSpeed" value="50" />
     <hr>
     <canvas id="canvas" width="1080" height="480">
     <p>Please use a 'real' browser.</p>
