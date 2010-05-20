@@ -1,13 +1,18 @@
 class TagsController < ApplicationController
   def index
-    @tags = Tag.all
+    if params[:tag]
+      @tags = [Tag.find(params[:tag])]
+    else
+      @tags = Tag.all
+    end
     @contents = Tag.get_contents(@tags)
   end
 
   def show
-    @tags = Tag.all
-    @tag = Tag.find(params[:id])
-    @contents = @tag.contents
+    params[:tag] = params[:id]
+    respond_to do |format|
+      format.html { redirect_to root_path }
+    end
   end
 end
 
