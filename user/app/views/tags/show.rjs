@@ -1,0 +1,1 @@
+page.replace_html :canvas_js, :partial => 'content', :collection => @contents
