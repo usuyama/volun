@@ -1,6 +1,5 @@
 <% javascript "slider" %>
 <% javascript "slider_changer" %>
-<% javascript "image_flow" %>
 <% javascript "http://code.jquery.com/jquery-1.4.2.min.js" %>
 <% javascript "/fancybox/jquery.fancybox-1.3.1.pack.js" %>
 
@@ -12,14 +11,28 @@
 </style>
 
 <script type="text/javascript">
+MYAPP = {};
+MYAPP.FPS = 50;
+var x = 0;
+var y = 0;
+var cell_width = 360;
+var cell_height = 240;
+var xDirection = 1;
+var yDirection = -1;
+
+var canvas = null;
+var context2D = null;
+
   const loop = cell_height * <%= @contents.count / 3 + 1 %>;
+  MYAPP.contents_num = <%= @contents.count %>;
 </script>
 
 <script type="text/javascript">
   jQuery.noConflict();
   jQuery(document).ready(function() {
                     <% @contents.each do |content| %>
-                      jQuery("a#content<%= content.id %>").fancybox({
+//                      jQuery("a#content<%= content.id %>").fancybox({
+                      jQuery("a").fancybox({
                                                                'titlePosition' : 'inside',
                                                                'transitionIn'  : 'none',
                                                                'transitionOut' : 'none',
@@ -35,6 +48,10 @@
 
 <script id="draw_func" type="text/javascript">
   <%= render :partial => 'draw', :object => @contents %>
+</script>
+
+<script id="image_flow" type="text/javascript">
+  <%= render :partial => 'flow', :object => @contents %>
 </script>
 
 <table>
@@ -68,7 +85,6 @@
 <div id="canvas_div">
   <%= render :partial => 'canvas' %>
 </div>
-<a id="content1" href="#inline1" title="<%= @contents.first.title %>">show</a>
 
 <% @contents.each do |content| %>
   <div style="display: none;">

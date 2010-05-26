@@ -1,0 +1,37 @@
+window.onload = init;
+
+function clickHandler(e)
+{
+//  alert("x:" + (e.clientX-canvas.offsetLeft)
+//        +" y:" + (e.clientY-canvas.offsetTop) + " id:" + calcPosition(e) + " now:" + y);
+  MYAPP.id = calcPosition(e);
+  MYAPP.id && (window.location.href = "#inline" + MYAPP.id);
+}
+
+function init()
+{
+  MYAPP.intervalID && clearInterval(MYAPP.intervalID);
+  canvas = document.getElementById('canvas');
+  canvas.removeEventListener("click", clickHandler, false);
+  canvas.addEventListener("click", clickHandler, false);
+  context2D = canvas.getContext('2d');
+  context2D.clearRect(0, 0, canvas.width, canvas.height);
+  MYAPP.intervalID = setInterval(draw, 2000 / MYAPP.FPS);
+}
+
+function calcPosition(e)
+{
+  var pos_y = e.clientY-canvas.offsetTop - y;
+  var pos_x = e.clientX-canvas.offsetLeft;
+
+  <% flow.each_with_index do |content, i| %>
+    if ((pos_x >= MYAPP.content<%= i %>.start_x) && (pos_x <= (MYAPP.content<%= i %>.start_x + MYAPP.content<%= i %>.width)) && (pos_y >= MYAPP.content<%= i %>.start_y) && (pos_y <= (MYAPP.content<%= i %>.start_y + MYAPP.content<%= i %>.height)))
+    {
+      return <%= content.id %>;
+    }
+  <% end %>
+
+  return false;
+
+}
+

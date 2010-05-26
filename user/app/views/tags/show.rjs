@@ -1,4 +1,3 @@
 page.replace_html :canvas_js, :partial => 'content', :collection => @contents
 page.replace_html :draw_func, :partial => 'draw', :object => @contents
 page.replace_html :canvas_div, :partial => 'canvas'
-page.call 'init'
