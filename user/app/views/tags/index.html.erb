@@ -14,12 +14,10 @@ MYAPP = {};
 {
   var v = parseInt(document.getElementById('slider').value);
   MYAPP.FPS = v;
-  clearInterval(MYAPP.intervalID);
   init();
 };
 </script>
 
-<%= image_tag @contents.first.banner.url(:small), :style => 'display:none' %>
 <script id="canvas_js" type="text/javascript">
   <%= render :partial => 'content', :collection => @contents %>
 </script>
@@ -41,6 +39,7 @@ window.onload = init;
 
 function init()
 {
+  MYAPP.intervalID && clearInterval(MYAPP.intervalID);
   canvas = document.getElementById('canvas');
   canvas.addEventListener("click", function(e) {
                           alert("x:" + (e.clientX)
@@ -51,6 +50,7 @@ function init()
   //                          this.drawRect(360 * (calcPosition(e) % 3), 240 * (calcPosition(e) / 3), 360, 240);
   //                          }, false);
   context2D = canvas.getContext('2d');
+  context2D.clearRect(0, 0, canvas.width, canvas.height);
   MYAPP.intervalID = setInterval(draw, 2000 / MYAPP.FPS);
 }
 
@@ -76,28 +76,9 @@ function calcPosition(e)
 
   return 3*i + j; 
 }
-
-function draw()
-{
-  context2D.clearRect(0, 0, canvas.width, canvas.height);
-
-  <% @contents.each_with_index do |content, i| %>
-      context2D.drawImage(image<%= content.id %>, cell_width * <%= (i % 3) %>, cell_height * <%= (i / 3) %> + y);
-  context2D.drawImage(image<%= content.id %>, cell_width * <%= (i % 3) %>, cell_height * <%= (i / 3) %> + y + loop);
-<% end %>
-
-  <% (@contents.count % 3).times do |i| %>
-    //    context2D.drawImage(image<%= i %>, cell_width * <%= 2 - i %>, cell_height * <%= (@contents.count / 3) %> + y);
-    //    context2D.drawImage(image<%= i %>, cell_width * <%= 2 - i %>, cell_height * <%= (@contents.count / 3) %> + y + loop);
-<% end %>
-
-y += 2 * yDirection;
-
-if (y <= - loop)
-{
-  y = 0;
-}
-}
+</script>
+<script id="draw_func" type="text/javascript">
+  <%= render :partial => 'draw', :object => @contents %>
 </script>
 <style type="text/css">
   body { font-family: Arial,Helvetica,sans-serif;}
@@ -124,14 +105,14 @@ if (y <= - loop)
 <table>
   <tr>
     <% @tags.each do |tag| %>
-      <td><%= link_to_remote tag.name, :update => 'canvas_js', :url => { :action => :show, :tag => tag.id } %></td>
+      <td><%= link_to_remote tag.name, :url => { :action => :show, :tag => tag.id } %></td>
     <% end %>
   </tr>
 </table>
 <hr>
 <input  name="slider" id="slider" type="text" title="Range: 10 - 100" class="fd_range_10_100 fd_classname_extraclass fd_callback_changeScrollSpeed" value="50" />
 <hr>
-<canvas id="canvas" width="1080" height="480">
-<p>Please use a 'real' browser.</p>
-</canvas>
+<div id="canvas_div">
+  <%= render :partial => 'canvas' %>
+</div>
 
