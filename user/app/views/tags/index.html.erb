@@ -1,7 +1,5 @@
 <% javascript "slider" %>
 <% javascript "slider_changer" %>
-<% javascript "http://code.jquery.com/jquery-1.4.2.min.js" %>
-<% javascript "/fancybox/jquery.fancybox-1.3.1.pack.js" %>
 
 <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.1.css" type="text/css" media="screen" />
 <link rel="stylesheet" type="text/css" media="screen, projection" href="stylesheets/slider.css" />
@@ -25,21 +23,6 @@ var context2D = null;
 
   const loop = cell_height * <%= @contents.count / 3 + 1 %>;
   MYAPP.contents_num = <%= @contents.count %>;
-</script>
-
-<script type="text/javascript">
-  jQuery.noConflict();
-  jQuery(document).ready(function() {
-                    <% @contents.each do |content| %>
-//                      jQuery("a#content<%= content.id %>").fancybox({
-                      jQuery("a").fancybox({
-                                                               'titlePosition' : 'inside',
-                                                               'transitionIn'  : 'none',
-                                                               'transitionOut' : 'none',
-                                                               });
-                    <% end %>
-
-  });
 </script>
 
 <script id="canvas_js" type="text/javascript">
@@ -85,14 +68,4 @@ var context2D = null;
 <div id="canvas_div">
   <%= render :partial => 'canvas' %>
 </div>
-
-<% @contents.each do |content| %>
-  <div style="display: none;">
-    <div id="inline<%= content.id %>" style="overflow:auto;">
-      <%= content.body %>
-      <br />
-      <p><%= link_to 'more', content %></p>
-    </div>
-  </div>
-<% end %>
 
