@@ -1,0 +1,24 @@
+MYAPP.banners = new Array();
+<% @contents.each_with_index do |content, i| %>
+  MYAPP.banners[<%= i %>] = new Image();
+  MYAPP.banners[<%= i %>].src = "<%= content.banner.url(:small) %>";
+  MYAPP.banners[<%= i %>].id  = <%= content.id %>;
+<% end %>
+
+MYAPP.contents_num = <%= @contents.count %>;
+
+MYAPP.loop = MYAPP.cell_height * (Math.floor((MYAPP.contents_num - 1) / 3) + 1);
+
+MYAPP.content = new Array();
+for (var i=0; i < MYAPP.banners.length; i++)
+{
+  MYAPP.content[i] = {
+          start_x : MYAPP.cell_width * (i % 3),
+          start_y : MYAPP.cell_height * Math.floor(i / 3),
+          width   : MYAPP.banners[i].width,
+          height  : MYAPP.banners[i].height,
+          id      : MYAPP.banners[i].id
+  };
+}
+
+MYAPP.y = 0;
