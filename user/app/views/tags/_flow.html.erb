@@ -5,7 +5,11 @@ function clickHandler(e)
 //  alert("x:" + (e.clientX-canvas.offsetLeft+window.pageXOffset)
 //        +" y:" + (e.clientY-canvas.offsetTop+window.pageYOffset) + " id:" + calcPosition(e) + " now:" + MYAPP.y);
   MYAPP.id = calcPosition(e);
-  MYAPP.id && (window.location = "/contents/" + MYAPP.id);
+//  MYAPP.id && (window.location = "/contents/" + MYAPP.id);
+  MYAPP.id && (MYAPP.href = "/contents/preview/" + MYAPP.id) && (Lightview.show({
+    href: MYAPP.href,
+    rel: 'ajax'
+  }));
 }
 
 function init()
