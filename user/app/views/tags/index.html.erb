@@ -5,7 +5,11 @@
 <link rel="stylesheet" type="text/css" media="screen, projection" href="stylesheets/slider.css" />
 
 <style type="text/css">
-  body { font-family: Arial,Helvetica,sans-serif;}
+  body { font-family: Arial,Helvetica,sans-serif;
+    background-image: url("images/bg_head.jpg");
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+  }
   div.extraclass
   {
     width:20.6em;
@@ -76,20 +80,21 @@ function draw()
 
 <table>
   <tr>
-    <td><%= image_tag 'img_logo.jpg' %></td>
+    <td>
     <% if logged_in? %>
-      <td>Hello, <%= current_user.login %></td>
+      <td>Hello, <%= current_user.login %>
       <% form_for logout_path do %>
-        <td><%= submit_tag("logout") %></td>
+        <%= submit_tag("logout") %></td>
       <% end %>
     <% else %>
       <% form_for login_path do %>
-        <td><%= text_field_tag 'login' %></td>
-        <td><%= password_field_tag 'password' %></td>
-        <td><%= submit_tag("login") %></td>
-        <td>create new account <%= link_to "here", signup_path %></td>
+        <td><%= label_tag 'login' %> <%= text_field_tag 'login' %> <%= label_tag 'password' %> <%= password_field_tag 'password' %> <%= submit_tag("login") %><br />
+          create new account <%= link_to "here", signup_path %></td>
       <% end %>
     <% end %>
+  </tr>
+  <tr>
+    <td><%= image_tag 'img_logo.jpg' %></td>
   </tr>
 </table>
 <table>
