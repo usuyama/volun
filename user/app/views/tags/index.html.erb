@@ -80,27 +80,22 @@ function draw()
 
 <table>
   <tr>
-    <td>
     <% if logged_in? %>
-      <td>Hello, <%= current_user.login %>
+      Hello, <%= current_user.login %>
       <% form_for logout_path do %>
-        <%= submit_tag("logout") %></td>
+        <%= submit_tag("logout") %>
       <% end %>
     <% else %>
       <% form_for login_path do %>
-        <td><%= label_tag 'login' %> <%= text_field_tag 'login' %> <%= label_tag 'password' %> <%= password_field_tag 'password' %> <%= submit_tag("login") %><br />
-          create new account <%= link_to "here", signup_path %></td>
+        <%= label_tag 'login' %> <%= text_field_tag 'login' %> <%= label_tag 'password' %> <%= password_field_tag 'password' %> <%= submit_tag("login") %><br />
+          create new account <%= link_to "here", signup_path %>
       <% end %>
     <% end %>
   </tr>
   <tr>
     <td><%= image_tag 'img_logo.jpg' %></td>
-  </tr>
-</table>
-<table>
-  <tr>
     <% @tags.each do |tag| %>
-      <td><%= link_to_remote tag.name, :url => { :action => :show, :tag => tag.id } %></td>
+      <td><%= link_to_remote(image_tag(tag.icon.url), :url => { :action => :show, :tag => tag.id }) %></td>
     <% end %>
     <td><input  name="slider" id="slider" type="text" title="Range: 10 - 100" class="fd_range_10_100 fd_hide_input fd_classname_extraclass fd_callback_changeScrollSpeed" value="50" /></td>
   </tr>
