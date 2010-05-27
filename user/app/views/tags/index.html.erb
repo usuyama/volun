@@ -6,6 +6,11 @@
 
 <style type="text/css">
   body { font-family: Arial,Helvetica,sans-serif;}
+  div.extraclass
+  {
+    width:20.6em;
+    float:left;
+  }
 </style>
 
 <script type="text/javascript">
@@ -92,10 +97,9 @@ function draw()
     <% @tags.each do |tag| %>
       <td><%= link_to_remote tag.name, :url => { :action => :show, :tag => tag.id } %></td>
     <% end %>
+    <td><input  name="slider" id="slider" type="text" title="Range: 10 - 100" class="fd_range_10_100 fd_hide_input fd_classname_extraclass fd_callback_changeScrollSpeed" value="50" /></td>
   </tr>
 </table>
-<hr>
-<input  name="slider" id="slider" type="text" title="Range: 10 - 100" class="fd_range_10_100 fd_classname_extraclass fd_callback_changeScrollSpeed" value="50" />
 <hr>
 <div id="canvas_div">
   <%= render :partial => 'canvas' %>
