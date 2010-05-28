@@ -31,13 +31,12 @@ function calcPosition(e)
 
   for (var i=0; i < MYAPP.content.length; i++)
   {
-    if ((pos_x >= MYAPP.content[i].start_x) && (pos_x <= (MYAPP.content[i].start_x + MYAPP.content[i].width)) && (pos_y >= MYAPP.content[i].start_y) && (pos_y <= (MYAPP.content[i].start_y + MYAPP.content[i].height)))
+    for (var j=0; j < 3; j++)
     {
-      return MYAPP.content[i].id;
-    }
-    else if ((pos_x >= MYAPP.content[i].start_x) && (pos_x <= (MYAPP.content[i].start_x + MYAPP.content[i].width)) && (pos_y >= MYAPP.content[i].start_y + MYAPP.loop) && (pos_y <= (MYAPP.content[i].start_y + MYAPP.content[i].height + MYAPP.loop)))
-    {
-      return MYAPP.content[i].id;
+      if ((pos_x >= MYAPP.content[i].start_x) && (pos_x <= (MYAPP.content[i].start_x + MYAPP.content[i].width)) && (pos_y >= MYAPP.content[i].start_y + j*MYAPP.loop) && (pos_y <= (MYAPP.content[i].start_y + MYAPP.content[i].height + j*MYAPP.loop)))
+      {
+        return MYAPP.content[i].id;
+      }
     }
   }
 
