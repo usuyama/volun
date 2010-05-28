@@ -1,4 +1,5 @@
 class Content < ActiveRecord::Base
+
   belongs_to :customer
   has_one :banner_image
   has_many :content_images
@@ -18,5 +19,5 @@ class Content < ActiveRecord::Base
       content_images.build(attributes)
     end
   end
-  
+
 end

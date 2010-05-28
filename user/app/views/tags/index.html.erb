@@ -1,8 +1,6 @@
-
 <% javascript "slider" %>
 <% javascript "slider_changer" %>
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.1.css" type="text/css" media="screen" />
 <link rel="stylesheet" type="text/css" media="screen, projection" href="stylesheets/slider.css" />
 
 <script type="text/javascript">
@@ -26,7 +24,7 @@ MYAPP.banners = new Array();
 function reload()
 {
   MYAPP.y = 0;
-  MYAPP.loop = MYAPP.cell_height * (Math.floor(MYAPP.contents_num / 3) + 1);
+  MYAPP.loop = MYAPP.cell_height * Math.floor(MYAPP.contents_num / 3);
   MYAPP.content = new Array();
   for (var i=0; i < MYAPP.banners.length; i++)
   {
@@ -52,8 +50,19 @@ function draw()
 
   for (var i=0; i < MYAPP.banners.length; i++)
   {
-    context2D.drawImage(MYAPP.banners[i], MYAPP.cell_width * (i % 3), MYAPP.cell_height * Math.floor(i / 3) + MYAPP.y);
-    context2D.drawImage(MYAPP.banners[i], MYAPP.cell_width * (i % 3), MYAPP.cell_height * Math.floor(i / 3) + MYAPP.y + MYAPP.loop);
+    MYAPP.drow_position_x = MYAPP.cell_width * (i % 3);
+    MYAPP.drow_position_y = MYAPP.cell_height * Math.floor(i / 3) + MYAPP.y;
+
+    if (MYAPP.drow_position_y + MYAPP.cell_height >= 0 && MYAPP.drow_position_y <= canvas.height)
+      context2D.drawImage(MYAPP.banners[i], MYAPP.drow_position_x, MYAPP.drow_position_y);
+
+      MYAPP.drow_position_y += MYAPP.loop;
+      if (MYAPP.drow_position_y <= canvas.height)
+        context2D.drawImage(MYAPP.banners[i], MYAPP.drow_position_x, MYAPP.drow_position_y);
+
+      MYAPP.drow_position_y += MYAPP.loop;
+      if (MYAPP.drow_position_y <= canvas.height)
+        context2D.drawImage(MYAPP.banners[i], MYAPP.drow_position_x, MYAPP.drow_position_y);
   }
 
   MYAPP.y -= 2;
