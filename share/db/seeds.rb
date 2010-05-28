@@ -32,7 +32,7 @@ end
 
 Content.delete_all
 Tag.all.each do |tag|
-  rand(6).times do
+  rand(10).times do
     id = Content.create!(:title => Faker::Lorem.words(rand(3)+1).join(" "),
                          :body => Faker::Lorem.paragraphs.to_s,
                          :display => true,
