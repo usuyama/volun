@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+/* 基本スタイル */
+
+body,
+div, p,
+h1, h2, h3, h4, h5, h6,
+pre, blockquote, address,
+ul, ol, li, dl, dt, dd,
+form, fieldset, input, textarea, select, optgroup, option, button,
+caption, th, td {
+	margin: 0;
+	padding: 0;
+}
+
+
+ul,
+ol,
+li {
+	list-style: none;
+}
+
+
+body,
+address,
+em {
+	font-style: normal;
+	font-weight: normal;
+}
+
+fieldset,
+img,
+button {
+	border: none;
+}
+
+img {
+	vertical-align: bottom;
+}
+
+img,
+input[type="image"],
+button {
+}
+
+* html input[type="image"],
+* html button {
+ vertical-align: text-bottom;
+}
+
+
+input,
+textarea {
+	padding: 0 1px;
+	font-size: 99%;
+	font-family: sans-serif;
+}
+
+button {
+	background: none;
+	cursor: pointer;
+}
+
+
+hr {
+	display: none;
+}
+
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	font-size: 100%;
+}
+
+caption,
+th,
+td {
+	text-align: left;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}

@@ -1,21 +1,9 @@
+
 <% javascript "slider" %>
 <% javascript "slider_changer" %>
 
 <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.1.css" type="text/css" media="screen" />
 <link rel="stylesheet" type="text/css" media="screen, projection" href="stylesheets/slider.css" />
-
-<style type="text/css">
-  body { font-family: Arial,Helvetica,sans-serif;
-    background-image: url("images/bg_head.jpg");
-    background-position: 0% 0%;
-    background-repeat: no-repeat;
-  }
-  div.extraclass
-  {
-    width:20.6em;
-    float:left;
-  }
-</style>
 
 <script type="text/javascript">
 MYAPP = {};
@@ -78,29 +66,6 @@ function draw()
   <%= render :partial => 'flow', :object => @contents %>
 </script>
 
-<table>
-  <tr>
-    <% if logged_in? %>
-      Hello, <%= current_user.login %>
-      <% form_for logout_path do %>
-        <%= submit_tag("logout") %>
-      <% end %>
-    <% else %>
-      <% form_for login_path do %>
-        <%= label_tag 'login' %> <%= text_field_tag 'login' %> <%= label_tag 'password' %> <%= password_field_tag 'password' %> <%= submit_tag("login") %><br />
-          create new account <%= link_to "here", signup_path %>
-      <% end %>
-    <% end %>
-  </tr>
-  <tr>
-    <td><%= image_tag 'img_logo.jpg' %></td>
-    <% @tags.each do |tag| %>
-      <td><%= link_to_remote(image_tag(tag.icon.url), :url => { :action => :show, :tag => tag.id }) %></td>
-    <% end %>
-    <td><input  name="slider" id="slider" type="text" title="Range: 10 - 100" class="fd_range_10_100 fd_hide_input fd_classname_extraclass fd_callback_changeScrollSpeed" value="50" /></td>
-  </tr>
-</table>
-<hr>
 <div id="canvas_div">
   <%= render :partial => 'canvas' %>
 </div>

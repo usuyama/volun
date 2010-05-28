@@ -1,0 +1,94 @@
+@charset "utf-8";
+
+/* 共通スタイル */
+body {
+	font-size: 12px;
+	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	color: ;
+}
+
+#wrap {
+	width: 950px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+
+/* #head: ヘッダ */
+#head {
+	height: 200px;
+	background: url(../images/bg_head.jpg) left top no-repeat;
+}
+
+	.login {
+		margin: 10px 0 0 400px;
+	}
+	
+		.login dl {
+		}
+		
+			.login dl dt,
+			.login dl dd {
+				float: left;
+			}
+			
+				.login dl dd input {
+					border: 1px solid #A48141;	
+				}
+				
+				.login p {
+					text-align: right;
+				}
+
+
+	.top-right {
+		margin: 10px 0 0 0px;
+	}
+
+		h1 {
+			float: left;
+			margin: 30px 0 0 27px;
+		}
+	
+		ul.global-navi {
+			float: right;
+			margin: 100px 0 0 0;
+		}
+		
+			ul.global-navi li {
+				float: left;
+				margin: 0 0 0 30px;
+			}
+		
+			
+
+
+/* #body: ボディ */
+#body {
+}
+
+	
+
+/* #foot: フッタ */
+#foot {
+}
+
+
+
+/* .clearfix: 内側のfloatをclear */
+.clearfix:after {
+	content: ".";
+	clear: both;
+	display: block;
+	visibility: hidden;
+	height: 0;
+}
+.clearfix {display: inline-block;}
+/* \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* - */
+
+.clear {
+	clear: both;
+}
