@@ -46,7 +46,6 @@ function reload()
 <script type="text/javascript">
 function draw()
 {
-  context2D.clearRect(0, 0, canvas.width, canvas.height);
 
   for (var i=0; i < MYAPP.banners.length; i++)
   {
@@ -54,15 +53,27 @@ function draw()
     MYAPP.drow_position_y = MYAPP.cell_height * Math.floor(i / 3) + MYAPP.y;
 
     if (MYAPP.drow_position_y + MYAPP.cell_height >= 0 && MYAPP.drow_position_y <= canvas.height)
+    {
       context2D.drawImage(MYAPP.banners[i], MYAPP.drow_position_x, MYAPP.drow_position_y);
+      context2D.clearRect(MYAPP.drow_position_x, MYAPP.drow_position_y + MYAPP.banners[i].height, MYAPP.banners[i].width, 2);
+    }
 
+    MYAPP.drow_position_y += MYAPP.loop;
+    if (MYAPP.drow_position_y <= canvas.height)
+    {
+      context2D.drawImage(MYAPP.banners[i], MYAPP.drow_position_x, MYAPP.drow_position_y);
+      context2D.clearRect(MYAPP.drow_position_x, MYAPP.drow_position_y + MYAPP.banners[i].height, MYAPP.banners[i].width, 2);
+    }
+
+    if (MYAPP.loop / canvas.height < 1)
+    {
       MYAPP.drow_position_y += MYAPP.loop;
       if (MYAPP.drow_position_y <= canvas.height)
+      {
         context2D.drawImage(MYAPP.banners[i], MYAPP.drow_position_x, MYAPP.drow_position_y);
-
-      MYAPP.drow_position_y += MYAPP.loop;
-      if (MYAPP.drow_position_y <= canvas.height)
-        context2D.drawImage(MYAPP.banners[i], MYAPP.drow_position_x, MYAPP.drow_position_y);
+        context2D.clearRect(MYAPP.drow_position_x, MYAPP.drow_position_y + MYAPP.banners[i].height, MYAPP.banners[i].width, 2);
+      }
+    }
   }
 
   MYAPP.y -= 2;
