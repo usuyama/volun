@@ -35,6 +35,10 @@ function calcPosition(e)
     {
       return MYAPP.content[i].id;
     }
+    else if ((pos_x >= MYAPP.content[i].start_x) && (pos_x <= (MYAPP.content[i].start_x + MYAPP.content[i].width)) && (pos_y >= MYAPP.content[i].start_y + MYAPP.loop) && (pos_y <= (MYAPP.content[i].start_y + MYAPP.content[i].height + MYAPP.loop)))
+    {
+      return MYAPP.content[i].id;
+    }
   }
 
   return false;
