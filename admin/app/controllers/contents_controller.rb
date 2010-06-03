@@ -26,7 +26,7 @@ class ContentsController < ApplicationController
   # GET /contents/new.xml
   def new
     @content = Content.new
-    3.times {@content.content_images.build}
+    @content.content_images.build
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @content }
@@ -36,7 +36,6 @@ class ContentsController < ApplicationController
   # GET /contents/1/edit
   def edit
     @content = Content.find(params[:id])
-    3.times{@content.content_images.build}
   end
 
   # POST /contents
@@ -59,8 +58,12 @@ class ContentsController < ApplicationController
   # PUT /contents/1
   # PUT /contents/1.xml
   def update
+    params[:content_image_ids] ||=[]
     @content = Content.find(params[:id])
-
+    
+    unless params[:content_image_ids].empty?
+      ContentImage.destroy_pics(params[:id],params[:content_image_ids])
+    end
     respond_to do |format|
       if @content.update_attributes(params[:content])
         flash[:notice] = 'Content was successfully updated.'

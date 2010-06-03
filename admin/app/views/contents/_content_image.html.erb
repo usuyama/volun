@@ -1,0 +1,9 @@
+<div class="content_image">
+  <% fields_for "content[content_image_attributes][]",content_image do |f2| %>
+  <p>
+    コンテンツで使う画像：<%= f2.file_field :data, :index => nil %>
+  
+    <%= link_to_function "削除", "remove_field($(this),('.content_image'))" %>
+  </p>
+<% end %>
+</div>

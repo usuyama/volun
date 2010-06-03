@@ -38,7 +38,6 @@ class ContentsController < ApplicationController
   # GET /contents/1/edit
   def edit
     @content = current_customer.contents.find(params[:id])
-    3.times{@content.content_images.build()}
  end
 
   # POST /contents
@@ -61,8 +60,11 @@ class ContentsController < ApplicationController
   # PUT /contents/1
   # PUT /contents/1.xml
   def update
+    params[:content_image_ids] ||= []
     @content = current_customer.contents.find(params[:id])
-
+    unless params[:content_image_ids].empty?
+      ContentImage.destroy_pics(params[:id],params[:content_image_ids])
+    end
     respond_to do |format|
       if @content.update_attributes(params[:content].merge(:customer_id => current_customer.id))
         flash[:notice] = 'コンテンツの更新が完了しました'

@@ -5,11 +5,18 @@
 
 <p>
   <b>Body:</b>
-  <%=h @content.body %>
+
+<%=h @content.body %>
 </p>
+<% for content_image in @content.content_images %>
+<p>
+    <%= image_tag content_image.data.url(:thumb), :alt => "" %>
+    <%= h content_image.data.url(:original) %>
+    </p>
+  <% end %>
 
 <p>
-  <b>Display:</b>
+  <b>表示するかどうか:</b>
   <%=h @content.display %>
 </p>
 

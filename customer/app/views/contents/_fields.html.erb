@@ -1,0 +1,55 @@
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+<div id = "content_images">
+  <%= render :partial => 'content_image', :collection => @content.content_images %>
+</div>
+<p><%= add_content_image_link "Add a content_image" %>
+</p>
+
+<% @content.content_images.each do | content_image | %>
+  <div class="content_content_images">
+    <%= image_tag(content_image.data.url(:thumb), :alt => '') %>
+    <%= check_box_tag "content_image_ids[]", content_image.id %>
+  </div>
+<% end unless @content.content_images.first.new_record? rescue nil %>
+
+<p>
+  <%= f.label "コンテンツのバナー" %><br />
+  <%= f.file_field :banner %>
+</p>
+
+  <p>
+    <%= f.label :display %><br />
+    <%= f.check_box :display %>
+  </p>
+  <p>
+    <%= f.label :banner_id %><br />
+    <%= f.text_field :banner_id %>
+  </p>
+  <p>
+    <%= f.label "特集記事" %><br />
+    <%= f.check_box :content_type %>
+  </p>
+  <p>
+    <%= f.label :customer_id %><br />
+    <%= f.text_field :customer_id %>
+  </p>
+  <p>
+    <%= f.label :banner_size_id %><br />
+    <%= f.text_field :banner_size_id %>
+  </p>
+  <p>
+    <%= f.label :publish_at %><br />
+    <%= f.datetime_select :publish_at %>
+  </p>
+  <p>
+    <%= f.label :close_at %><br />
+    <%= f.datetime_select :close_at %>
+  </p>
