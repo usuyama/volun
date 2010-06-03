@@ -21,6 +21,12 @@
 <% end unless @content.content_images.first.new_record? rescue nil %>
 
 <p>
+  <%= f.label :summary %><br />
+  <%= f.text_area :summary %>
+</p>
+
+
+<p>
   <%= f.label "コンテンツのバナー" %><br />
   <%= f.file_field :banner %>
 </p>

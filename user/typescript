@@ -927,4 +927,1117 @@ Rakefile    db/         log/        spec/       vendor/
 [00m20100507054046_create_content_images.rb[00m
 [00m20100513050708_create_classifications.rb[00m
 [00m20100527124406_add_attachments_icon_to_tag.rb[00m
-[m]0;arsenal@webbie: ~/realglobe/voluntourism/customer/db/migratearsenal@webbie:~/realglobe/voluntourism/customer/db/migrate$ cd[K[Krm 20100425130146_add_attachmments_content_imag
+[m]0;arsenal@webbie: ~/realglobe/voluntourism/customer/db/migratearsenal@webbie:~/realglobe/voluntourism/customer/db/migrate$ cd[K[Krm 20100425130146_add_attachmments_content_image_to_content.rb 
+]0;arsenal@webbie: ~/realglobe/voluntourism/customer/db/migratearsenal@webbie:~/realglobe/voluntourism/customer/db/migrate$ ls
+[00m[00m20100319135203_create_contents.rb[00m
+[00m20100319135956_create_tags.rb[00m
+[00m20100319141518_create_customers.rb[00m
+[00m20100319141610_create_admins.rb[00m
+[00m20100319141725_create_appliers.rb[00m
+[00m20100319141813_create_banner_sizes.rb[00m
+[00m20100421043458_change_columns_in_customers.rb[00m
+[00m20100421164006_create_users.rb[00m
+[00m20100425130147_add_attachments_banner_to_content.rb[00m
+[00m20100427081851_create_contents_tags.rb[00m
+[00m20100507054046_create_content_images.rb[00m
+[00m20100513050708_create_classifications.rb[00m
+[00m20100527124406_add_attachments_icon_to_tag.rb[00m
+[m]0;arsenal@webbie: ~/realglobe/voluntourism/customer/db/migratearsenal@webbie:~/realglobe/voluntourism/customer/db/migrate$ cd ../
+]0;arsenal@webbie: ~/realglobe/voluntourism/customer/dbarsenal@webbie:~/realglobe/voluntourism/customer/db$ cd ../
+]0;arsenal@webbie: ~/realglobe/voluntourism/customerarsenal@webbie:~/realglobe/voluntourism/customer$ cd ../
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ ls
+[00m[01;34madmin[00m  [01;34mcustomer[00m  [01;34mshare[00m  [01;34muser[00m
+[m]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ git status
+# On branch master
+# Changed but not updated:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   admin/app/controllers/contents_controller.rb
+#	modified:   admin/app/helpers/contents_helper.rb
+#	modified:   admin/app/views/contents/edit.html.erb
+#	modified:   admin/app/views/contents/new.html.erb
+#	modified:   admin/app/views/contents/show.html.erb
+#	modified:   admin/app/views/layouts/admins.html.erb
+#	modified:   admin/app/views/layouts/contents.html.erb
+#	modified:   admin/app/views/layouts/customers.html.erb
+#	modified:   admin/app/views/layouts/tags.html.erb
+#	modified:   admin/app/views/layouts/users.html.erb
+#	deleted:    admin/public/index.html
+#	deleted:    customer/app/controllers/content_images_controller.rb
+#	modified:   customer/app/controllers/contents_controller.rb
+#	modified:   customer/app/helpers/contents_helper.rb
+#	modified:   customer/app/views/contents/edit.html.erb
+#	modified:   customer/app/views/contents/show.html.erb
+#	modified:   customer/app/views/layouts/contents.html.erb
+#	deleted:    share/app/models/.#content.rb
+#	modified:   share/app/models/content.rb
+#	modified:   share/app/models/content_image.rb
+#	deleted:    share/db/migrate/20100425130146_add_attachments_content_image_to_content.rb
+#	modified:   share/db/migrate/20100507054046_create_content_images.rb
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	admin/app/views/contents/_content_image.html.erb
+#	admin/app/views/contents/_fields.html.erb
+#	customer/app/views/contents/_content_image.html.erb
+#	customer/app/views/contents/_fields.html.erb
+#	user/typescript
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ git add .
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ l[Kgit status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   admin/app/controllers/contents_controller.rb
+#	modified:   admin/app/helpers/contents_helper.rb
+#	new file:   admin/app/views/contents/_content_image.html.erb
+#	renamed:    admin/app/views/contents/new.html.erb -> admin/app/views/contents/_fields.html.erb
+#	modified:   admin/app/views/contents/edit.html.erb
+#	modified:   admin/app/views/contents/new.html.erb
+#	modified:   admin/app/views/contents/show.html.erb
+#	modified:   admin/app/views/layouts/admins.html.erb
+#	modified:   admin/app/views/layouts/contents.html.erb
+#	modified:   admin/app/views/layouts/customers.html.erb
+#	modified:   admin/app/views/layouts/tags.html.erb
+#	modified:   admin/app/views/layouts/users.html.erb
+#	modified:   customer/app/controllers/contents_controller.rb
+#	modified:   customer/app/helpers/contents_helper.rb
+#	new file:   customer/app/views/contents/_content_image.html.erb
+#	renamed:    admin/app/views/contents/edit.html.erb -> customer/app/views/contents/_fields.html.erb
+#	modified:   customer/app/views/contents/edit.html.erb
+#	modified:   customer/app/views/contents/show.html.erb
+#	modified:   customer/app/views/layouts/contents.html.erb
+#	modified:   share/app/models/content.rb
+#	modified:   share/app/models/content_image.rb
+#	modified:   share/db/migrate/20100507054046_create_content_images.rb
+#	new file:   user/typescript
+#
+# Changed but not updated:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	deleted:    admin/public/index.html
+#	deleted:    customer/app/controllers/content_images_controller.rb
+#	deleted:    share/app/models/.#content.rb
+#	deleted:    share/db/migrate/20100425130146_add_attachments_content_image_to_content.rb
+#
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ git re[Km admin/public/inde[Kex.html
+rm 'admin/public/index.html'
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ rm[K[Kgit rm customer/app/controllers/content_images_c ontroller.rb
+rm 'customer/app/controllers/content_images_controller.rb'
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ rm she[Ke[Kare/app/models/.#content.rb
+rm: cannot remove `share/app/models/.#content.rb': そのようなファイルやディレクトリはありません
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ rm share/app/models/.#content.rb[1@g[1@i[1@t[1@ 
+rm 'share/app/models/.#content.rb'
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ git rm share/app/models/.#content.rb[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kdb/migrate/20100425130147_add_attachhments_banner_to_content.rb[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K6_add_attac he[Kments_content_image_to_content.rb
+rm 'share/db/migrate/20100425130146_add_attachments_content_image_to_content.rb'
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   admin/app/controllers/contents_controller.rb
+#	modified:   admin/app/helpers/contents_helper.rb
+#	new file:   admin/app/views/contents/_content_image.html.erb
+#	renamed:    admin/app/views/contents/new.html.erb -> admin/app/views/contents/_fields.html.erb
+#	modified:   admin/app/views/contents/edit.html.erb
+#	modified:   admin/app/views/contents/new.html.erb
+#	modified:   admin/app/views/contents/show.html.erb
+#	modified:   admin/app/views/layouts/admins.html.erb
+#	modified:   admin/app/views/layouts/contents.html.erb
+#	modified:   admin/app/views/layouts/customers.html.erb
+#	modified:   admin/app/views/layouts/tags.html.erb
+#	modified:   admin/app/views/layouts/users.html.erb
+#	deleted:    admin/public/index.html
+#	deleted:    customer/app/controllers/content_images_controller.rb
+#	modified:   customer/app/controllers/contents_controller.rb
+#	modified:   customer/app/helpers/contents_helper.rb
+#	new file:   customer/app/views/contents/_content_image.html.erb
+#	renamed:    admin/app/views/contents/edit.html.erb -> customer/app/views/contents/_fields.html.erb
+#	modified:   customer/app/views/contents/edit.html.erb
+#	modified:   customer/app/views/contents/show.html.erb
+#	modified:   customer/app/views/layouts/contents.html.erb
+#	deleted:    share/app/models/.#content.rb
+#	modified:   share/app/models/content.rb
+#	modified:   share/app/models/content_image.rb
+#	deleted:    share/db/migrate/20100425130146_add_attachments_content_image_to_content.rb
+#	modified:   share/db/migrate/20100507054046_create_content_images.rb
+#	new file:   user/typescript
+#
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   user/typescript
+#
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ git [K[K[K[Kgit commit -m""[Kcontent_image imple[K[Klement"
+[master 31cd6ff] content_image implement
+ 27 files changed, 1120 insertions(+), 600 deletions(-)
+ create mode 100644 admin/app/views/contents/_content_image.html.erb
+ rename admin/app/views/contents/{new.html.erb => _fields.html.erb} (64%)
+ rewrite admin/app/views/contents/edit.html.erb (86%)
+ rewrite admin/app/views/contents/new.html.erb (84%)
+ delete mode 100644 admin/public/index.html
+ delete mode 100644 customer/app/controllers/content_images_controller.rb
+ create mode 100644 customer/app/views/contents/_content_image.html.erb
+ rename admin/app/views/contents/edit.html.erb => customer/app/views/contents/_fields.html.erb (64%)
+ rewrite customer/app/views/contents/edit.html.erb (75%)
+ delete mode 120000 share/app/models/.#content.rb
+ delete mode 100644 share/db/migrate/20100425130146_add_attachments_content_image_to_content.rb
+ create mode 100644 user/typescript
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   user/typescript
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ push git [K`[K@[K[K[K[K[K[K[K[K[Kpush git@gitorious.zign.cn:volun/mainline.git ma ster
+bash: push: command not found
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ push git@gitorious.zign.cn:volun/mainline.git masster[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgpush git@gitorious.zign.cn:volun/mainline.git master[A]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ [Cipush git@gitorious.zign.cn:volun/mainline.git master[A]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ [C[Ctpush git@gitorious.zign.cn:volun/mainline.git master[A]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ [C[C[C push git@gitorious.zign.cn:volun/mainline.git master[A]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ [C[C[C[C
+
+Counting objects: 75, done.
+Delta compression using up to 4 threads.
+Compressing objects:   2% (1/42)   Compressing objects:   4% (2/42)   Compressing objects:   7% (3/42)   Compressing objects:   9% (4/42)   Compressing objects:  11% (5/42)   Compressing objects:  14% (6/42)   Compressing objects:  16% (7/42)   Compressing objects:  19% (8/42)   Compressing objects:  21% (9/42)   Compressing objects:  23% (10/42)   Compressing objects:  26% (11/42)   Compressing objects:  28% (12/42)   Compressing objects:  30% (13/42)   Compressing objects:  33% (14/42)   Compressing objects:  35% (15/42)   Compressing objects:  38% (16/42)   Compressing objects:  40% (17/42)   Compressing objects:  42% (18/42)   Compressing objects:  45% (19/42)   Compressing objects:  47% (20/42)   Compressing objects:  50% (21/42)   Compressing objects:  52% (22/42)   Compressing objects:  54% (23/42)   Compressing objects:  57% (24/42)   Compressing objects:  59% (25/42)   Compressing objects:  61% (26/42)   Compressing objects:  64% (27/42)   Compressing objects:  66% (28/42)   Compressing objects:  69% (29/42)   Compressing objects:  71% (30/42)   Compressing objects:  73% (31/42)   Compressing objects:  76% (32/42)   Compressing objects:  78% (33/42)   Compressing objects:  80% (34/42)   Compressing objects:  83% (35/42)   Compressing objects:  85% (36/42)   Compressing objects:  88% (37/42)   Compressing objects:  90% (38/42)   Compressing objects:  92% (39/42)   Compressing objects:  95% (40/42)   Compressing objects:  97% (41/42)   Compressing objects: 100% (42/42)   Compressing objects: 100% (42/42), done.
+Writing objects:   2% (1/43)   Writing objects:   4% (2/43)   Writing objects:   6% (3/43)   Writing objects:   9% (4/43)   Writing objects:  11% (5/43)   Writing objects:  13% (6/43)   Writing objects:  16% (7/43)   Writing objects:  18% (8/43)   Writing objects:  20% (9/43)   Writing objects:  23% (10/43)   Writing objects:  25% (11/43)   Writing objects:  27% (12/43)   Writing objects:  30% (13/43)   Writing objects:  32% (14/43)   Writing objects:  34% (15/43)   Writing objects:  37% (16/43)   Writing objects:  44% (19/43)   Writing objects:  46% (20/43)   Writing objects:  48% (21/43)   Writing objects:  51% (22/43)   Writing objects:  53% (23/43)   Writing objects:  55% (24/43)   Writing objects:  58% (25/43)   Writing objects:  60% (26/43)   Writing objects:  62% (27/43)   Writing objects:  65% (28/43)   Writing objects:  67% (29/43)   Writing objects:  69% (30/43)   Writing objects:  72% (31/43)   Writing objects:  74% (32/43)   Writing objects:  76% (33/43)   Writing objects:  79% (34/43)   Writing objects:  81% (35/43)   Writing objects:  83% (36/43)   Writing objects:  86% (37/43)   Writing objects:  88% (38/43)   Writing objects:  90% (39/43)   Writing objects:  93% (40/43)   Writing objects:  95% (41/43)   Writing objects:  97% (42/43)   Writing objects: 100% (43/43)   Writing objects: 100% (43/43), 17.08 KiB, done.
+Total 43 (delta 25), reused 0 (delta 0)
+=> Syncing Gitorious... [OK]
+To git@gitorious.zign.cn:volun/mainline.git
+   fb9ab8f..31cd6ff  master -> master
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ cd ../
+]0;arsenal@webbie: ~/realglobearsenal@webbie:~/realglobe$ cd[K[Kcd [K[K[Kcd voluntourism/
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ ls
+[00m[01;34madmin[00m  [01;34mcustomer[00m  [01;34mshare[00m  [01;34muser[00m
+[m]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ cd customer/
+]0;arsenal@webbie: ~/realglobe/voluntourism/customerarsenal@webbie:~/realglobe/voluntourism/customer$ ls
+[00m[00mREADME[00m    [01;34mapp[00m     [01;36mdb[00m   [01;34mlib[00m  [01;34mpublic[00m  [01;34mspec[00m  [01;34mtmp[00m
+[00mRakefile[00m  [01;34mconfig[00m  [01;34mdoc[00m  [01;34mlog[00m  [01;34mscript[00m  [01;34mtest[00m  [01;34mvendor[00m
+[m]0;arsenal@webbie: ~/realglobe/voluntourism/customerarsenal@webbie:~/realglobe/voluntourism/customer$ script/server  =[K--port=3210[K3
+=> Booting Mongrel
+=> Rails 2.3.5 application starting on http://0.0.0.0:3213
+/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/initializer.rb:902:in `read': No such file or directory - /home/arsenal/realglobe/voluntourism/customer/config/database.yml (Errno::ENOENT)
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/initializer.rb:902:in `database_configuration'
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/initializer.rb:437:in `initialize_database'
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/initializer.rb:141:in `process'
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/initializer.rb:113:in `send'
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/initializer.rb:113:in `run'
+	from /home/arsenal/realglobe/voluntourism/customer/config/environment.rb:9
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+	from /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:156:in `require'
+	from /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:521:in `new_constants_in'
+	from /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/dependencies.rb:156:in `require'
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:84
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+	from script/server:3
+]0;arsenal@webbie: ~/realglobe/voluntourism/customerarsenal@webbie:~/realglobe/voluntourism/customer$ cd [K[K[Kcd config/
+]0;arsenal@webbie: ~/realglobe/voluntourism/customer/configarsenal@webbie:~/realglobe/voluntourism/customer/config$ ls
+[00m[00mboot.rb[00m               [00menvironment.rb[00m  [01;34minitializers[00m  [00mroutes.rb[00m
+[00mdatabase.example.yml[00m  [01;34menvironments[00m    [01;34mlocales[00m
+[m]0;arsenal@webbie: ~/realglobe/voluntourism/customer/configarsenal@webbie:~/realglobe/voluntourism/customer/config$ cp database.example.yml  da [K[K[K[Kd [Katabase..example.yml [1P[1P[1P[1P[1P[1P[1P[1P
+]0;arsenal@webbie: ~/realglobe/voluntourism/customer/configarsenal@webbie:~/realglobe/voluntourism/customer/config$ cp database.example.yml database..yml [A]0;arsenal@webbie: ~/realglobe/voluntourism/customer/configarsenal@webbie:~/realglobe/voluntourism/customer/config$ ls[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd config/ls[K[K[Kcd../ ../
+]0;arsenal@webbie: ~/realglobe/voluntourism/customerarsenal@webbie:~/realglobe/voluntourism/customer$ ls
+[00m[00mREADME[00m    [01;34mapp[00m     [01;36mdb[00m   [01;34mlib[00m  [01;34mpublic[00m  [01;34mspec[00m  [01;34mtmp[00m
+[00mRakefile[00m  [01;34mconfig[00m  [01;34mdoc[00m  [01;34mlog[00m  [01;34mscript[00m  [01;34mtest[00m  [01;34mvendor[00m
+[m]0;arsenal@webbie: ~/realglobe/voluntourism/customerarsenal@webbie:~/realglobe/voluntourism/customer$ cd[K[Klscd ../p database.example.yml database.yml ls[Kcd config/script/server  --port=3213
+=> Booting Mongrel
+=> Rails 2.3.5 application starting on http://0.0.0.0:3213
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Processing ApplicationController#index (for 157.82.5.64 at 2010-06-03 16:20:37) [GET]
+
+ActionController::RoutingError (No route matches "/content" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ContentsController#index (for 157.82.5.64 at 2010-06-03 16:20:38) [GET]
+  [4;36;1mCustomer Load (0.6ms)[0m   [0;1mSELECT * FROM "customers" WHERE ("customers"."id" = 1) LIMIT 1[0m
+Redirected to http://webbie.bz:3213/customers/1/contents
+Filter chain halted as [:user_checked] rendered_or_redirected.
+Completed in 35ms (DB: 1) | 302 Found [http://webbie.bz/contents]
+
+
+Processing ContentsController#index (for 157.82.5.64 at 2010-06-03 16:20:38) [GET]
+  Parameters: {"customer_id"=>"1"}
+  [4;35;1mCustomer Load (0.4ms)[0m   [0mSELECT * FROM "customers" WHERE ("customers"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/contents
+Rendering contents/index
+  [4;36;1mContent Load (0.7ms)[0m   [0;1mSELECT * FROM "contents" WHERE ("contents".customer_id = 1) [0m
+Completed in 151ms (View: 127, DB: 1) | 200 OK [http://webbie.bz/customers/1/contents]
+
+
+Processing ContentsController#edit (for 157.82.5.64 at 2010-06-03 16:20:42) [GET]
+  Parameters: {"id"=>"1", "customer_id"=>"1"}
+  [4;35;1mCustomer Load (0.4ms)[0m   [0mSELECT * FROM "customers" WHERE ("customers"."id" = 1) LIMIT 1[0m
+  [4;36;1mContent Load (0.6ms)[0m   [0;1mSELECT * FROM "contents" WHERE ("contents"."id" = 1 AND ("contents".customer_id = 1)) [0m
+Rendering template within layouts/contents
+Rendering contents/edit
+  [4;35;1mContentImage Load (0.4ms)[0m   [0mSELECT * FROM "content_images" WHERE ("content_images".content_id = 1) [0m
+Rendered contents/_content_image (1.8ms)
+Rendered contents/_content_image (1.6ms)
+Rendered contents/_fields (49.3ms)
+Completed in 98ms (View: 72, DB: 1) | 200 OK [http://webbie.bz/customers/1/contents/1/edit]
+^CExiting
+]0;arsenal@webbie: ~/realglobe/voluntourism/customerarsenal@webbie:~/realglobe/voluntourism/customer$ ls
+[00m[00mREADME[00m    [01;34mapp[00m     [01;36mdb[00m   [01;34mlib[00m  [01;34mpublic[00m  [01;34mspec[00m  [01;34mtmp[00m
+[00mRakefile[00m  [01;34mconfig[00m  [01;34mdoc[00m  [01;34mlog[00m  [01;34mscript[00m  [01;34mtest[00m  [01;34mvendor[00m
+[m]0;arsenal@webbie: ~/realglobe/voluntourism/customerarsenal@webbie:~/realglobe/voluntourism/customer$ cd ../../
+]0;arsenal@webbie: ~/realglobearsenal@webbie:~/realglobe$ ls
+[00m[01;34mvolun[00m  [01;34mvoluntourism[00m
+[m]0;arsenal@webbie: ~/realglobearsenal@webbie:~/realglobe$ rm -rf volun
+]0;arsenal@webbie: ~/realglobearsenal@webbie:~/realglobe$ ls
+[00m[01;34mvoluntourism[00m
+[m]0;arsenal@webbie: ~/realglobearsenal@webbie:~/realglobe$ c[Kvolname [K[K[K[K[K[K[K[Kcd voluntourism/
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ ls
+[00m[01;34madmin[00m  [01;34mcustomer[00m  [01;34mshare[00m  [01;34muser[00m
+[m]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ git checkout -b inter[Kgration
+M	user/typescript
+Switched to a new branch 'integration'
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ git pull git://[K[K[K[K[K[Kgit://gitorious.zign.cn/volun/mainline. git \
+>   refs/merge-requests/8
+^[j^[j      ^[[D    ^[[A^[[A        remote: Counting objects: 26, done.[K
+remote: Compressing objects:   7% (1/14)   [Kremote: Compressing objects:  14% (2/14)   [Kremote: Compressing objects:  21% (3/14)   [Kremote: Compressing objects:  28% (4/14)   [Kremote: Compressing objects:  35% (5/14)   [Kremote: Compressing objects:  42% (6/14)   [Kremote: Compressing objects:  50% (7/14)   [Kremote: Compressing objects:  57% (8/14)   [Kremote: Compressing objects:  64% (9/14)   [Kremote: Compressing objects:  71% (10/14)   [Kremote: Compressing objects:  78% (11/14)   [Kremote: Compressing objects:  85% (12/14)   [Kremote: Compressing objects:  92% (13/14)   [Kremote: Compressing objects: 100% (14/14)   [Kremote: Compressing objects: 100% (14/14), done.[K
+remote: Total 14 (delta 9), reused 0 (delta 0)[K
+Unpacking objects:   7% (1/14)   Unpacking objects:  14% (2/14)   Unpacking objects:  21% (3/14)   Unpacking objects:  28% (4/14)   Unpacking objects:  35% (5/14)   Unpacking objects:  42% (6/14)   Unpacking objects:  50% (7/14)   Unpacking objects:  57% (8/14)   Unpacking objects:  64% (9/14)   Unpacking objects:  71% (10/14)   Unpacking objects:  78% (11/14)   Unpacking objects:  85% (12/14)   Unpacking objects:  92% (13/14)   Unpacking objects: 100% (14/14)   Unpacking objects: 100% (14/14), done.
+From git://gitorious.zign.cn/volun/mainline
+ * branch            refs/merge-requests/8 -> FETCH_HEAD
+Auto-merging admin/app/views/contents/edit.html.erb
+CONFLICT (content): Merge conflict in admin/app/views/contents/edit.html.erb
+Auto-merging admin/app/views/contents/new.html.erb
+CONFLICT (content): Merge conflict in admin/app/views/contents/new.html.erb
+Auto-merging admin/app/views/contents/show.html.erb
+CONFLICT (content): Merge conflict in admin/app/views/contents/show.html.erb
+Automatic merge failed; fix conflicts and then commit the result.
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ git log --pretty=oneline --abbrev-commit master. .integration
+[?1h=[K[?1l>]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ cd ../
+]0;arsenal@webbie: ~/realglobearsenal@webbie:~/realglobe$ ls
+[00m[01;34mvoluntourism[00m
+[m]0;arsenal@webbie: ~/realglobearsenal@webbie:~/realglobe$ cd[K[Kcd voluntourism/
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ git status
+# On branch integration
+# Changes to be committed:
+#
+#	modified:   admin/app/views/contents/index.html.erb
+#	new file:   share/db/migrate/20100603064042_add_summary_to_content.rb
+#
+# Unmerged paths:
+#   (use "git add/rm <file>..." as appropriate to mark resolution)
+#
+#	both modified:      admin/app/views/contents/edit.html.erb
+#	both modified:      admin/app/views/contents/new.html.erb
+#	both modified:      admin/app/views/contents/show.html.erb
+#
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   user/typescript
+#
+]0;arsenal@webbie: ~/realglobe/voluntourismarsenal@webbie:~/realglobe/voluntourism$ cd ../[K[K[Kadmin/app/views/contents/edit.ht[K[K[K[K[K[K[K
+]0;arsenal@webbie: ~/realglobe/voluntourism/admin/app/views/contentsarsenal@webbie:~/realglobe/voluntourism/admin/app/views/contents$ ls
+[00m[00m_content_image.html.erb[00m  [00medit.html.erb[00m   [00mnew.html.erb[00m
+[00m_fields.html.erb[00m         [00mindex.html.erb[00m  [00mshow.html.erb[00m
+[m]0;arsenal@webbie: ~/realglobe/voluntourism/admin/app/views/contentsarsenal@webbie:~/realglobe/voluntourism/admin/app/views/contents$ cd edi[K[K[K[K[K[Kemacs edit.html.erb 
+[?1049h[?12;25h[?1h=[40;1H[?25l[7m----:---F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Fundamental)--------------------------------------[0m[39;49m[27m
+[A[H[?12l[?25h[?12;25h[41d[?25lLoading subst-ksc...[K[H[?12l[?25h[?12;25h[41;21H[?25ldone[H[?12l[?25h[?12;25h[41;15H[?25lgb2312...[K[H[?12l[?25h[?12;25h[41;24H[?25ldone[H[?12l[?25h[?12;25h[41;15H[?25lbig5...[K[H[?12l[?25h[?12;25h[41;22H[?25ldone[H[?12l[?25h[?12;25h[41;15H[?25ljis...[K[H[?12l[?25h[?12;25h[41;21H[?25ldone[H[?12l[?25h[?12;25h[H[2J[41d[?25lLoading encoded-kb...[K[H[?12l[?25h[?12;25h[41;22H[?25ldone[H[?12l[?25h[?12;25h[41d[K[?1l>[?12l[?25h[?1049l[39;49m[?1049h[?12;25h[?1h=[41;1H[?25lLoading 00debian-vars...[K[H
+[?12l[?25h[?12;25h[41;25H[?25ldone[H
+[?12l[?25h[?12;25h[41;9H[?25l/etc/emacs/site-start.d/50anthy-el.el (source)...[H
+[?12l[?25h[?12;25h[41;58H[?25ldone[H
+[?12l[?25h[?12;25h[41;35H[?25lcmake.el (source)...[K[H
+[?12l[?25h[?12;25h[41;55H[?25ldone[H
+[?12l[?25h[?12;25h[41;36H[?25loq.el (source)...[K[H
+[?12l[?25h[?12;25h[41;53H[?25ldone[H
+[?12l[?25h[?12;25h[41;36H[?25lss-mode.el (source)...[H
+[?12l[?25h[?12;25h[41;58H[?25ldone[H
+[?12l[?25h[?12;25h[41;35H[?25ldictionaries-common.el (source)...[H
+[?12l[?25h[?12;25h[41;9H[?25ldebian-ispell...[K[H
+[?12l[?25h[?12;25h[41;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
+[?12l[?25h[?12;25h[41;77H[?25ldone[H
+[?12l[?25h[?12;25h[41;9H[?25ldebian-ispell...done[K[H
+[?12l[?25h[?12;25h[41;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
+[?12l[?25h[?12;25h[41;75H[?25ldone[H
+[?12l[?25h[?12;25h[41;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
+[?12l[?25h[?12;25h[41;35H[?25lglobal.el (source)...[K[H
+[?12l[?25h[?12;25h[41;56H[?25ldone[H
+[?12l[?25h[?12;25h[41;35H[?25lhtml-helper-mode.el (source)...[H
+[?12l[?25h[?12;25h[41;66H[?25ldone[H
+[?12l[?25h[?12;25h[41;35H[?25locaml-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[41;60H[?25ldone[H
+[?12l[?25h[?12;25h[41;35H[?25lphp-elisp.el (source)...[K[H
+[?12l[?25h[?12;25h[41;59H[?25ldone[H
+[?12l[?25h[?12;25h[41;36H[?25lsvn.el (source)...[K[H
+[?12l[?25h[?12;25h[41;54H[?25ldone[H
+[?12l[?25h[?12;25h[41;35H[?25lruby1.8-elisp.el (source)...[H
+[?12l[?25h[?12;25h[41;63H[?25ldone[H
+[?12l[?25h[?12;25h[41;41H[?25l9-elisp.el (source)...[K[H
+[?12l[?25h[?12;25h[41;63H[?25ldone[H
+[?12l[?25h[?12;25h[41;34H[?25l1tuareg-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[41;61H[?25ldone[H
+[?12l[?25h[?12;25h[41;9H[?25lparen...[K[H
+[?12l[?25h[?12;25h[41;17H[?25ldone[H
+[?12l[?25h[?12;25h[41;9H[?25lcomplete...[K[H
+[?12l[?25h[?12;25h[41;9H[?25ladvice...[K[H
+[?12l[?25h[?12;25h[41;18H[?25ldone[H
+[?12l[?25h[?12;25h[41;9H[?25lcomplete...done[H
+[?12l[?25h[?12;25h[41;9H[?25licomplete...[K[H
+[?12l[?25h[?12;25h[41;21H[?25ldone[H
+[?12l[?25h[?12;25h[41;9H[?25lregexp-opt...[K[H[?12l[?25h[?12;25h[41;22H[?25ldone[H[?12l[?25h[?12;25h[41;9H[?25ledmacro...[K[H[?12l[?25h[?12;25h[41;19H[?25ldone[H[?12l[?25h[?12;25h[41;10H[?25lasy-mmode...[K[H[?12l[?25h[?12;25h[41;22H[?25ldone[H[?12l[?25h[?12;25h[41;9H[?25lcl-macs...[K[H[?12l[?25h[?12;25h[41;19H[?25ldone[H[?12l[?25h[?12;25h[41;9H[?25lderived...[K[H[?12l[?25h[?12;25h[41;19H[?25ldone[H[?12l[?25h[?12;25h[41d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[H[?12l[?25h[?12;25h[41d[?25lLoading vc-git...[K[H[?12l[?25h[?12;25h[41;18H[?25ldone[H[?12l[?25h[?12;25h[41d[?25lLoading vc-git...done[K[H<[1m[34mh1[0m[39;49m>[1m[4mEditing content[0m</[1m[34mh1[0m[39;49m>[K
+[K
+[1m[34m<%[0m[39;49m[44m form_for([39;49m[33m[44m@content[0m[39;49m[44m, [39;49m[35m[44m:html[39;49m[44m => { [39;49m[35m[44m:multipart[39;49m[44m => true })[39;49m[1m[36m[44mdo[0m[39;49m[44m |f| [39;49m[1m[34m%>[0m[39;49m[K
+<<<<<<< HEAD[K
+[1m[31m<%=[0m[39;49m[44m f.error_messages [39;49m[1m[31m%>[0m[39;49m[K
+[1m[31m<%=[0m[39;49m[44m [39;49m[1m[36m[44mrender[0m[39;49m[44m [39;49m[35m[44m:partial[39;49m[44m => 'fields', [39;49m[35m[44m:locals[39;49m[44m => {[39;49m[35m[44m:f[39;49m[44m => f} [39;49m[1m[31m%>[0m[39;49m[K
+=======[K
+  [1m[31m<%=[0m[39;49m[44m f.error_messages [39;49m[1m[31m%>[0m[39;49m[K
+[K
+  <[1m[34mp[0m[39;49m>[K
+    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K
+    [1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K
+  </[1m[34mp[0m[39;49m>[K
+  <[1m[34mp[0m[39;49m>[K
+    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K
+    [1m[31m<%=[0m[39;49m[44m f.text_area [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K
+  </[1m[34mp[0m[39;49m>[K
+  <[1m[34mp[0m[39;49m>[K
+    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K
+    [1m[31m<%=[0m[39;49m[44m f.text_area [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K
+  </[1m[34mp[0m[39;49m>[K
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mfor[0m[39;49m[44m content_image [39;49m[1m[36m[44min[0m[39;49m[44m [39;49m[33m[44m@content[0m[39;49m[44m.content_images [39;49m[1m[34m%>[0m[39;49m[K
+[1m[34m<%[0m[39;49m[44m fields_for "content[content_image_attributes][]", content_image [39;49m[1m[36m[44mdo[0m[39;49m[44m |f2| [39;49m[1m[34m%>[0m[39;49m[K
+>>>>>>> de2a81bdd96eb938ace5860aae6fd27060572334[K
+<[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.submit 'Update' [39;49m[1m[31m%>[0m[39;49m[K
+</[1m[34mp[0m[39;49m>[K
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m[K
+[K
+[1m[31m<%=[0m[39;49m[44m link_to 'Show', [39;49m[33m[44m@content[0m[39;49m[44m [39;49m[1m[31m%>[0m[39;49m |[K
+[1m[31m<%=[0m[39;49m[44m link_to 'Back', contents_path [39;49m[1m[31m%>[0m[39;49m[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-uu-:---F1  [0m[39;49m[27m[7m[1medit.html.erb[0m[39;49m[27m[7m   All L1    Git:integration  (RHTML Rinari Abbrev)-------------[0m[39;49m[27m
+[A[H[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mh1[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[41d[K[40;34H[?25l[7m2[0m[39;49m[27m[H
+[?12l[?25h[?12;25h[A[?25l<[1m[34mh1[0m[39;49m>
+[?12l[?25h[?12;25h[40;34H[?25l[7m3[0m[39;49m[27m[H
+
+[?12l[?25h[?12;25h[?25l[1m[37m[45m<[0m[39;49m[1m[34m%[0m[39;49m[44m form_for([39;49m[33m[44m@content[0m[39;49m[44m, [39;49m[35m[44m:html[39;49m[44m => { [39;49m[35m[44m:multipart[39;49m[44m => true [39;49m[37m[45m}[39;49m[?12l[?25h[?12;25h[40;34H[?25l[7m4[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[A[?25l[1m[34m<%[0m[39;49m[44m form_for([39;49m[33m[44m@content[0m[39;49m[44m, [39;49m[35m[44m:html[39;49m[44m => { [39;49m[35m[44m:multipart[39;49m[44m => true }[39;49m
+[46m<[39;49m[24;4H[46m>[39;49m[4;1H[?12l[?25h[?12;25h[40;34H[?25l[7m5[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[A[?25l<
+[1m[31m[46m<[0m[39;49m[1m[31m%=[0m[39;49m[44m f.error_messages [39;49m[1m[31m%[0m[39;49m[1m[31m[46m>[0m[39;49m[24;4H>[5;1H[?12l[?25h[?12;25h[40;34H[?25l[7m6[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[A[?25l[1m[31m<%=[0m[39;49m[44m f.error_messages [39;49m[1m[31m%>[0m[39;49m
+[1m[31m[46m<[0m[39;49m[1m[31m%=[0m[39;49m[44m [39;49m[1m[36m[44mrender[0m[39;49m[44m [39;49m[35m[44m:partial[39;49m[44m =[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;34H[?25l[7m5[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[?25l[1m[31m[46m<[0m[39;49m[1m[31m%=[0m[39;49m[44m f.error_messages [39;49m[1m[31m%[0m[39;49m[1m[31m[46m>[0m[39;49m
+[1m[31m<%=[0m[39;49m[44m [39;49m[1m[36m[44mrender[0m[39;49m[44m [39;49m[35m[44m:partial[39;49m[44m =>[39;49m[A[?12l[?25h[?12;25h[40;34H[?25l[7m4[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m
+[1m[31m<%=[0m[39;49m[44m f.error_messages [39;49m[1m[31m%>[0m[39;49m[24;4H[46m>[39;49m[4;1H[?12l[?25h[?12;25h[40;34H[?25l[7m3[0m[39;49m[27m[H
+
+[?12l[?25h[?12;25h[?25l[1m[37m[45m<[0m[39;49m[1m[34m%[0m[39;49m[44m form_for([39;49m[33m[44m@content[0m[39;49m[44m, [39;49m[35m[44m:html[39;49m[44m => { [39;49m[35m[44m:multipart[39;49m[44m => true [39;49m[37m[45m}[39;49m
+<[24;4H>[H
+
+[?12l[?25h[?12;25h[40;34H[?25l[7m4[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[A[?25l[1m[34m<%[0m[39;49m[44m form_for([39;49m[33m[44m@content[0m[39;49m[44m, [39;49m[35m[44m:html[39;49m[44m => { [39;49m[35m[44m:multipart[39;49m[44m => true }[39;49m
+[46m<[39;49m[24;4H[46m>[39;49m[4;1H[?12l[?25h[?12;25h[40;34H[?25l[7m5[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[40;34H[?25l[7m6[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[40;34H[?25l[7m7[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[40;34H[?25l[7m8[0m[39;49m[27m[8;1H[?12l[?25h[?12;25h[40;34H[?25l[7m9[0m[39;49m[27m[9;1H[?12l[?25h[?12;25h[40;34H[?25l[7m10[0m[39;49m[27m[10;1H[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[11;1H[?12l[?25h[?12;25h[40;35H[?25l[7m2[0m[39;49m[27m[12;1H[?12l[?25h[?12;25h[40;35H[?25l[7m3[0m[39;49m[27m[13;1H[?12l[?25h[?12;25h[40;35H[?25l[7m4[0m[39;49m[27m[14;1H[?12l[?25h[?12;25h[40;35H[?25l[7m5[0m[39;49m[27m[15;1H[?12l[?25h[?12;25h[40;35H[?25l[7m6[0m[39;49m[27m[16;1H[?12l[?25h[?12;25h[40;35H[?25l[7m7[0m[39;49m[27m[17;1H[?12l[?25h[?12;25h[40;35H[?25l[7m8[0m[39;49m[27m[18;1H[?12l[?25h[?12;25h[40;35H[?25l[7m9[0m[39;49m[27m[19;1H[?12l[?25h[?12;25h[4d[?25l<[24;4H>[19;1H[?12l[?25h[?12;25h[40;34H[?25l[7m20[0m[39;49m[27m[20;1H[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[21;1H[?12l[?25h[?12;25h[C[C[?25l[46m<[39;49m/[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[C[?25l</[1m[34mp[0m[39;49m>[?12l[?25h[?12;25h[C[C[40;35H[?25l[7m0[0m[39;49m[27m[20;6H[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[21;6H[?12l[?25h[?12;25h[40;35H[?25l[7m0[0m[39;49m[27m[20;6H[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[21;6H[?12l[?25h[?12;25h[C[?25l[46m<[39;49m/[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[41;1H[?25lMark set[21;7H[?12l[?25h[?12;25h[41;1H[K[40;35H[?25l[7m0[0m[39;49m[27m[20;7H[?12l[?25h[?12;25h
+[?25l</[1m[34mp[0m[39;49m>[A[?12l[?25h[?12;25h[40;34H[?25l[7m19[0m[39;49m[27m[19;7H[?12l[?25h[?12;25h[40;35H[?25l[7m8[0m[39;49m[27m[18;6H[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[?25l<[1m[34mp[0m[39;49m>[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[C[?25l<[1m[34mp[0m[39;49m>[?12l[?25h[?12;25h[1;31r[19;1H[3M[1;41r[18;1H[K[29d[K
+[K
+[K[40;6H[?25l[7m**[0m[39;49m[27m[18;1H[?12l[?25h[?12;25h[40;35H[?25l[7m7[0m[39;49m[27m[17;1H[?12l[?25h[?12;25h[40;35H[?25l[7m6[0m[39;49m[27m[16;1H[?12l[?25h[?12;25h[40;35H[?25l[7m5[0m[39;49m[27m[15;1H[?12l[?25h[?12;25h[40;35H[?25l[7m4[0m[39;49m[27m[14;1H[?12l[?25h[?12;25h[40;35H[?25l[7m2[0m[39;49m[27m[12;1H[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[11;1H[?12l[?25h[?12;25h[40;35H[?25l[7m0[0m[39;49m[27m[10;1H[?12l[?25h[?12;25h[40;34H[?25l[7m9 [0m[39;49m[27m[9;1H[?12l[?25h[?12;25h[40;34H[?25l[7m8[0m[39;49m[27m[8;1H[?12l[?25h[?12;25h[40;34H[?25l[7m7[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[1;40r[39;1H[1M[1;41r[41;1H[?25ldex.html.erb | new.html.erb | show.html.erb | edit.html.erb}[A[34mFind file: .../admin/app/views/contents/[39;49m{[1m_content_image.html.erb[0m | _fields.html.erb | in\
+[A					[?12l[?25h[?12;25h
+[K[1;2H[?25l[1m[34mdiv[0m[39;49m [33mclass[0m[39;49m=[32m"content_image"[39;49m>[2;3H[1m[34m<%[0m[39;49m[44m fields_for "content[content_image_attributes][]",content_image [39;49m[1m[36m[44mdo[0m[39;49m[44m |f2| [39;49m[1m[34m%>[0m[39;49m
+  <[1m[34mp[0m[39;49m>[K
+    コンテンツで使う画像：[1m[31m<%=[0m[39;49m[44m f2.file_field [39;49m[35m[44m:data[39;49m[44m, [39;49m[35m[44m:index[39;49m[44m => nil [39;49m[1m[31m%>[0m[39;49m
+[K
+    [1m[31m<%=[0m[39;49m[44m link_to_function "削除", "remove_field($(this),('.content_image'))" [39;49m[1m[31m%>[0m[39;49m
+  </[1m[34mp[0m[39;49m>[K
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m[K
+</[1m[34mdiv[0m[39;49m>
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+
+[K
+[K[39d[K
+[7m-uuu:---F1  [0m[39;49m[27m[7m[1m_content_image.html.erb[0m[39;49m[27m[7m   All L1    Git-integration  (RHTML Rinari Abbrev)---[0m[39;49m[27m
+[H[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mdiv[0m[39;49m [33mclass[0m[39;49m=[32m"content_image"[39;49m[46m>[39;49m[?12l[?25h[?12;25h[1;40r[39;1H[1M[1;41r[41;1H[?25l[34my, n, !, ., q, C-r, d or C-h) [39;49m[A[34mSave file /home/arsenal/realglobe/voluntourism/admin/app/views/contents/edit.html.erb? ([39;49m\
+[A[41;31H[?12l[?25h[?12;25h[1;40r[39;1H[1L[1;41r[41;1H[?25lQuit[K[39;1H[K[H[?12l[?25h[?12;25h[41d[K[H[41d[?25l[34mBuffer: [39;49m{[1medit.html.erb[0m | *scratch* | *Messages* | _content_image.html.erb}	[?12l[?25h[?12;25h[H[?25l<[1m[34mdiv[0m[39;49m [33mclass[0m[39;49m=[32m"content_image"[39;49m>[41;9H[?12l[?25h[?12;25h[?25lQuit[K[H[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mdiv[0m[39;49m [33mclass[0m[39;49m=[32m"content_image"[39;49m[46m>[39;49m[?12l[?25h[?12;25h[41d[K[H[1;40r[39;1H[1M[1;41r[41;1H[?25lb | show.html.erb | _content_image.html.erb | edit.html.erb}[A[34mFind file: .../admin/app/views/contents/[39;49m{[1m_fields.html.erb[0m | index.html.erb | new.html.er\
+[A					[?12l[?25h[?12;25h[H[?25l<[1m[34mdiv[0m[39;49m [33mclass[0m[39;49m=[32m"content_image"[39;49m>[40;41H[?12l[?25h[?12;25h
+[K[H[K[2;3H[?25l<[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[4;5H[1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[5;3H</[1m[34mp[0m[39;49m>
+<[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />
+    [1m[31m<%=[0m[39;49m[44m f.text_area [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m
+  </[1m[34mp[0m[39;49m>
+<[1m[34mdiv[0m[39;49m id = [32m"content_images"[39;49m>[11;3H[1m[31m<%=[0m[39;49m[44m [39;49m[1m[36m[44mrender[0m[39;49m[44m [39;49m[35m[44m:partial[39;49m[44m => 'content_image', [39;49m[35m[44m:collection[39;49m[44m => [39;49m[33m[44m@content[0m[39;49m[44m.content_images [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mdiv[0m[39;49m>
+<[1m[34mp[0m[39;49m>[1m[31m<%=[0m[39;49m[44m add_content_image_link "Add a content_image" [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mp[0m[39;49m>
+
+[1m[34m<%[0m[39;49m[44m [39;49m[33m[44m@content[0m[39;49m[44m.content_images.each [39;49m[1m[36m[44mdo[0m[39;49m[44m | content_image | [39;49m[1m[34m%>[0m[39;49m[17;3H<[1m[34mdiv[0m[39;49m [33mclass[0m[39;49m=[32m"content_content_images"[39;49m>[18;5H[1m[31m<%=[0m[39;49m[44m image_tag(content_image.data.url([39;49m[35m[44m:thumb[39;49m[44m), [39;49m[35m[44m:alt[39;49m[44m => '') [39;49m[1m[31m%>[0m[39;49m[19;5H[1m[31m<%=[0m[39;49m[44m check_box_tag "content_image_ids[]", content_image.id [39;49m[1m[31m%>[0m[39;49m[20;3H</[1m[34mdiv[0m[39;49m>
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m unless [39;49m[33m[44m@content[0m[39;49m[44m.content_images.first.new_record? [39;49m[1m[36m[44mrescue[0m[39;49m[44m nil [39;49m[1m[34m%>[0m[39;49m
+
+<[1m[34mp[0m[39;49m>
+[1m[31m<%=[0m[39;49m[44m f.label "コンテンツのバナー" [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[25;3H[1m[31m<%=[0m[39;49m[44m f.file_field [39;49m[35m[44m:banner[39;49m[44m [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mp[0m[39;49m>
+
+<[1m[34mp[0m[39;49m>
+[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:display[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[30;5H[1m[31m<%=[0m[39;49m[44m f.check_box [39;49m[35m[44m:display[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[31;3H</[1m[34mp[0m[39;49m>
+<[1m[34mp[0m[39;49m>
+[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:banner_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[34;5H[1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:banner_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[35;3H</[1m[34mp[0m[39;49m>
+<[1m[34mp[0m[39;49m>
+[1m[31m<%=[0m[39;49m[44m f.label "特集記事" [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[38;5H[1m[31m<%=[0m[39;49m[44m f.check_box [39;49m[35m[44m:content_type[39;49m[44m [39;49m[1m[31m%>[0m[39;49m
+  </[1m[34mp[0m[39;49m>[K
+[7m-uuu:---F1  [0m[39;49m[27m[7m[1m_fields.html.erb[0m[39;49m[27m[7m   Top L1    Git-integration  (RHTML Rinari Abbrev)----------[0m[39;49m[27m
+[H[?12l[?25h[?12;25h[40;37H[?25l[7m2[0m[39;49m[27m[H
+[?12l[?25h[?12;25h[40;37H[?25l[7m3[0m[39;49m[27m[H
+
+[?12l[?25h[?12;25h[40;37H[?25l[7m4[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[40;37H[?25l[7m5[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[40;37H[?25l[7m6[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[40;37H[?25l[7m7[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[40;37H[?25l[7m8[0m[39;49m[27m[8;1H[?12l[?25h[?12;25h[40;37H[?25l[7m9[0m[39;49m[27m[9;1H[?12l[?25h[?12;25h[40;37H[?25l[7m10[0m[39;49m[27m[10;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mdiv[0m[39;49m id = [32m"content_images"[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;38H[?25l[7m1[0m[39;49m[27m[11;1H[?12l[?25h[?12;25h[40;38H[?25l[7m2[0m[39;49m[27m[12;1H[?12l[?25h[?12;25h[40;38H[?25l[7m3[0m[39;49m[27m[13;1H[?12l[?25h[?12;25h[10d[?25l<[1m[34mdiv[0m[39;49m id = [32m"content_images"[39;49m>
+
+
+[46m<[39;49m[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;38H[?25l[7m4[0m[39;49m[27m[14;1H[?12l[?25h[?12;25h[A[?25l<[1m[34mp[0m[39;49m>
+[46m<[39;49m/[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;38H[?25l[7m5[0m[39;49m[27m[15;1H[?12l[?25h[?12;25h[A[?25l</[1m[34mp[0m[39;49m>
+[?12l[?25h[?12;25h[40;38H[?25l[7m6[0m[39;49m[27m[16;1H[?12l[?25h[?12;25h[?25l[1m[34m[46m<[0m[39;49m[1m[34m%[0m[39;49m[44m [39;49m[33m[44m@content[0m[39;49m[44m.content_images.each [39;49m[1m[36m[44mdo[0m[39;49m[44m | content_image | [39;49m[1m[34m%[0m[39;49m[1m[34m[46m>[0m[39;49m[?12l[?25h[?12;25h[40;38H[?25l[7m7[0m[39;49m[27m[17;1H[?12l[?25h[?12;25h[A[?25l[1m[34m<%[0m[39;49m[44m [39;49m[33m[44m@content[0m[39;49m[44m.content_images.each [39;49m[1m[36m[44mdo[0m[39;49m[44m | content_image | [39;49m[1m[34m%>[0m[39;49m
+[?12l[?25h[?12;25h[40;38H[?25l[7m8[0m[39;49m[27m[18;1H[?12l[?25h[?12;25h[40;38H[?25l[7m9[0m[39;49m[27m[19;1H[?12l[?25h[?12;25h[40;37H[?25l[7m20[0m[39;49m[27m[20;1H[?12l[?25h[?12;25h[40;38H[?25l[7m1[0m[39;49m[27m[21;1H[?12l[?25h[?12;25h[?25l[1m[34m[46m<[0m[39;49m[1m[34m%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m unless [39;49m[33m[44m@content[0m[39;49m[44m.content_images.first.new_record? [39;49m[1m[36m[44mrescue[0m[39;49m[44m nil [39;49m[1m[34m%[0m[39;49m[1m[34m[46m>[0m[39;49m[?12l[?25h[?12;25h[40;38H[?25l[7m2[0m[39;49m[27m[22;1H[?12l[?25h[?12;25h[A[?25l[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m unless [39;49m[33m[44m@content[0m[39;49m[44m.content_images.first.new_record? [39;49m[1m[36m[44mrescue[0m[39;49m[44m nil [39;49m[1m[34m%>[0m[39;49m
+[?12l[?25h[?12;25h[1;39r[23;1H[1L[1;41r[23;1H[K[40;6H[?25l[7m**-F1  [0m[39;49m[27m[7m[1m_fields.html.erb[0m[39;49m[27m[7m   Top L23[0m[39;49m[27m[23;1H[?12l[?25h[?12;25h[1;39r[25;1H[1L[1;41r[24;1H[K
+[?25l<[1m[34mp[0m[39;49m>[K[40;38H[7m4[0m[39;49m[27m[24;1H[?12l[?25h[?12;25h[1;39r[26;1H[1L[1;41r[25;1H[K
+[?25l<[1m[34mp[0m[39;49m>[K[40;38H[7m5[0m[39;49m[27m[25;1H[?12l[?25h[?12;25h[40;38H[?25l[7m4[0m[39;49m[27m[24;1H[?12l[?25h[?12;25h[40;38H[?25l[7m3[0m[39;49m[27m[23;1H[?12l[?25h[?12;25h[41d[?25lMark set[23;1H[?12l[?25h[?12;25h[1;39r[26;1H[3L[1;41r[23;3H[?25l<[1m[34mp[0m[39;49m>
+[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[25;5H[1m[31m<%=[0m[39;49m[44m f.text_area [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m
+  </[1m[34mp[0m[39;49m>[K
+[K
+[K[40;38H[7m6[0m[39;49m[27m[26;7H[?12l[?25h[?12;25h[?25l[46m<[39;49m/[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[41;1H[K[40;38H[?25l[7m5[0m[39;49m[27m[25;7H[?12l[?25h[?12;25h
+[?25l</[1m[34mp[0m[39;49m>[A[?12l[?25h[?12;25h[40;38H[?25l[7m4[0m[39;49m[27m[24;7H[?12l[?25h[?12;25h[40;38H[?25l[7m3[0m[39;49m[27m[23;6H[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[41;1H[?25lLoading cl-seq...[23;6H[?12l[?25h[?12;25h[41;18H[?25ldone[23;6H[?12l[?25h[?12;25h[2P[23;4H[41;1H[K[40;38H[?25l[7m4[0m[39;49m[27m[24;4H[?12l[?25h[?12;25h[A[?25l<[1m[34mp[0m[39;49m>
+[?12l[?25h[?12;25h[2P[?25l[1m[31m[46m<[0m[39;49m[1m[31m%=[0m[39;49m[44m f.label [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%[0m[39;49m[1m[31m[46m>[0m[39;49m[24;3H[?12l[?25h[?12;25h[40;38H[?25l[7m5[0m[39;49m[27m[25;3H[?12l[?25h[?12;25h[A[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[25;3H[?12l[?25h[?12;25h[2P[?25l[1m[31m[46m<[0m[39;49m[1m[31m%=[0m[39;49m[44m f.text_area [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%[0m[39;49m[1m[31m[46m>[0m[39;49m[25;3H[?12l[?25h[?12;25h[40;38H[?25l[7m6[0m[39;49m[27m[26;3H[?12l[?25h[?12;25h[A[?25l[1m[31m<%=[0m[39;49m[44m f.text_area [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[26;3H[46m<[39;49m/[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[2P[41d[?25lWrote /home/arsenal/realglobe/voluntourism/admin/app/views/contents/_fields.html.erb[26;1H[?12l[?25h[?12;25h[40;6H[?25l[7m---F1  [0m[39;49m[27m[7m[1m_fields.html.erb[0m[39;49m[27m[7m   Top L26   Git:[0m[39;49m[27m[26;1H[?12l[?25h[?12;25h[41d[K[26d[1;40r[39;1H[1M[1;41r[41;1H[?25l.erb}[A[34mBuffer: [39;49m{[1m_content_image.html.erb[0m | edit.html.erb | *scratch* | *Messages* | _fields.html\
+[A	[?12l[?25h[?12;25h[26;1H[?25l</[1m[34mp[0m[39;49m>[40;9H[?12l[?25h[?12;25h
+[K[H[?25l<[1m[34mdiv[0m[39;49m [33mclass[0m[39;49m=[32m"content_image"[39;49m>[2;3H[1m[34m<%[0m[39;49m[44m fields_for "content[content_image_attributes][]",content_image [39;49m[1m[36m[44mdo[0m[39;49m[44m |f2| [39;49m[1m[34m%>[0m[39;49m[3;3H<[1m[34mp[0m[39;49m>[K
+コンテンツで使う画像：[1m[31m<%=[0m[39;49m[44m f2.file_field [39;49m[35m[44m:data[39;49m[44m, [39;49m[35m[44m:index[39;49m[44m => nil [39;49m[1m[31m%>[0m[39;49m
+[K[6;3H  [1m[31m<%=[0m[39;49m[44m link_to_function "削除", "remove_field($(this),('.content_image'))" [39;49m[1m[31m%>[0m[39;49m[7;3H</[1m[34mp[0m[39;49m>[K
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m[K
+</[1m[34mdiv[0m[39;49m>
+[K
+[K
+[K
+[K
+[K
+
+[K
+[K
+[K
+[K
+[K
+[K
+
+[K
+[K
+[K
+[K
+
+
+[K
+[K
+[K
+[K
+
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-uuu:---F1  [0m[39;49m[27m[7m[1m_content_image.html.erb[0m[39;49m[27m[7m   All L1    Git-integration  (RHTML Rinari Abbrev)---[0m[39;49m[27m
+[H[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mdiv[0m[39;49m [33mclass[0m[39;49m=[32m"content_image"[39;49m[46m>[39;49m[?12l[?25h[?12;25h[1;40r[39;1H[1M[1;41r[41;1H[?25lMessages*}[A[34mKill buffer: [39;49m{[1m_content_image.html.erb[0m | _fields.html.erb | edit.html.erb | *scratch* | *\
+[A[40;14H[?12l[?25h[?12;25h[H[?25l<[1m[34mdiv[0m[39;49m [33mclass[0m[39;49m=[32m"content_image"[39;49m>[40;14H[?12l[?25h[?12;25h
+[K[H[K[2;3H[?25l<[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[4;5H[1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[5;3H</[1m[34mp[0m[39;49m>
+<[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />
+    [1m[31m<%=[0m[39;49m[44m f.text_area [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m
+  </[1m[34mp[0m[39;49m>
+<[1m[34mdiv[0m[39;49m id = [32m"content_images"[39;49m>[11;3H[1m[31m<%=[0m[39;49m[44m [39;49m[1m[36m[44mrender[0m[39;49m[44m [39;49m[35m[44m:partial[39;49m[44m => 'content_image', [39;49m[35m[44m:collection[39;49m[44m => [39;49m[33m[44m@content[0m[39;49m[44m.content_images [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mdiv[0m[39;49m>
+<[1m[34mp[0m[39;49m>[1m[31m<%=[0m[39;49m[44m add_content_image_link "Add a content_image" [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mp[0m[39;49m>
+
+[1m[34m<%[0m[39;49m[44m [39;49m[33m[44m@content[0m[39;49m[44m.content_images.each [39;49m[1m[36m[44mdo[0m[39;49m[44m | content_image | [39;49m[1m[34m%>[0m[39;49m[17;3H<[1m[34mdiv[0m[39;49m [33mclass[0m[39;49m=[32m"content_content_images"[39;49m>[18;5H[1m[31m<%=[0m[39;49m[44m image_tag(content_image.data.url([39;49m[35m[44m:thumb[39;49m[44m), [39;49m[35m[44m:alt[39;49m[44m => '') [39;49m[1m[31m%>[0m[39;49m[19;5H[1m[31m<%=[0m[39;49m[44m check_box_tag "content_image_ids[]", content_image.id [39;49m[1m[31m%>[0m[39;49m[20;3H</[1m[34mdiv[0m[39;49m>
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m unless [39;49m[33m[44m@content[0m[39;49m[44m.content_images.first.new_record? [39;49m[1m[36m[44mrescue[0m[39;49m[44m nil [39;49m[1m[34m%>[0m[39;49m
+
+<[1m[34mp[0m[39;49m>
+[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[25;3H[1m[31m<%=[0m[39;49m[44m f.text_area [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mp[0m[39;49m>
+
+
+<[1m[34mp[0m[39;49m>
+[1m[31m<%=[0m[39;49m[44m f.label "コンテンツのバナー" [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[31;3H[1m[31m<%=[0m[39;49m[44m f.file_field [39;49m[35m[44m:banner[39;49m[44m [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mp[0m[39;49m>
+
+<[1m[34mp[0m[39;49m>
+[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:display[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[36;5H[1m[31m<%=[0m[39;49m[44m f.check_box [39;49m[35m[44m:display[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[37;3H</[1m[34mp[0m[39;49m>
+<[1m[34mp[0m[39;49m>
+    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:banner_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K
+[7m-uuu:---F1  [0m[39;49m[27m[7m[1m_fields.html.erb[0m[39;49m[27m[7m   Top L26   Git:integration  (RHTML Rinari Abbrev)----------[0m[39;49m[27m
+[26d[?12l[?25h[?12;25h[?25l[46m<[39;49m/[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[41d[?25l[34mKill buffer: [39;49m{[1m_fields.html.erb[0m | edit.html.erb | *scratch* | *Messages*}[41;14H[?12l[?25h[?12;25h[26;1H[?25l</[1m[34mp[0m[39;49m>[41;14H[?12l[?25h[?12;25h[K[H[?25l<[1m[34mh1[0m[39;49m>[1m[4mEditing content[0m</[1m[34mh1[0m[39;49m>
+[K
+[1m[34m<%[0m[39;49m[44m form_for([39;49m[33m[44m@content[0m[39;49m[44m, [39;49m[35m[44m:html[39;49m[44m => { [39;49m[35m[44m:multipart[39;49m[44m => true })[39;49m[1m[36m[44mdo[0m[39;49m[44m |f| [39;49m[1m[34m%>[0m[39;49m
+<<<<<<< HEAD[K
+[1m[31m<%=[0m[39;49m[44m f.error_messages [39;49m[1m[31m%>[0m[39;49m
+[1m[31m<%=[0m[39;49m[44m [39;49m[1m[36m[44mrender[0m[39;49m[44m [39;49m[35m[44m:partial[39;49m[44m => 'fields', [39;49m[35m[44m:locals[39;49m[44m => {[39;49m[35m[44m:f[39;49m[44m => f} [39;49m[1m[31m%>[0m[39;49m
+=======[K[8;3H[1m[31m<%=[0m[39;49m[44m f.error_messages [39;49m[1m[31m%>[0m[39;49m[K
+[K
+  <[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K
+    [1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m
+  </[1m[34mp[0m[39;49m>[K
+  <[1m[34mp[0m[39;49m>
+[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />
+    [1m[31m<%=[0m[39;49m[44m f.text_area [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[17;4H/[1m[34mp[0m[39;49m>[K
+[K
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mfor[0m[39;49m[44m content_image [39;49m[1m[36m[44min[0m[39;49m[44m [39;49m[33m[44m@content[0m[39;49m[44m.content_images [39;49m[1m[34m%>[0m[39;49m[K
+[1m[34m<%[0m[39;49m[44m fields_for "content[content_image_attributes][]", content_image [39;49m[1m[36m[44mdo[0m[39;49m[44m |f2| [39;49m[1m[34m%>[0m[39;49m
+>>>>>>> de2a81bdd96eb938ace5860aae6fd27060572334[K
+<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.submit 'Update' [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mp[0m[39;49m>[K
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m[K
+[K
+[1m[31m<%=[0m[39;49m[44m link_to 'Show', [39;49m[33m[44m@content[0m[39;49m[44m [39;49m[1m[31m%>[0m[39;49m |
+[1m[31m<%=[0m[39;49m[44m link_to 'Back', contents_path [39;49m[1m[31m%>[0m[39;49m
+[K
+[K
+[K
+[K
+
+[K
+[K
+[K
+[K
+[K
+[K[40;4H[7m-:**-F1  [0m[39;49m[27m[7m[1medit.html.erb[0m[39;49m[27m[7m   All L7    Git:integration  (RHTML Rinari Abbrev)---[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[40;34H[?25l[7m6[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[?25l[1m[31m[46m<[0m[39;49m[1m[31m%=[0m[39;49m[44m [39;49m[1m[36m[44mrender[0m[39;49m[44m [39;49m[35m[44m:partial[39;49m[44m =[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;34H[?25l[7m5[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[?25l[1m[31m[46m<[0m[39;49m[1m[31m%=[0m[39;49m[44m f.error_messages [39;49m[1m[31m%[0m[39;49m[1m[31m[46m>[0m[39;49m
+[1m[31m<%=[0m[39;49m[44m [39;49m[1m[36m[44mrender[0m[39;49m[44m [39;49m[35m[44m:partial[39;49m[44m =>[39;49m[A[?12l[?25h[?12;25h[40;34H[?25l[7m4[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m
+[1m[31m<%=[0m[39;49m[44m f.error_messages [39;49m[1m[31m%>[0m[39;49m[21;4H[46m>[39;49m[4;1H[?12l[?25h[?12;25h[?25l[1@k[?12l[?25h[?12;25h[?25l[1@k[?12l[?25h[?12;25h[?25l[1P[?12l[?25h[?12;25h[?25l[1P[?12l[?25h[?12;25h[K[21;4H[?25l>[4;1H[?12l[?25h[?12;25h[40;34H[?25l[7m5[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[?25l[1m[31m[46m<[0m[39;49m[1m[31m%=[0m[39;49m[44m f.error_messages [39;49m[1m[31m%[0m[39;49m[1m[31m[46m>[0m[39;49m[?12l[?25h[?12;25h[40;34H[?25l[7m6[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[A[?25l[1m[31m<%=[0m[39;49m[44m f.error_messages [39;49m[1m[31m%>[0m[39;49m
+[1m[31m[46m<[0m[39;49m[1m[31m%=[0m[39;49m[44m [39;49m[1m[36m[44mrender[0m[39;49m[44m [39;49m[35m[44m:partial[39;49m[44m =[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;34H[?25l[7m7[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[A[?25l[1m[31m<%=[0m[39;49m[44m [39;49m[1m[36m[44mrender[0m[39;49m[44m [39;49m[35m[44m:partial[39;49m[44m =>[39;49m
+[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l[1m[31m<%=[0m[39;49m[44m f.error_messages [39;49m[1m[31m%>[0m[39;49m
+[K[39d[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[8;3H[?25l<[1m[34mp[0m[39;49m>[39;1H[K[7d[?12l[?25h[?12;25h[1;39r[9;1H[1M[1;41r[7;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[8;11H[44mtext_field [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[8;3H</[1m[34mp[0m[39;49m>[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34mp[0m[39;49m>[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[8;11H[44mtext_area [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.text_area [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[8;3H</[1m[34mp[0m[39;49m>[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l</[1m[34mp[0m[39;49m>
+[K[39d[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[8;1H[?25l[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mfor[0m[39;49m[44m content_image [39;49m[1m[36m[44min[0m[39;49m[44m [39;49m[33m[44m@content[0m[39;49m[44m.content_images [39;49m[1m[34m%>[0m[39;49m[39;1H[K[7d[?12l[?25h[?12;25h[1;39r[9;1H[1M[1;41r[7;1H[?25l[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mfor[0m[39;49m[44m content_image [39;49m[1m[36m[44min[0m[39;49m[44m [39;49m[33m[44m@content[0m[39;49m[44m.content_images [39;49m[1m[34m%>[0m[39;49m[8;4H[44mfields_for "content[content_image_attributes][]", content_image [39;49m[1m[36m[44mdo[0m[39;49m[44m |f2| [39;49m[1m[34m%>[0m[39;49m[39;1H[K[7d[?12l[?25h[?12;25h[?25l[1m[34m[46m<[0m[39;49m[1m[34m%[0m[39;49m[44m [39;49m[1m[36m[44mfor[0m[39;49m[44m content_image [39;49m[1m[36m[44min[0m[39;49m[44m [39;49m[33m[44m@content[0m[39;49m[44m.content_images [39;49m[1m[34m%[0m[39;49m[1m[34m[46m>[0m[39;49m[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;1H[?25l[1m[34m<%[0m[39;49m[44m fields_for "content[content_image_attributes][]", content_image [39;49m[1m[36m[44mdo[0m[39;49m[44m |f2| [39;49m[1m[34m%>[0m[39;49m
+>>>>>>> de2a81bdd96eb938ace5860aae6fd27060572334[K[39;1H[K[7d[?12l[?25h[?12;25h[?25l[1m[34m[46m<[0m[39;49m[1m[34m%[0m[39;49m[44m fields_for "content[content_image_attributes][]", content_image [39;49m[1m[36m[44mdo[0m[39;49m[44m |f2| [39;49m[1m[34m%[0m[39;49m[1m[34m[46m>[0m[39;49m[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;1H[?25l>>>>>>> de2a81bdd96eb938ace5860aae6fd27060572334
+<[1m[34mp[0m[39;49m>[K[39;1H[K[7d[?12l[?25h[?12;25h[K[41d[?25lWrote /home/arsenal/realglobe/voluntourism/admin/app/views/contents/edit.html.erb[7;1H[?12l[?25h[?12;25h[40;6H[?25l[7m--[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[41d[K[7d[41d[?25l(No files need saving)[7;1H[?12l[?25h[?12;25h[41d[?25lLoading image...[K[7;1H[?12l[?25h[?12;25h[41;17H[?25ldone[7;1H[?12l[?25h[?12;25h[41d[?25lWrote /home/arsenal/.ido.last[7;1H[?12l[?25h[?12;25h[41d[K[?1l>[?12l[?25h[?1049l[39;49m]0;arsenal@webbie: ~/realglobe/voluntourism/admin/app/views/contentsarsenal@webbie:~/realglobe/voluntourism/admin/app/views/contents$ new[K[K[Kemacs new.html.erb 
+[?1049h[?12;25h[?1h=[40;1H[?25l[7m----:---F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Fundamental)--------------------------------------[0m[39;49m[27m
+[A[H[?12l[?25h[?12;25h[41d[?25lLoading subst-ksc...[K[H[?12l[?25h[?12;25h[41;21H[?25ldone[H[?12l[?25h[?12;25h[41;15H[?25lgb2312...[K[H[?12l[?25h[?12;25h[41;24H[?25ldone[H[?12l[?25h[?12;25h[41;15H[?25lbig5...[K[H[?12l[?25h[?12;25h[41;22H[?25ldone[H[?12l[?25h[?12;25h[41;15H[?25ljis...[K[H[?12l[?25h[?12;25h[41;21H[?25ldone[H[?12l[?25h[?12;25h[H[2J[41d[?25lLoading encoded-kb...[K[H[?12l[?25h[?12;25h[41;22H[?25ldone[H[?12l[?25h[?12;25h[41d[K[?1l>[?12l[?25h[?1049l[39;49m[?1049h[?12;25h[?1h=[41;1H[?25lLoading 00debian-vars...[K[H
+[?12l[?25h[?12;25h[41;25H[?25ldone[H
+[?12l[?25h[?12;25h[41;9H[?25l/etc/emacs/site-start.d/50anthy-el.el (source)...[H
+[?12l[?25h[?12;25h[41;58H[?25ldone[H
+[?12l[?25h[?12;25h[41;35H[?25lcmake.el (source)...[K[H
+[?12l[?25h[?12;25h[41;55H[?25ldone[H
+[?12l[?25h[?12;25h[41;36H[?25loq.el (source)...[K[H
+[?12l[?25h[?12;25h[41;53H[?25ldone[H
+[?12l[?25h[?12;25h[41;36H[?25lss-mode.el (source)...[H
+[?12l[?25h[?12;25h[41;58H[?25ldone[H
+[?12l[?25h[?12;25h[41;35H[?25ldictionaries-common.el (source)...[H
+[?12l[?25h[?12;25h[41;9H[?25ldebian-ispell...[K[H
+[?12l[?25h[?12;25h[41;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
+[?12l[?25h[?12;25h[41;77H[?25ldone[H
+[?12l[?25h[?12;25h[41;9H[?25ldebian-ispell...done[K[H
+[?12l[?25h[?12;25h[41;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
+[?12l[?25h[?12;25h[41;75H[?25ldone[H
+[?12l[?25h[?12;25h[41;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
+[?12l[?25h[?12;25h[41;35H[?25lglobal.el (source)...[K[H
+[?12l[?25h[?12;25h[41;56H[?25ldone[H
+[?12l[?25h[?12;25h[41;35H[?25lhtml-helper-mode.el (source)...[H
+[?12l[?25h[?12;25h[41;66H[?25ldone[H
+[?12l[?25h[?12;25h[41;35H[?25locaml-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[41;60H[?25ldone[H
+[?12l[?25h[?12;25h[41;35H[?25lphp-elisp.el (source)...[K[H
+[?12l[?25h[?12;25h[41;59H[?25ldone[H
+[?12l[?25h[?12;25h[41;36H[?25lsvn.el (source)...[K[H
+[?12l[?25h[?12;25h[41;54H[?25ldone[H
+[?12l[?25h[?12;25h[41;35H[?25lruby1.8-elisp.el (source)...[H
+[?12l[?25h[?12;25h[41;63H[?25ldone[H
+[?12l[?25h[?12;25h[41;41H[?25l9-elisp.el (source)...[K[H
+[?12l[?25h[?12;25h[41;63H[?25ldone[H
+[?12l[?25h[?12;25h[41;34H[?25l1tuareg-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[41;61H[?25ldone[H
+[?12l[?25h[?12;25h[41;9H[?25lparen...[K[H
+[?12l[?25h[?12;25h[41;17H[?25ldone[H
+[?12l[?25h[?12;25h[41;9H[?25lcomplete...[K[H
+[?12l[?25h[?12;25h[41;9H[?25ladvice...[K[H
+[?12l[?25h[?12;25h[41;18H[?25ldone[H
+[?12l[?25h[?12;25h[41;9H[?25lcomplete...done[H
+[?12l[?25h[?12;25h[41;9H[?25licomplete...[K[H
+[?12l[?25h[?12;25h[41;21H[?25ldone[H
+[?12l[?25h[?12;25h[41;9H[?25lregexp-opt...[K[H[?12l[?25h[?12;25h[41;22H[?25ldone[H[?12l[?25h[?12;25h[41;9H[?25ledmacro...[K[H[?12l[?25h[?12;25h[41;19H[?25ldone[H[?12l[?25h[?12;25h[41;10H[?25lasy-mmode...[K[H[?12l[?25h[?12;25h[41;22H[?25ldone[H[?12l[?25h[?12;25h[41;9H[?25lcl-macs...[K[H[?12l[?25h[?12;25h[41;19H[?25ldone[H[?12l[?25h[?12;25h[41;9H[?25lderived...[K[H[?12l[?25h[?12;25h[41;19H[?25ldone[H[?12l[?25h[?12;25h[41d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[H[?12l[?25h[?12;25h[41d[?25lLoading vc-git...[K[H[?12l[?25h[?12;25h[41;18H[?25ldone[H[?12l[?25h[?12;25h[41d[?25lLoading vc-git...done[K[H<[1m[34mh1[0m[39;49m>[1m[4mNew content[0m</[1m[34mh1[0m[39;49m>[K
+[K
+[1m[34m<%[0m[39;49m[44m form_for([39;49m[33m[44m@content[0m[39;49m[44m, [39;49m[35m[44m:html[39;49m[44m => { [39;49m[35m[44m:multipart[39;49m[44m => true }) [39;49m[1m[36m[44mdo[0m[39;49m[44m |f| [39;49m[1m[34m%>[0m[39;49m[K
+  [1m[31m<%=[0m[39;49m[44m f.error_messages [39;49m[1m[31m%>[0m[39;49m[K
+<<<<<<< HEAD[K
+[1m[31m<%=[0m[39;49m[44m [39;49m[1m[36m[44mrender[0m[39;49m[44m [39;49m[35m[44m:partial[39;49m[44m => 'fields', [39;49m[35m[44m:locals[39;49m[44m => {[39;49m[35m[44m:f[39;49m[44m => f} [39;49m[1m[31m%>[0m[39;49m[K
+=======[K
+[K
+  <[1m[34mp[0m[39;49m>[K
+    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K
+    [1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K
+  </[1m[34mp[0m[39;49m>[K
+  <[1m[34mp[0m[39;49m>[K
+    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K
+    [1m[31m<%=[0m[39;49m[44m f.text_area [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K
+  </[1m[34mp[0m[39;49m>[K
+  <[1m[34mp[0m[39;49m>[K
+    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K
+    [1m[31m<%=[0m[39;49m[44m f.text_area [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K
+  </[1m[34mp[0m[39;49m>[K
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mfor[0m[39;49m[44m content_image [39;49m[1m[36m[44min[0m[39;49m[44m [39;49m[33m[44m@content[0m[39;49m[44m.content_images [39;49m[1m[34m%>[0m[39;49m[K
+[1m[34m<%[0m[39;49m[44m fields_for "content[content_image_attributes][]", content_image [39;49m[1m[36m[44mdo[0m[39;49m[44m |f2| [39;49m[1m[34m%>[0m[39;49m[K
+<[1m[34mp[0m[39;49m>[K
+コンテンツで使う画像：[1m[31m<%=[0m[39;49m[44m f2.file_field [39;49m[35m[44m:content_image[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K
+</[1m[34mp[0m[39;49m>[K
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m[K
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m[K
+[K
+[K
+<[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.label "コンテンツのバナー" [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K
+  [1m[31m<%=[0m[39;49m[44m f.file_field [39;49m[35m[44m:banner[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K
+</[1m[34mp[0m[39;49m>[K
+[K
+  <[1m[34mp[0m[39;49m>[K
+    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:display[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K
+    [1m[31m<%=[0m[39;49m[44m f.check_box [39;49m[35m[44m:display[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K
+  </[1m[34mp[0m[39;49m>[K
+  <[1m[34mp[0m[39;49m>[K
+[7m-uuu:---F1  [0m[39;49m[27m[7m[1mnew.html.erb[0m[39;49m[27m[7m   Top L1    Git:integration  (RHTML Rinari Abbrev)--------------[0m[39;49m[27m
+[A[H[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mh1[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[41d[K[A				[?25l[7m2[0m[39;49m[27m[H
+[?12l[?25h[?12;25h[A[?25l<[1m[34mh1[0m[39;49m>
+[?12l[?25h[?12;25h[40;33H[?25l[7m3[0m[39;49m[27m[H
+
+[?12l[?25h[?12;25h[?25l[1m[37m[45m<[0m[39;49m[1m[34m%[0m[39;49m[44m form_for([39;49m[33m[44m@content[0m[39;49m[44m, [39;49m[35m[44m:html[39;49m[44m => { [39;49m[35m[44m:multipart[39;49m[44m => true [39;49m[37m[45m}[39;49m[?12l[?25h[?12;25h[40;33H[?25l[7m4[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[A[?25l[1m[34m<%[0m[39;49m[44m form_for([39;49m[33m[44m@content[0m[39;49m[44m, [39;49m[35m[44m:html[39;49m[44m => { [39;49m[35m[44m:multipart[39;49m[44m => true }[39;49m
+[?12l[?25h[?12;25h[40;33H[?25l[7m5[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m[?12l[?25h[?12;25h[41d[?25lLoading cl-seq...[5;1H[?12l[?25h[?12;25h[41;18H[?25ldone[5;1H[?12l[?25h[?12;25h[2@[40;6H[?25l[7m**[0m[39;49m[27m[5;3H[?12l[?25h[?12;25h[41;1H[K[5;3H[?25l[1@k[?12l[?25h[?12;25h[?25l[1P[?12l[?25h[?12;25h[1P[1P[K[1;39r[5;1H[1M[1;41r[39;1H[?25l    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:banner_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K[5;1H[?12l[?25h[?12;25h[?25l[1m[31m[46m<[0m[39;49m[1m[31m%=[0m[39;49m[44m [39;49m[1m[36m[44mrender[0m[39;49m[44m [39;49m[35m[44m:partial[39;49m[44m =[39;49m[46m>[39;49m[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;1H[?25l=======
+[K[39d    [1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:banner_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[6;3H[?25l<[1m[34mp[0m[39;49m>[39;1H  </[1m[34mp[0m[39;49m>[K[5;1H[?12l[?25h[?12;25h[1;39r[7;1H[1M[1;41r[5;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H  <[1m[34mp[0m[39;49m>[K[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[6;11H[44mtext_field [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[39;1H    [1m[31m<%=[0m[39;49m[44m f.label "特集記事" [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[6;3H</[1m[34mp[0m[39;49m>[K[39;1H    [1m[31m<%=[0m[39;49m[44m f.check_box [39;49m[35m[44m:content_type[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34mp[0m[39;49m>[K[39;1H  </[1m[34mp[0m[39;49m>[K[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H  <[1m[34mp[0m[39;49m>[K[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[6;11H[44mtext_area [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[39;1H    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:customer_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.text_area [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[6;3H</[1m[34mp[0m[39;49m>[K[39;1H    [1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:customer_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34mp[0m[39;49m>[K[39;1H  </[1m[34mp[0m[39;49m>[K[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H  <[1m[34mp[0m[39;49m>[K[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[6;11H[44mtext_area [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[39;1H    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:banner_size_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.text_area [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[6;3H</[1m[34mp[0m[39;49m>[K[39;1H    [1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:banner_size_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mfor[0m[39;49m[44m content_image [39;49m[1m[36m[44min[0m[39;49m[44m [39;49m[33m[44m@content[0m[39;49m[44m.content_images [39;49m[1m[34m%>[0m[39;49m[39;1H  </[1m[34mp[0m[39;49m>[K[5;1H[?12l[?25h[?12;25h[1;39r[6;1H[1M[1;41r[5;1H[K[39d[?25l  <[1m[34mp[0m[39;49m>[K[5;1H[?12l[?25h[?12;25h[1;39r[7;1H[1M[1;41r[5;1H[?25l[1m[34m<%[0m[39;49m[44m fields_for "content[content_image_attributes][]", content_image [39;49m[1m[36m[44mdo[0m[39;49m[44m |f2| [39;49m[1m[34m%>[0m[39;49m
+<[1m[34mp[0m[39;49m>[K[39;1H    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:publish_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;1H[?25l<[1m[34mp[0m[39;49m>
+コンテンツで使う画像：[1m[31m<%=[0m[39;49m[44m f2.file_field [39;49m[35m[44m:content_image[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[39;1H    [1m[31m<%=[0m[39;49m[44m f.datetime_select [39;49m[35m[44m:publish_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[6;1H[?25l</[1m[34mp[0m[39;49m>[K[39;1H  </[1m[34mp[0m[39;49m>[K[5;1H[?12l[?25h[?12;25h[1;39r[7;1H[1M[1;41r[5;1H[?25l</[1m[34mp[0m[39;49m>
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m[39;1H  <[1m[34mp[0m[39;49m>[K[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;1H[?25l[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m[39;1H    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:close_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K[5;1H[?12l[?25h[?12;25h[1;39r[8;1H[1M[1;41r[5;1H[K
+[K[39d[?25l    [1m[31m<%=[0m[39;49m[44m f.datetime_select [39;49m[35m[44m:close_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[5;1H[?12l[?25h[?12;25h[1;39r[7;1H[1M[1;41r[39;1H[?25l  </[1m[34mp[0m[39;49m>[K[5;1H[?12l[?25h[?12;25h[1;39r[7;1H[1M[1;41r[6;1H[?25l<[1m[34mp[0m[39;49m>[39;1H>>>>>>> de2a81bdd96eb938ace5860aae6fd27060572334[K[5;1H[?12l[?25h[?12;25h[1;39r[7;1H[1M[1;41r[6;1H[?25l  [1m[31m<%=[0m[39;49m[44m f.label "コンテンツのバナー" [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H  <[1m[34mp[0m[39;49m>[K[5;1H[?12l[?25h[?12;25h[1;39r[7;1H[1M[1;41r[5;3H[?25l[1m[31m<%=[0m[39;49m[44m f.label "コンテンツのバナー" [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />
+	[44mfile_field [39;49m[35m[44m:banner[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[39;1H    [1m[31m<%=[0m[39;49m[44m f.submit 'Create' [39;49m[1m[31m%>[0m[39;49m[K[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;3H[?25l[1m[31m<%=[0m[39;49m[44m f.file_field [39;49m[35m[44m:banner[39;49m[44m [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mp[0m[39;49m>[K[39;1H  </[1m[34mp[0m[39;49m>[K[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;1H[?25l</[1m[34mp[0m[39;49m>
+[K[39d[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m[K[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[6;3H[?25l<[1m[34mp[0m[39;49m>[39;1H[K[5d[?12l[?25h[?12;25h[1;39r[7;1H[1M[1;41r[5;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:display[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H[1m[31m<%=[0m[39;49m[44m link_to 'Back', contents_path [39;49m[1m[31m%>[0m[39;49m[K[40;28H[7mAll[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.check_box [39;49m[35m[44m:display[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[6;3H</[1m[34mp[0m[39;49m>[K
+[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:banner_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[9;11H[44mtext_field [39;49m[35m[44m:banner_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[10;3H</[1m[34mp[0m[39;49m>[K
+[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.label "特集記事" [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[13;11H[44mcheck_box [39;49m[35m[44m:content_type[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[14;3H</[1m[34mp[0m[39;49m>[K
+[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:customer_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[17;11H[44mtext_field [39;49m[35m[44m:customer_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[18;3H</[1m[34mp[0m[39;49m>[K
+[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:banner_size_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[21;11H[44mtext_field [39;49m[35m[44m:banner_size_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[22;3H</[1m[34mp[0m[39;49m>[K
+[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:publish_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[25;11H[44mdatetime_select [39;49m[35m[44m:publish_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[26;3H</[1m[34mp[0m[39;49m>[K
+[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:close_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[29;11H[44mdatetime_select [39;49m[35m[44m:close_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[30;3H</[1m[34mp[0m[39;49m>[K
+>>>>>>> de2a81bdd96eb938ace5860aae6fd27060572334
+  <[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.submit 'Create' [39;49m[1m[31m%>[0m[39;49m[34;3H</[1m[34mp[0m[39;49m>[K
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m
+[K
+[1m[31m<%=[0m[39;49m[44m link_to 'Back', contents_path [39;49m[1m[31m%>[0m[39;49m
+[K
+[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34mp[0m[39;49m>[K[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:banner_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[6;3H  [1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:banner_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[7;3H</[1m[34mp[0m[39;49m>[K
+[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.label "特集記事" [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[10;11H[44mcheck_box [39;49m[35m[44m:content_type[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[11;3H</[1m[34mp[0m[39;49m>[K
+[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:customer_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[14;11H[44mtext_field [39;49m[35m[44m:customer_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[15;3H</[1m[34mp[0m[39;49m>[K
+[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:banner_size_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[18;11H[44mtext_field [39;49m[35m[44m:banner_size_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[19;3H</[1m[34mp[0m[39;49m>[K
+[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:publish_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[22;11H[44mdatetime_select [39;49m[35m[44m:publish_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[23;3H</[1m[34mp[0m[39;49m>[K
+[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:close_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[26;11H[44mdatetime_select [39;49m[35m[44m:close_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[27;3H</[1m[34mp[0m[39;49m>[K
+>>>>>>> de2a81bdd96eb938ace5860aae6fd27060572334
+  <[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.submit 'Create' [39;49m[1m[31m%>[0m[39;49m[31;3H</[1m[34mp[0m[39;49m>[K
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m
+[K
+[1m[31m<%=[0m[39;49m[44m link_to 'Back', contents_path [39;49m[1m[31m%>[0m[39;49m
+[K
+
+
+
+[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:banner_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[6;3H</[1m[34mp[0m[39;49m>[K[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34mp[0m[39;49m>[K[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label "特集記事" [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label "特集記事" [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[6;11H[44mcheck_box [39;49m[35m[44m:content_type[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.check_box [39;49m[35m[44m:content_type[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[6;3H</[1m[34mp[0m[39;49m>[K[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34mp[0m[39;49m>[K[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:customer_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:customer_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[6;11H[44mtext_field [39;49m[35m[44m:customer_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:customer_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[6;3H</[1m[34mp[0m[39;49m>[K[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34mp[0m[39;49m>[K[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:banner_size_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:banner_size_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[6;11H[44mtext_field [39;49m[35m[44m:banner_size_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:banner_size_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[6;3H</[1m[34mp[0m[39;49m>[K[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34mp[0m[39;49m>[K[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:publish_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:publish_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[6;11H[44mdatetime_select [39;49m[35m[44m:publish_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.datetime_select [39;49m[35m[44m:publish_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[6;3H</[1m[34mp[0m[39;49m>[K[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34mp[0m[39;49m>[K[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:close_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:close_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[6;11H[44mdatetime_select [39;49m[35m[44m:close_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;5H[?25l[1m[31m<%=[0m[39;49m[44m f.datetime_select [39;49m[35m[44m:close_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[6;3H</[1m[34mp[0m[39;49m>[K[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;3H[?25l</[1m[34mp[0m[39;49m>
+>>>>>>> de2a81bdd96eb938ace5860aae6fd27060572334[39;1H[K[5d[?12l[?25h[?12;25h[K[1;39r[7;1H[1M[1;41r[5;1H[?25l>>>>>>> de2a81bdd96eb938ace5860aae6fd27060572334
+  <[1m[34mp[0m[39;49m>[K[39;1H[K[5d[?12l[?25h[?12;25h[K[41d[?25lC-x[5;1H[?12l[?25h[?12;25h[41;4H[?25l-[5;1H[?12l[?25h[?12;25h[41;4H[?25l C-c[5;1H[?12l[?25h[?12;25h[1;40r[39;1H[1M[1;41r[41;1H[?25l[34m, n, !, ., q, C-r, d or C-h) [39;49m[A[34mSave file /home/arsenal/realglobe/voluntourism/admin/app/views/contents/new.html.erb? (y[39;49m\
+[A[41;30H[?12l[?25h[?12;25h[?25l, n, !, ., q, C-r, d or C-h) n[ASave file /home/arsenal/realglobe/voluntourism/admin/app/views/contents/new.html.erb? (y[41;31H[?12l[?25h[?12;25h[1;40r[39;1H[1L[1;41r[41;1H[K[39d[K[5d[41d[?25l[34mModified buffers exist; exit anyway? (yes or no) [39;49m[?12l[?25h[?12;25h[?25ly[?12l[?25h[?12;25h[?25le[?12l[?25h[?12;25h[?25ls[?12l[?25h[?12;25h[?25lLoading image...[K[5;1H[?12l[?25h[?12;25h[41;17H[?25ldone[5;1H[?12l[?25h[?12;25h[41d[?25lWrote /home/arsenal/.ido.last[5;1H[?12l[?25h[?12;25h[41d[K[?1l>[?12l[?25h[?1049l[39;49m]0;arsenal@webbie: ~/realglobe/voluntourism/admin/app/views/contentsarsenal@webbie:~/realglobe/voluntourism/admin/app/views/contents$ emacs new.html.erb 
+[?1049h[?12;25h[?1h=[40;1H[?25l[7m----:---F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Fundamental)--------------------------------------[0m[39;49m[27m
+[A[H[?12l[?25h[?12;25h[41d[?25lLoading subst-ksc...[K[H[?12l[?25h[?12;25h[41;21H[?25ldone[H[?12l[?25h[?12;25h[41;15H[?25lgb2312...[K[H[?12l[?25h[?12;25h[41;24H[?25ldone[H[?12l[?25h[?12;25h[41;15H[?25lbig5...[K[H[?12l[?25h[?12;25h[41;22H[?25ldone[H[?12l[?25h[?12;25h[41;15H[?25ljis...[K[H[?12l[?25h[?12;25h[41;21H[?25ldone[H[?12l[?25h[?12;25h[H[2J[41d[?25lLoading encoded-kb...[K[H[?12l[?25h[?12;25h[41;22H[?25ldone[H[?12l[?25h[?12;25h[41d[K[?1l>[?12l[?25h[?1049l[39;49m[?1049h[?12;25h[?1h=[41;1H[?25lLoading 00debian-vars...[K[H
+[?12l[?25h[?12;25h[41;25H[?25ldone[H
+[?12l[?25h[?12;25h[41;9H[?25l/etc/emacs/site-start.d/50anthy-el.el (source)...[H
+[?12l[?25h[?12;25h[41;58H[?25ldone[H
+[?12l[?25h[?12;25h[41;35H[?25lcmake.el (source)...[K[H
+[?12l[?25h[?12;25h[41;55H[?25ldone[H
+[?12l[?25h[?12;25h[41;36H[?25loq.el (source)...[K[H
+[?12l[?25h[?12;25h[41;53H[?25ldone[H
+[?12l[?25h[?12;25h[41;36H[?25lss-mode.el (source)...[H
+[?12l[?25h[?12;25h[41;58H[?25ldone[H
+[?12l[?25h[?12;25h[41;35H[?25ldictionaries-common.el (source)...[H
+[?12l[?25h[?12;25h[41;9H[?25ldebian-ispell...[K[H
+[?12l[?25h[?12;25h[41;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
+[?12l[?25h[?12;25h[41;77H[?25ldone[H
+[?12l[?25h[?12;25h[41;9H[?25ldebian-ispell...done[K[H
+[?12l[?25h[?12;25h[41;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
+[?12l[?25h[?12;25h[41;75H[?25ldone[H
+[?12l[?25h[?12;25h[41;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
+[?12l[?25h[?12;25h[41;35H[?25lglobal.el (source)...[K[H
+[?12l[?25h[?12;25h[41;56H[?25ldone[H
+[?12l[?25h[?12;25h[41;35H[?25lhtml-helper-mode.el (source)...[H
+[?12l[?25h[?12;25h[41;66H[?25ldone[H
+[?12l[?25h[?12;25h[41;35H[?25locaml-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[41;60H[?25ldone[H
+[?12l[?25h[?12;25h[41;35H[?25lphp-elisp.el (source)...[K[H
+[?12l[?25h[?12;25h[41;59H[?25ldone[H
+[?12l[?25h[?12;25h[41;36H[?25lsvn.el (source)...[K[H
+[?12l[?25h[?12;25h[41;54H[?25ldone[H
+[?12l[?25h[?12;25h[41;35H[?25lruby1.8-elisp.el (source)...[H
+[?12l[?25h[?12;25h[41;63H[?25ldone[H
+[?12l[?25h[?12;25h[41;41H[?25l9-elisp.el (source)...[K[H
+[?12l[?25h[?12;25h[41;63H[?25ldone[H
+[?12l[?25h[?12;25h[41;34H[?25l1tuareg-mode.el (source)...[K[H
+[?12l[?25h[?12;25h[41;61H[?25ldone[H
+[?12l[?25h[?12;25h[41;9H[?25lparen...[K[H
+[?12l[?25h[?12;25h[41;17H[?25ldone[H
+[?12l[?25h[?12;25h[41;9H[?25lcomplete...[K[H
+[?12l[?25h[?12;25h[41;9H[?25ladvice...[K[H
+[?12l[?25h[?12;25h[41;18H[?25ldone[H
+[?12l[?25h[?12;25h[41;9H[?25lcomplete...done[H
+[?12l[?25h[?12;25h[41;9H[?25licomplete...[K[H
+[?12l[?25h[?12;25h[41;21H[?25ldone[H
+[?12l[?25h[?12;25h[41;9H[?25lregexp-opt...[K[H[?12l[?25h[?12;25h[41;22H[?25ldone[H[?12l[?25h[?12;25h[41;9H[?25ledmacro...[K[H[?12l[?25h[?12;25h[41;19H[?25ldone[H[?12l[?25h[?12;25h[41;10H[?25lasy-mmode...[K[H[?12l[?25h[?12;25h[41;22H[?25ldone[H[?12l[?25h[?12;25h[41;9H[?25lcl-macs...[K[H[?12l[?25h[?12;25h[41;19H[?25ldone[H[?12l[?25h[?12;25h[41;9H[?25lderived...[K[H[?12l[?25h[?12;25h[41;19H[?25ldone[H[?12l[?25h[?12;25h[41d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[H[?12l[?25h[?12;25h[41d[?25lnew.html.erb has auto save data; consider M-x recover-this-file[K[H[?12l[?25h[?12;25h[41d[?25lnew.html.erb has auto save data; consider M-x recover-this-file[K[H[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-uuu:---F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Lisp Interaction)---------------------------------[0m[39;49m[27m
+[A[H[?12l[?25h[?12;25h[41d[?25lLoading vc-git...[K[H[?12l[?25h[?12;25h[41;18H[?25ldone[H[?12l[?25h[?12;25h[41d[?25lLoading vc-git...done[K[H<[1m[34mh1[0m[39;49m>[1m[4mNew content[0m</[1m[34mh1[0m[39;49m>[K
+[K
+[1m[34m<%[0m[39;49m[44m form_for([39;49m[33m[44m@content[0m[39;49m[44m, [39;49m[35m[44m:html[39;49m[44m => { [39;49m[35m[44m:multipart[39;49m[44m => true }) [39;49m[1m[36m[44mdo[0m[39;49m[44m |f| [39;49m[1m[34m%>[0m[39;49m[K
+  [1m[31m<%=[0m[39;49m[44m f.error_messages [39;49m[1m[31m%>[0m[39;49m[K
+<<<<<<< HEAD[K
+[1m[31m<%=[0m[39;49m[44m [39;49m[1m[36m[44mrender[0m[39;49m[44m [39;49m[35m[44m:partial[39;49m[44m => 'fields', [39;49m[35m[44m:locals[39;49m[44m => {[39;49m[35m[44m:f[39;49m[44m => f} [39;49m[1m[31m%>[0m[39;49m[K
+=======[K
+[K
+  <[1m[34mp[0m[39;49m>[K
+    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K
+    [1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K
+  </[1m[34mp[0m[39;49m>[K
+  <[1m[34mp[0m[39;49m>[K
+    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K
+    [1m[31m<%=[0m[39;49m[44m f.text_area [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K
+  </[1m[34mp[0m[39;49m>[K
+  <[1m[34mp[0m[39;49m>[K
+    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K
+    [1m[31m<%=[0m[39;49m[44m f.text_area [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K
+  </[1m[34mp[0m[39;49m>[K
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mfor[0m[39;49m[44m content_image [39;49m[1m[36m[44min[0m[39;49m[44m [39;49m[33m[44m@content[0m[39;49m[44m.content_images [39;49m[1m[34m%>[0m[39;49m[K
+[1m[34m<%[0m[39;49m[44m fields_for "content[content_image_attributes][]", content_image [39;49m[1m[36m[44mdo[0m[39;49m[44m |f2| [39;49m[1m[34m%>[0m[39;49m[K
+<[1m[34mp[0m[39;49m>[K
+コンテンツで使う画像：[1m[31m<%=[0m[39;49m[44m f2.file_field [39;49m[35m[44m:content_image[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K
+</[1m[34mp[0m[39;49m>[K
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m[K
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m[K
+[K
+[K
+<[1m[34mp[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44m f.label "コンテンツのバナー" [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K
+  [1m[31m<%=[0m[39;49m[44m f.file_field [39;49m[35m[44m:banner[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K
+</[1m[34mp[0m[39;49m>[K
+[K
+  <[1m[34mp[0m[39;49m>[K
+    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:display[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K
+    [1m[31m<%=[0m[39;49m[44m f.check_box [39;49m[35m[44m:display[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K
+  </[1m[34mp[0m[39;49m>[K
+  <[1m[34mp[0m[39;49m>[K
+[7m-uuu:---F1  [0m[39;49m[27m[7m[1mnew.html.erb[0m[39;49m[27m[7m   Top L1    Git:integration  (RHTML Rinari Abbrev)--------------[0m[39;49m[27m
+[A[H[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mh1[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[41d[K[A				[?25l[7m2[0m[39;49m[27m[H
+[?12l[?25h[?12;25h[A[?25l<[1m[34mh1[0m[39;49m>
+[?12l[?25h[?12;25h[40;33H[?25l[7m3[0m[39;49m[27m[H
+
+[?12l[?25h[?12;25h[?25l[1m[37m[45m<[0m[39;49m[1m[34m%[0m[39;49m[44m form_for([39;49m[33m[44m@content[0m[39;49m[44m, [39;49m[35m[44m:html[39;49m[44m => { [39;49m[35m[44m:multipart[39;49m[44m => true [39;49m[37m[45m}[39;49m[?12l[?25h[?12;25h[40;33H[?25l[7m4[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[A[?25l[1m[34m<%[0m[39;49m[44m form_for([39;49m[33m[44m@content[0m[39;49m[44m, [39;49m[35m[44m:html[39;49m[44m => { [39;49m[35m[44m:multipart[39;49m[44m => true }[39;49m
+[?12l[?25h[?12;25h[40;33H[?25l[7m5[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m[?12l[?25h[?12;25h[40;33H[?25l[7m6[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[A[?25l<
+[1m[31m[46m<[0m[39;49m[1m[31m%=[0m[39;49m[44m [39;49m[1m[36m[44mrender[0m[39;49m[44m [39;49m[35m[44m:partial[39;49m[44m =[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;33H[?25l[7m5[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m
+[1m[31m<%=[0m[39;49m[44m [39;49m[1m[36m[44mrender[0m[39;49m[44m [39;49m[35m[44m:partial[39;49m[44m =>[39;49m[A[?12l[?25h[?12;25h[40;33H[?25l[7m4[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h
+[?25l<[A[?12l[?25h[?12;25h[40;33H[?25l[7m5[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m[?12l[?25h[?12;25h[K[40;6H[?25l[7m**[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[40;33H[?25l[7m6[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[?25l[1m[31m[46m<[0m[39;49m[1m[31m%=[0m[39;49m[44m [39;49m[1m[36m[44mrender[0m[39;49m[44m [39;49m[35m[44m:partial[39;49m[44m =[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;33H[?25l[7m7[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[A[?25l[1m[31m<%=[0m[39;49m[44m [39;49m[1m[36m[44mrender[0m[39;49m[44m [39;49m[35m[44m:partial[39;49m[44m =>[39;49m
+[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[8;3H[?25l<[1m[34mp[0m[39;49m>[39;1H    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:banner_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K[7;1H[?12l[?25h[?12;25h[1;39r[9;1H[1M[1;41r[7;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H    [1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:banner_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[8;11H[44mtext_field [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[39;1H  </[1m[34mp[0m[39;49m>[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:title[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[8;3H</[1m[34mp[0m[39;49m>[K[39;1H  <[1m[34mp[0m[39;49m>[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34mp[0m[39;49m>[K[39;1H    [1m[31m<%=[0m[39;49m[44m f.label "特集記事" [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H    [1m[31m<%=[0m[39;49m[44m f.check_box [39;49m[35m[44m:content_type[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[8;11H[44mtext_area [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[39;1H  </[1m[34mp[0m[39;49m>[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.text_area [39;49m[35m[44m:body[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[8;3H</[1m[34mp[0m[39;49m>[K[39;1H  <[1m[34mp[0m[39;49m>[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34mp[0m[39;49m>[K[39;1H    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:customer_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H    [1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:customer_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[8;11H[44mtext_area [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[39;1H  </[1m[34mp[0m[39;49m>[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.text_area [39;49m[35m[44m:summary[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[8;3H</[1m[34mp[0m[39;49m>[K[39;1H  <[1m[34mp[0m[39;49m>[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mfor[0m[39;49m[44m content_image [39;49m[1m[36m[44min[0m[39;49m[44m [39;49m[33m[44m@content[0m[39;49m[44m.content_images [39;49m[1m[34m%>[0m[39;49m[39;1H    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:banner_size_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;1H[?25l[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mfor[0m[39;49m[44m content_image [39;49m[1m[36m[44min[0m[39;49m[44m [39;49m[33m[44m@content[0m[39;49m[44m.content_images [39;49m[1m[34m%>[0m[39;49m[8;4H[44mfields_for "content[content_image_attributes][]", content_image [39;49m[1m[36m[44mdo[0m[39;49m[44m |f2| [39;49m[1m[34m%>[0m[39;49m[39;1H    [1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:banner_size_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;1H[?25l[1m[34m<%[0m[39;49m[44m fields_for "content[content_image_attributes][]", content_image [39;49m[1m[36m[44mdo[0m[39;49m[44m |f2| [39;49m[1m[34m%>[0m[39;49m
+<[1m[34mp[0m[39;49m>[K[39;1H  </[1m[34mp[0m[39;49m>[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;1H[?25l<[1m[34mp[0m[39;49m>
+コンテンツで使う画像：[1m[31m<%=[0m[39;49m[44m f2.file_field [39;49m[35m[44m:content_image[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[39;1H  <[1m[34mp[0m[39;49m>[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;1H[?25lコンテンツで使う画像：[1m[31m<%=[0m[39;49m[44m f2.file_field [39;49m[35m[44m:content_image[39;49m[44m [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mp[0m[39;49m>[K[39;1H    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:publish_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;1H[?25l</[1m[34mp[0m[39;49m>
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m[39;1H    [1m[31m<%=[0m[39;49m[44m f.datetime_select [39;49m[35m[44m:publish_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;1H[?25l[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m[39;1H  </[1m[34mp[0m[39;49m>[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;1H[?25l[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m
+[K[39d  <[1m[34mp[0m[39;49m>[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[39;1H[?25l    [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:close_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[K[7;1H[?12l[?25h[?12;25h[1;39r[9;1H[1M[1;41r[8;1H[?25l<[1m[34mp[0m[39;49m>[39;1H    [1m[31m<%=[0m[39;49m[44m f.datetime_select [39;49m[35m[44m:close_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[7;1H[?12l[?25h[?12;25h[1;39r[9;1H[1M[1;41r[7;1H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label "コンテンツのバナー" [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H  </[1m[34mp[0m[39;49m>[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l[1m[31m<%=[0m[39;49m[44m f.label "コンテンツのバナー" [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />
+	[44mfile_field [39;49m[35m[44m:banner[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[39;1H>>>>>>> de2a81bdd96eb938ace5860aae6fd27060572334[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l[1m[31m<%=[0m[39;49m[44m f.file_field [39;49m[35m[44m:banner[39;49m[44m [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mp[0m[39;49m>[K[39;1H  <[1m[34mp[0m[39;49m>[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;1H[?25l</[1m[34mp[0m[39;49m>
+[K[39d    [1m[31m<%=[0m[39;49m[44m f.submit 'Create' [39;49m[1m[31m%>[0m[39;49m[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[8;3H[?25l<[1m[34mp[0m[39;49m>[39;1H  </[1m[34mp[0m[39;49m>[K[7;1H[?12l[?25h[?12;25h[1;39r[9;1H[1M[1;41r[7;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:display[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m[K[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:display[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[8;11H[44mcheck_box [39;49m[35m[44m:display[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.check_box [39;49m[35m[44m:display[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[8;3H</[1m[34mp[0m[39;49m>[K[39;1H[1m[31m<%=[0m[39;49m[44m link_to 'Back', contents_path [39;49m[1m[31m%>[0m[39;49m[K[40;28H[7mAll[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34mp[0m[39;49m>[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:banner_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:banner_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[8;11H[44mtext_field [39;49m[35m[44m:banner_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:banner_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[8;3H</[1m[34mp[0m[39;49m>[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34mp[0m[39;49m>[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label "特集記事" [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label "特集記事" [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[8;11H[44mcheck_box [39;49m[35m[44m:content_type[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.check_box [39;49m[35m[44m:content_type[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[8;3H</[1m[34mp[0m[39;49m>[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34mp[0m[39;49m>[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:customer_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:customer_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[8;11H[44mtext_field [39;49m[35m[44m:customer_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:customer_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[8;3H</[1m[34mp[0m[39;49m>[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34mp[0m[39;49m>[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:banner_size_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:banner_size_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[8;11H[44mtext_field [39;49m[35m[44m:banner_size_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.text_field [39;49m[35m[44m:banner_size_id[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[8;3H</[1m[34mp[0m[39;49m>[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34mp[0m[39;49m>[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:publish_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:publish_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[8;11H[44mdatetime_select [39;49m[35m[44m:publish_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.datetime_select [39;49m[35m[44m:publish_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[8;3H</[1m[34mp[0m[39;49m>[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l</[1m[34mp[0m[39;49m>
+[1m[34mp[0m[39;49m>[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l<[1m[34mp[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:close_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.label [39;49m[35m[44m:close_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m<[1m[34mbr[0m[39;49m />[8;11H[44mdatetime_select [39;49m[35m[44m:close_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;5H[?25l[1m[31m<%=[0m[39;49m[44m f.datetime_select [39;49m[35m[44m:close_at[39;49m[44m [39;49m[1m[31m%>[0m[39;49m[8;3H</[1m[34mp[0m[39;49m>[K[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;3H[?25l</[1m[34mp[0m[39;49m>
+>>>>>>> de2a81bdd96eb938ace5860aae6fd27060572334[39;1H[K[7d[?12l[?25h[?12;25h[K[1;39r[9;1H[1M[1;41r[7;1H[?25l>>>>>>> de2a81bdd96eb938ace5860aae6fd27060572334
+  <[1m[34mp[0m[39;49m>[K[39;1H[K[7d[?12l[?25h[?12;25h[K[41d[?25lWrote /home/arsenal/realglobe/voluntourism/admin/app/views/contents/new.html.erb[7;1H[?12l[?25h[?12;25h[40;6H[?25l[7m--[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[41d[K[7d[1;40r[39;1H[1M[1;41r[41;1H[?25lit.html.erb | index.html.erb | show.html.erb | new.html.erb}[A[34mFind file: .../admin/app/views/contents/[39;49m{[1m_content_image.html.erb[0m | _fields.html.erb | ed\
+[A					[?12l[?25h[?12;25h
+[K[40;41H[?25ls{[1mshow.html.erb[0m | _fields.html.erb}[K[40;42H[?12l[?25h[?12;25h[?25lh[[32mshow.html.erb[39;49m][K[40;43H[?12l[?25h[?12;25h[?25low.html.erb[K[?12l[?25h[?12;25h[1;2H[?25l[1m[34mp[0m[39;49m>[K
+<[1m[34mb[0m[39;49m>[1mTitle:[0m</[1m[34mb[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44mh [39;49m[33m[44m@content[0m[39;49m[44m.title [39;49m[1m[31m%>[0m[39;49m[K
+</[1m[34mp[0m[39;49m>[K
+
+<[1m[34mp[0m[39;49m>[K
+<[1m[34mb[0m[39;49m>[1mBody:[0m</[1m[34mb[0m[39;49m>
+[K
+[1m[31m<%=[0m[39;49m[44mh [39;49m[33m[44m@content[0m[39;49m[44m.body [39;49m[1m[31m%>[0m[39;49m[K
+[2P[11;4H[1m[36m[44mfor[0m[39;49m[44m content_image [39;49m[1m[36m[44min[0m[39;49m[44m [39;49m[33m[44m@content[0m[39;49m[44m.content_images [39;49m[1m[34m%>[0m[39;49m
+<[1m[34mp[0m[39;49m>
+    [1m[31m<%=[0m[39;49m[44m image_tag content_image.data.url([39;49m[35m[44m:thumb[39;49m[44m), [39;49m[35m[44m:alt[39;49m[44m => "" [39;49m[1m[31m%>[0m[39;49m[14;5H[1m[31m<%=[0m[39;49m[44m h content_image.data.url([39;49m[35m[44m:original[39;49m[44m) [39;49m[1m[31m%>[0m[39;49m[15;5H</[1m[34mp[0m[39;49m>[16;3H[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m
+
+<[1m[34mp[0m[39;49m>
+<<<<<<< HEAD[20;3H<[1m[34mb[0m[39;49m>[1m表示するかどうか:[0m</[1m[34mb[0m[39;49m>
+=======
+<[1m[34mb[0m[39;49m>[1mSummary:[0m</[1m[34mb[0m[39;49m>[23;3H[1m[31m<%=[0m[39;49m[44mh [39;49m[33m[44m@content[0m[39;49m[44m.summary [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mp[0m[39;49m>
+
+<[1m[34mp[0m[39;49m>
+<[1m[34mb[0m[39;49m>[1mDisplay:[0m</[1m[34mb[0m[39;49m>
+>>>>>>> de2a81bdd96eb938ace5860aae6fd27060572334[29;3H[1m[31m<%=[0m[39;49m[44mh [39;49m[33m[44m@content[0m[39;49m[44m.display [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mp[0m[39;49m>
+
+<[1m[34mp[0m[39;49m>
+<[1m[34mb[0m[39;49m>[1mBanner:[0m</[1m[34mb[0m[39;49m>[34;3H[1m[31m<%=[0m[39;49m[44mh [39;49m[33m[44m@content[0m[39;49m[44m.banner_id [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mp[0m[39;49m>
+
+<[1m[34mp[0m[39;49m>
+<[1m[34mb[0m[39;49m>[1m特集記事:[0m</[1m[34mb[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44mh [39;49m[33m[44m@content[0m[39;49m[44m.content_type [39;49m[1m[31m%>[0m[39;49m[K
+[7m-uuu:---F1  [0m[39;49m[27m[7m[1mshow.html.erb[0m[39;49m[27m[7m   Top L1    Git:integration  (RHTML Rinari Abbrev)-------------[0m[39;49m[27m
+[H[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;34H[?25l[7m2[0m[39;49m[27m[H
+[?12l[?25h[?12;25h[A[?25l<[1m[34mp[0m[39;49m>
+[?12l[?25h[?12;25h[40;34H[?25l[7m3[0m[39;49m[27m[H
+
+[?12l[?25h[?12;25h[40;34H[?25l[7m4[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[40;34H[?25l[7m5[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[40;34H[?25l[7m6[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[40;34H[?25l[7m7[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[40;34H[?25l[7m8[0m[39;49m[27m[8;1H[?12l[?25h[?12;25h[40;34H[?25l[7m9[0m[39;49m[27m[9;1H[?12l[?25h[?12;25h[40;34H[?25l[7m10[0m[39;49m[27m[10;1H[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[11;1H[?12l[?25h[?12;25h[40;35H[?25l[7m2[0m[39;49m[27m[12;1H[?12l[?25h[?12;25h[40;35H[?25l[7m3[0m[39;49m[27m[13;1H[?12l[?25h[?12;25h[40;35H[?25l[7m4[0m[39;49m[27m[14;1H[?12l[?25h[?12;25h[40;35H[?25l[7m5[0m[39;49m[27m[15;1H[?12l[?25h[?12;25h[40;35H[?25l[7m6[0m[39;49m[27m[16;1H[?12l[?25h[?12;25h[40;35H[?25l[7m7[0m[39;49m[27m[17;1H[?12l[?25h[?12;25h[40;35H[?25l[7m8[0m[39;49m[27m[18;1H[?12l[?25h[?12;25h[40;35H[?25l[7m9[0m[39;49m[27m[19;1H[?12l[?25h[?12;25h[40;34H[?25l[7m20[0m[39;49m[27m[20;1H[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[21;1H[?12l[?25h[?12;25h[40;35H[?25l[7m2[0m[39;49m[27m[22;1H[?12l[?25h[?12;25h[40;35H[?25l[7m3[0m[39;49m[27m[23;1H[?12l[?25h[?12;25h[40;35H[?25l[7m4[0m[39;49m[27m[24;1H[?12l[?25h[?12;25h[40;35H[?25l[7m5[0m[39;49m[27m[25;1H[?12l[?25h[?12;25h[40;35H[?25l[7m6[0m[39;49m[27m[26;1H[?12l[?25h[?12;25h[40;35H[?25l[7m7[0m[39;49m[27m[27;1H[?12l[?25h[?12;25h[40;35H[?25l[7m8[0m[39;49m[27m[28;1H[?12l[?25h[?12;25h[40;35H[?25l[7m9[0m[39;49m[27m[29;1H[?12l[?25h[?12;25h[40;34H[?25l[7m30[0m[39;49m[27m[30;1H[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[31;1H[?12l[?25h[?12;25h[40;35H[?25l[7m2[0m[39;49m[27m[32;1H[?12l[?25h[?12;25h[40;35H[?25l[7m3[0m[39;49m[27m[33;1H[?12l[?25h[?12;25h[40;35H[?25l[7m4[0m[39;49m[27m[34;1H[?12l[?25h[?12;25h[40;35H[?25l[7m3[0m[39;49m[27m[33;1H[?12l[?25h[?12;25h[40;35H[?25l[7m2[0m[39;49m[27m[32;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[31;1H[?12l[?25h[?12;25h
+[?25l<[1m[34mp[0m[39;49m>[A[?12l[?25h[?12;25h[40;35H[?25l[7m0[0m[39;49m[27m[30;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m/[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;34H[?25l[7m29[0m[39;49m[27m[29;1H[?12l[?25h[?12;25h
+[?25l</[1m[34mp[0m[39;49m>[A[?12l[?25h[?12;25h[40;35H[?25l[7m8[0m[39;49m[27m[28;1H[?12l[?25h[?12;25h[40;35H[?25l[7m7[0m[39;49m[27m[27;1H[?12l[?25h[?12;25h[40;35H[?25l[7m6[0m[39;49m[27m[26;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;35H[?25l[7m5[0m[39;49m[27m[25;1H[?12l[?25h[?12;25h
+[?25l<[1m[34mp[0m[39;49m>[A[?12l[?25h[?12;25h[40;35H[?25l[7m4[0m[39;49m[27m[24;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m/[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;35H[?25l[7m3[0m[39;49m[27m[23;1H[?12l[?25h[?12;25h
+[?25l</[1m[34mp[0m[39;49m>[A[?12l[?25h[?12;25h[40;35H[?25l[7m4[0m[39;49m[27m[24;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m/[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;35H[?25l[7m5[0m[39;49m[27m[25;1H[?12l[?25h[?12;25h[40;35H[?25l[7m6[0m[39;49m[27m[26;1H[?12l[?25h[?12;25h[40;35H[?25l[7m7[0m[39;49m[27m[27;1H[?12l[?25h[?12;25h[40;35H[?25l[7m8[0m[39;49m[27m[28;1H[?12l[?25h[?12;25h[40;35H[?25l[7m9[0m[39;49m[27m[29;1H[?12l[?25h[?12;25h[40;34H[?25l[7m30[0m[39;49m[27m[30;1H[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[31;1H[?12l[?25h[?12;25h[40;35H[?25l[7m2[0m[39;49m[27m[32;1H[?12l[?25h[?12;25h[40;35H[?25l[7m3[0m[39;49m[27m[33;1H[?12l[?25h[?12;25h[40;35H[?25l[7m4[0m[39;49m[27m[34;1H[?12l[?25h[?12;25h[40;35H[?25l[7m5[0m[39;49m[27m[35;1H[?12l[?25h[?12;25h[40;35H[?25l[7m6[0m[39;49m[27m[36;1H[?12l[?25h[?12;25h[40;35H[?25l[7m7[0m[39;49m[27m[37;1H[?12l[?25h[?12;25h[40;35H[?25l[7m8[0m[39;49m[27m[38;1H[?12l[?25h[?12;25h[40;35H[?25l[7m9[0m[39;49m[27m[A[?12l[?25h[?12;25h[24d[?25l</[1m[34mp[0m[39;49m>[39;1H[?12l[?25h[?12;25h[H[?25l=======
+[1mSummary:[0m</[1m[34mb[0m[39;49m>
+[44msummary [39;49m[1m[31m%>[0m[39;49m[7;6H[1mDisplay:[0m</[1m[34mb[0m[39;49m>
+>>>>>>> de2a81bdd96eb938ace5860aae6fd27060572334
+[2@		[44mdisplay [39;49m[1m[31m%>[0m[39;49m
+
+[K[13;3H<[1m[34mb[0m[39;49m>[1mBanner:[0m</[1m[34mb[0m[39;49m>[K[14;3H[1m[31m<%=[0m[39;49m[44mh [39;49m[33m[44m@content[0m[39;49m[44m.banner_id [39;49m[1m[31m%>[0m[39;49m[K
+[4P
+[K
+<[1m[34mp[0m[39;49m>
+  <[1m[34mb[0m[39;49m>[1m特集記事:[0m</[1m[34mb[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44mh [39;49m[33m[44m@content[0m[39;49m[44m.content_type [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mp[0m[39;49m>[K
+[K
+<[1m[34mp[0m[39;49m>[K
+<[1m[34mb[0m[39;49m>[1mCustomer:[0m</[1m[34mb[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44mh [39;49m[33m[44m@content[0m[39;49m[44m.customer_id [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mp[0m[39;49m>
+[K
+<[1m[34mp[0m[39;49m>[K
+  <[1m[34mb[0m[39;49m>[1mBanner size:[0m</[1m[34mb[0m[39;49m>[K
+		[44mbanner_size_id [39;49m[1m[31m%>[0m[39;49m[33;6H[1mPublish at:[0m</[1m[34mb[0m[39;49m>
+		[44mpublish_at [39;49m[1m[31m%>[0m[39;49m[38;6H[1mClose at[0m[39;18H[44mlose_at [39;49m[1m[31m%>[0m[39;49m[K
+[C[7m33% L40[0m[39;49m[27m[20;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m/[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[21;1H[?12l[?25h[?12;25h[A[?25l</[1m[34mp[0m[39;49m>
+[?12l[?25h[?12;25h[40;35H[?25l[7m2[0m[39;49m[27m[22;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;35H[?25l[7m3[0m[39;49m[27m[23;1H[?12l[?25h[?12;25h[A[?25l<[1m[34mp[0m[39;49m>
+[?12l[?25h[?12;25h[40;35H[?25l[7m4[0m[39;49m[27m[24;1H[?12l[?25h[?12;25h[40;35H[?25l[7m5[0m[39;49m[27m[25;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m/[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;35H[?25l[7m6[0m[39;49m[27m[26;1H[?12l[?25h[?12;25h[40;35H[?25l[7m7[0m[39;49m[27m[27;1H[?12l[?25h[?12;25h[40;35H[?25l[7m8[0m[39;49m[27m[28;1H[?12l[?25h[?12;25h[40;35H[?25l[7m9[0m[39;49m[27m[29;1H[?12l[?25h[?12;25h[40;34H[?25l[7m50[0m[39;49m[27m[30;1H[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[31;1H[?12l[?25h[?12;25h[40;35H[?25l[7m2[0m[39;49m[27m[32;1H[?12l[?25h[?12;25h[40;35H[?25l[7m3[0m[39;49m[27m[33;1H[?12l[?25h[?12;25h[40;35H[?25l[7m4[0m[39;49m[27m[34;1H[?12l[?25h[?12;25h[40;35H[?25l[7m5[0m[39;49m[27m[35;1H[?12l[?25h[?12;25h[40;35H[?25l[7m6[0m[39;49m[27m[36;1H[?12l[?25h[?12;25h[40;35H[?25l[7m7[0m[39;49m[27m[37;1H[?12l[?25h[?12;25h[40;35H[?25l[7m8[0m[39;49m[27m[38;1H[?12l[?25h[?12;25h[40;35H[?25l[7m9[0m[39;49m[27m[A[?12l[?25h[?12;25h[H[K
+[?25l<[1m[34mp[0m[39;49m>[K
+<[1m[34mb[0m[39;49m>[1mCustomer:[0m</[1m[34mb[0m[39;49m>[K
+  [1m[31m<%=[0m[39;49m[44mh [39;49m[33m[44m@content[0m[39;49m[44m.customer_id [39;49m[1m[31m%>[0m[39;49m
+[46m<[39;49m/[1m[34mp[0m[39;49m[46m>[39;49m
+[K
+<[1m[34mp[0m[39;49m>[K
+  <[1m[34mb[0m[39;49m>[1mBanner size:[0m</[1m[34mb[0m[39;49m>[K
+		[44mbanner_size_id [39;49m[1m[31m%>[0m[39;49m[13;6H[1mPublish at:[0m</[1m[34mb[0m[39;49m>
+		[44mpublish_at [39;49m[1m[31m%>[0m[39;49m[18;6H[1mClose at[0m[19;18H[44mlose_at [39;49m[1m[31m%>[0m[39;49m[K
+
+
+[1m[31m<%=[0m[39;49m[44m image_tag [39;49m[33m[44m@content[0m[39;49m[44m.banner.url([39;49m[35m[44m:small[39;49m[44m) [39;49m[1m[31m%>[0m[39;49m
+[K
+[1m[31m<%=[0m[39;49m[44m link_to 'Edit', edit_content_path([39;49m[33m[44m@content[0m[39;49m[44m) [39;49m[1m[31m%>[0m[39;49m |
+[1m[31m<%=[0m[39;49m[44m link_to 'Back', contents_path [39;49m[1m[31m%>[0m[39;49m
+
+[K
+[K
+[K
+[K
+
+[K
+[K
+[K
+[K
+
+[K
+[K
+[K[40;29H[7mBot L60[0m[39;49m[27m[20;1H[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[21;1H[?12l[?25h[?12;25h[40;35H[?25l[7m2[0m[39;49m[27m[22;1H[?12l[?25h[?12;25h[40;35H[?25l[7m3[0m[39;49m[27m[23;1H[?12l[?25h[?12;25h[40;35H[?25l[7m4[0m[39;49m[27m[24;1H[?12l[?25h[?12;25h[40;35H[?25l[7m5[0m[39;49m[27m[25;1H[?12l[?25h[?12;25h[40;35H[?25l[7m6[0m[39;49m[27m[26;1H[?12l[?25h[?12;25h[5d[?25l</[1m[34mp[0m[39;49m>[26;1H[?12l[?25h[?12;25h[40;35H[?25l[7m5[0m[39;49m[27m[25;1H[?12l[?25h[?12;25h[?25l[1m[31m[46m<[0m[39;49m[1m[31m%=[0m[39;49m[44m link_to 'Back', contents_path [39;49m[1m[31m%[0m[39;49m[1m[31m[46m>[0m[39;49m[?12l[?25h[?12;25h[40;35H[?25l[7m4[0m[39;49m[27m[24;1H[?12l[?25h[?12;25h[40;35H[?25l[7m3[0m[39;49m[27m[23;1H[?12l[?25h[?12;25h[40;35H[?25l[7m2[0m[39;49m[27m[22;1H[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[21;1H[?12l[?25h[?12;25h[40;35H[?25l[7m0[0m[39;49m[27m[20;1H[?12l[?25h[?12;25h[40;34H[?25l[7m59[0m[39;49m[27m[19;1H[?12l[?25h[?12;25h[40;35H[?25l[7m8[0m[39;49m[27m[18;1H[?12l[?25h[?12;25h[40;35H[?25l[7m7[0m[39;49m[27m[17;1H[?12l[?25h[?12;25h[40;35H[?25l[7m6[0m[39;49m[27m[16;1H[?12l[?25h[?12;25h[40;35H[?25l[7m5[0m[39;49m[27m[15;1H[?12l[?25h[?12;25h[40;35H[?25l[7m4[0m[39;49m[27m[14;1H[?12l[?25h[?12;25h[40;35H[?25l[7m3[0m[39;49m[27m[13;1H[?12l[?25h[?12;25h[40;35H[?25l[7m2[0m[39;49m[27m[12;1H[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[11;1H[?12l[?25h[?12;25h[40;35H[?25l[7m0[0m[39;49m[27m[10;1H[?12l[?25h[?12;25h[40;34H[?25l[7m49[0m[39;49m[27m[9;1H[?12l[?25h[?12;25h[40;35H[?25l[7m8[0m[39;49m[27m[8;1H[?12l[?25h[?12;25h[40;35H[?25l[7m7[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[40;35H[?25l[7m6[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[40;35H[?25l[7m5[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[40;35H[?25l[7m4[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[40;35H[?25l[7m3[0m[39;49m[27m[H
+
+[?12l[?25h[?12;25h[40;35H[?25l[7m2[0m[39;49m[27m[H
+[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[H[?12l[?25h[?12;25h[?25l=======
+  <[1m[34mb[0m[39;49m>[1mSummary:[0m</[1m[34mb[0m[39;49m>[3;3H[1m[31m<%=[0m[39;49m[44mh [39;49m[33m[44m@content[0m[39;49m[44m.summary [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mp[0m[39;49m>[K
+[K
+<[1m[34mp[0m[39;49m>
+  <[1m[34mb[0m[39;49m>[1mDisplay:[0m</[1m[34mb[0m[39;49m>
+>>>>>>> de2a81bdd96eb938ace5860aae6fd27060572334
+		[44mdisplay [39;49m[1m[31m%>[0m[39;49m[K[13;6H[1mBanner:[0m</[1m[34mb[0m[39;49m>[K
+[44mbanner_id [39;49m[1m[31m%>[0m[39;49m[K[18;6H[1m特集記事[0m[19;18H[44montent_type [39;49m[1m[31m%>[0m[39;49m
+
+
+<[1m[34mp[0m[39;49m>[K
+<[1m[34mb[0m[39;49m>[1mCustomer:[0m</[1m[34mb[0m[39;49m>
+  [1m[31m<%=[0m[39;49m[44mh [39;49m[33m[44m@content[0m[39;49m[44m.customer_id [39;49m[1m[31m%>[0m[39;49m[K
+</[1m[34mp[0m[39;49m>[K
+
+<[1m[34mp[0m[39;49m>
+<[1m[34mb[0m[39;49m>[1mBanner size:[0m</[1m[34mb[0m[39;49m>[29;3H[1m[31m<%=[0m[39;49m[44mh [39;49m[33m[44m@content[0m[39;49m[44m.banner_size_id [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mp[0m[39;49m>
+
+<[1m[34mp[0m[39;49m>
+<[1m[34mb[0m[39;49m>[1mPublish at:[0m</[1m[34mb[0m[39;49m>[34;3H[1m[31m<%=[0m[39;49m[44mh [39;49m[33m[44m@content[0m[39;49m[44m.publish_at [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mp[0m[39;49m>
+
+<[1m[34mp[0m[39;49m>
+<[1m[34mb[0m[39;49m>[1mClose at:[0m</[1m[34mb[0m[39;49m>[39;3H[1m[31m<%=[0m[39;49m[44mh [39;49m[33m[44m@content[0m[39;49m[44m.close_at [39;49m[1m[31m%>[0m[39;49m
+[C[7m33% L40[0m[39;49m[27m[20;1H[?12l[?25h[?12;25h[40;34H[?25l[7m39[0m[39;49m[27m[19;1H[?12l[?25h[?12;25h[40;35H[?25l[7m8[0m[39;49m[27m[18;1H[?12l[?25h[?12;25h[40;35H[?25l[7m7[0m[39;49m[27m[17;1H[?12l[?25h[?12;25h[40;35H[?25l[7m6[0m[39;49m[27m[16;1H[?12l[?25h[?12;25h[40;35H[?25l[7m5[0m[39;49m[27m[15;1H[?12l[?25h[?12;25h[40;35H[?25l[7m4[0m[39;49m[27m[14;1H[?12l[?25h[?12;25h[40;35H[?25l[7m3[0m[39;49m[27m[13;1H[?12l[?25h[?12;25h[40;35H[?25l[7m2[0m[39;49m[27m[12;1H[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[11;1H[?12l[?25h[?12;25h[40;35H[?25l[7m0[0m[39;49m[27m[10;1H[?12l[?25h[?12;25h[40;34H[?25l[7m29[0m[39;49m[27m[9;1H[?12l[?25h[?12;25h[40;35H[?25l[7m8[0m[39;49m[27m[8;1H[?12l[?25h[?12;25h[40;35H[?25l[7m7[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[40;35H[?25l[7m6[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[40;35H[?25l[7m5[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[40;35H[?25l[7m4[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[40;35H[?25l[7m3[0m[39;49m[27m[H
+
+[?12l[?25h[?12;25h[40;35H[?25l[7m2[0m[39;49m[27m[H
+[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[H[?12l[?25h[?12;25h[?25l<[1m[34mp[0m[39;49m>[K[2;6H[1mTitle:[0m</[1m[34mb[0m[39;49m>[K
+	[44mtitle [39;49m[1m[31m%>[0m[39;49m[K[7;6H[1mBody:[0m</[1m[34mb[0m[39;49m>[K
+[K
+[2P		[44mbody [39;49m[1m[31m%>[0m[39;49m[K
+
+[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mfor[0m[39;49m[44m content_image [39;49m[1m[36m[44min[0m[39;49m[44m [39;49m[33m[44m@content[0m[39;49m[44m.content_images [39;49m[1m[34m%>[0m[39;49m[13;3H  [1m[31m<%=[0m[39;49m[44m image_tag content_image.data.url([39;49m[35m[44m:thumb[39;49m[44m), [39;49m[35m[44m:alt[39;49m[44m => "" [39;49m[1m[31m%>[0m[39;49m[14;3H  [1m[31m<%=[0m[39;49m[44m h content_image.data.url([39;49m[35m[44m:original[39;49m[44m) [39;49m[1m[31m%>[0m[39;49m
+[4@[16;3H[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mend[0m[39;49m[44m [39;49m[1m[34m%>[0m[39;49m
+[K
+<[1m[34mp[0m[39;49m>[K
+<<<<<<< HEAD[K
+  <[1m[34mb[0m[39;49m>[1m表示するかどうか:[0m</[1m[34mb[0m[39;49m>
+=======
+  <[1m[34mb[0m[39;49m>[1mSummary:[0m</[1m[34mb[0m[39;49m>[23;3H[1m[31m<%=[0m[39;49m[44mh [39;49m[33m[44m@content[0m[39;49m[44m.summary [39;49m[1m[31m%>[0m[39;49m
+</[1m[34mp[0m[39;49m>[K
+[K
+<[1m[34mp[0m[39;49m>
+  <[1m[34mb[0m[39;49m>[1mDisplay:[0m</[1m[34mb[0m[39;49m>
+>>>>>>> de2a81bdd96eb938ace5860aae6fd27060572334
+		[44mdisplay [39;49m[1m[31m%>[0m[39;49m[K[33;6H[1mBanner:[0m</[1m[34mb[0m[39;49m>[K
+[44mbanner_id [39;49m[1m[31m%>[0m[39;49m[K[38;6H[1m特集記事[0m[39;18H[44montent_type [39;49m[1m[31m%>[0m[39;49m
+[7mTop L20[0m[39;49m[27m[20;1H[?12l[?25h[?12;25h[40;34H[?25l[7m19[0m[39;49m[27m[19;1H[?12l[?25h[?12;25h[40;35H[?25l[7m8[0m[39;49m[27m[18;1H[?12l[?25h[?12;25h[40;35H[?25l[7m7[0m[39;49m[27m[17;1H[?12l[?25h[?12;25h[40;35H[?25l[7m6[0m[39;49m[27m[16;1H[?12l[?25h[?12;25h[40;35H[?25l[7m5[0m[39;49m[27m[15;1H[?12l[?25h[?12;25h[40;35H[?25l[7m4[0m[39;49m[27m[14;1H[?12l[?25h[?12;25h[40;35H[?25l[7m3[0m[39;49m[27m[13;1H[?12l[?25h[?12;25h[40;35H[?25l[7m2[0m[39;49m[27m[12;1H[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[11;1H[?12l[?25h[?12;25h[40;35H[?25l[7m0[0m[39;49m[27m[10;1H[?12l[?25h[?12;25h[40;34H[?25l[7m9 [0m[39;49m[27m[9;1H[?12l[?25h[?12;25h[40;34H[?25l[7m8[0m[39;49m[27m[8;1H[?12l[?25h[?12;25h[40;34H[?25l[7m7[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[40;34H[?25l[7m6[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[40;34H[?25l[7m5[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[40;34H[?25l[7m4[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[40;34H[?25l[7m3[0m[39;49m[27m[H
+
+[?12l[?25h[?12;25h[40;34H[?25l[7m2[0m[39;49m[27m[H
+[?12l[?25h[?12;25h[40;34H[?25l[7m1[0m[39;49m[27m[H[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;34H[?25l[7m2[0m[39;49m[27m[H
+[?12l[?25h[?12;25h[A[?25l<[1m[34mp[0m[39;49m>
+[?12l[?25h[?12;25h[40;34H[?25l[7m3[0m[39;49m[27m[H
+
+[?12l[?25h[?12;25h[40;34H[?25l[7m4[0m[39;49m[27m[4;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m/[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;34H[?25l[7m5[0m[39;49m[27m[5;1H[?12l[?25h[?12;25h[A[?25l</[1m[34mp[0m[39;49m>
+[?12l[?25h[?12;25h[40;34H[?25l[7m6[0m[39;49m[27m[6;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;34H[?25l[7m7[0m[39;49m[27m[7;1H[?12l[?25h[?12;25h[A[?25l<[1m[34mp[0m[39;49m>
+[?12l[?25h[?12;25h[40;34H[?25l[7m8[0m[39;49m[27m[8;1H[?12l[?25h[?12;25h[40;34H[?25l[7m9[0m[39;49m[27m[9;1H[?12l[?25h[?12;25h[?25l[1m[31m[46m<[0m[39;49m[1m[31m%=[0m[39;49m[44mh [39;49m[33m[44m@content[0m[39;49m[44m.body [39;49m[1m[31m%[0m[39;49m[1m[31m[46m>[0m[39;49m[?12l[?25h[?12;25h[40;34H[?25l[7m10[0m[39;49m[27m[10;1H[?12l[?25h[?12;25h[A[?25l[1m[31m<%=[0m[39;49m[44mh [39;49m[33m[44m@content[0m[39;49m[44m.body [39;49m[1m[31m%>[0m[39;49m
+[46m<[39;49m/[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[11;1H[?12l[?25h[?12;25h[A[?25l</[1m[34mp[0m[39;49m>
+[1m[34m[46m<[0m[39;49m[1m[34m%[0m[39;49m[44m [39;49m[1m[36m[44mfor[0m[39;49m[44m content_image [39;49m[1m[36m[44min[0m[39;49m[44m [39;49m[33m[44m@content[0m[39;49m[44m.content_images [39;49m[1m[34m%[0m[39;49m[1m[34m[46m>[0m[39;49m[?12l[?25h[?12;25h[40;35H[?25l[7m2[0m[39;49m[27m[12;1H[?12l[?25h[?12;25h[A[?25l[1m[34m<%[0m[39;49m[44m [39;49m[1m[36m[44mfor[0m[39;49m[44m content_image [39;49m[1m[36m[44min[0m[39;49m[44m [39;49m[33m[44m@content[0m[39;49m[44m.content_images [39;49m[1m[34m%>[0m[39;49m
+[46m<[39;49m[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;35H[?25l[7m3[0m[39;49m[27m[13;1H[?12l[?25h[?12;25h[A[?25l<[1m[34mp[0m[39;49m>
+[?12l[?25h[?12;25h[40;35H[?25l[7m4[0m[39;49m[27m[14;1H[?12l[?25h[?12;25h[40;35H[?25l[7m5[0m[39;49m[27m[15;1H[?12l[?25h[?12;25h[40;35H[?25l[7m6[0m[39;49m[27m[16;1H[?12l[?25h[?12;25h[40;35H[?25l[7m7[0m[39;49m[27m[17;1H[?12l[?25h[?12;25h[40;35H[?25l[7m8[0m[39;49m[27m[18;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;35H[?25l[7m9[0m[39;49m[27m[19;1H[?12l[?25h[?12;25h[A[?25l<[1m[34mp[0m[39;49m>
+[46m<[39;49m[28;7H[46m>[39;49m[19;1H[?12l[?25h[?12;25h[40;35H[?25l[7m8[0m[39;49m[27m[18;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mp[0m[39;49m[46m>[39;49m
+<[28;7H>[18;1H[?12l[?25h[?12;25h[40;35H[?25l[7m7[0m[39;49m[27m[17;1H[?12l[?25h[?12;25h
+[?25l<[1m[34mp[0m[39;49m>[A[?12l[?25h[?12;25h[40;35H[?25l[7m6[0m[39;49m[27m[16;1H[?12l[?25h[?12;25h[40;35H[?25l[7m7[0m[39;49m[27m[17;1H[?12l[?25h[?12;25h[40;35H[?25l[7m8[0m[39;49m[27m[18;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m[1m[34mp[0m[39;49m[46m>[39;49m[?12l[?25h[?12;25h[40;35H[?25l[7m9[0m[39;49m[27m[19;1H[?12l[?25h[?12;25h[A[?25l<[1m[34mp[0m[39;49m>
+[46m<[39;49m[28;7H[46m>[39;49m[19;1H[?12l[?25h[?12;25h[K[40;6H[?25l[7m**[0m[39;49m[27m[19;1H[?12l[?25h[?12;25h[28;7H[?25l>[19;1H[?12l[?25h[?12;25h[1;39r[21;1H[1M[1;41r[19;3H[?25l<[1m[34mb[0m[39;49m>[1m表示するかどうか:[0m</[1m[34mb[0m[39;49m>
+=======[K[39;1H</[1m[34mp[0m[39;49m>[K[19;1H[?12l[?25h[?12;25h[K[1;39r[21;1H[1M[1;41r[19;1H[?25l=======
+  <[1m[34mb[0m[39;49m>[1mSummary:[0m</[1m[34mb[0m[39;49m>[39;1H[K[19d[?12l[?25h[?12;25h[K[41d[?25lUndo![19;1H[?12l[?25h[?12;25h[?25l=======[?12l[?25h[?12;25h[41d[K[19d[41d[?25lUndo![19;1H[?12l[?25h[?12;25h[1;39r[21;1H[1L[1;41r[19;1H[K
+[?25l=======[K
+  <[1m[34mb[0m[39;49m>[1mSummary:[0m</[1m[34mb[0m[39;49m>[K[19;1H[?12l[?25h[?12;25h[41d[K[19d[41d[?25lUndo![19;1H[?12l[?25h[?12;25h[C[C[?25l<[1m[34mb[0m[39;49m>[1m表示するかどうか:[0m</[1m[34mb[0m[39;49m>[?12l[?25h[?12;25h[41d[K[19d[41d[?25lUndo![19;1H[?12l[?25h[?12;25h[1;39r[21;1H[1L[1;41r[19;1H[K
+[?25l  <[1m[34mb[0m[39;49m>[1m表示するかどうか:[0m</[1m[34mb[0m[39;49m>
+=======[K[19;1H[?12l[?25h[?12;25h[41d[K[19d[41d[?25lUndo![19;1H[?12l[?25h[?12;25h[?25l<<<<<<< HEAD[40;6H[7m--[0m[39;49m[27m[19;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m[28;7H[46m>[39;49m[19;1H[?12l[?25h[?12;25h[41d[K[19d[41d[?25lC-x[19;1H[?12l[?25h[?12;25h[41;4H[?25l-[19;1H[?12l[?25h[?12;25h[41;4H[?25l ESC[19;1H[?12l[?25h[?12;25h[41;8H[?25l-[19;1H[?12l[?25h[?12;25h[41;8H[?25l k[19;1H[?12l[?25h[?12;25h[41;5H[?25lM-k is undefined[19;1H[?12l[?25h[?12;25h[41d[K[40;34H[?25l[7m20[0m[39;49m[27m[20;1H[?12l[?25h[?12;25h[A[?25l<[28;7H>[20;1H[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[21;1H[?12l[?25h[?12;25h[40;35H[?25l[7m2[0m[39;49m[27m[22;1H[?12l[?25h[?12;25h[40;35H[?25l[7m1[0m[39;49m[27m[21;1H[?12l[?25h[?12;25h[40;35H[?25l[7m0[0m[39;49m[27m[20;1H[?12l[?25h[?12;25h[40;34H[?25l[7m19[0m[39;49m[27m[19;1H[?12l[?25h[?12;25h[?25l[46m<[39;49m[28;7H[46m>[39;49m[19;1H[?12l[?25h[?12;25h[K[40;6H[?25l[7m**[0m[39;49m[27m[19;1H[?12l[?25h[?12;25h[28;7H[?25l>[19;1H[?12l[?25h[?12;25h[1;39r[21;1H[1M[1;41r[19;3H[?25l<[1m[34mb[0m[39;49m>[1m表示するかどうか:[0m</[1m[34mb[0m[39;49m>
+=======[K[39;1H</[1m[34mp[0m[39;49m>[K[19;1H[?12l[?25h[?12;25h[K[1;39r[21;1H[1M[1;41r[19;1H[?25l=======
+  <[1m[34mb[0m[39;49m>[1mSummary:[0m</[1m[34mb[0m[39;49m>
