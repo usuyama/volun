@@ -3,16 +3,12 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Password hash</th>
-    <th>Password salt</th>
     <th>Email</th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
-    <td><%=h user.name %></td>
-    <td><%=h user.password_hash %></td>
-    <td><%=h user.password_salt %></td>
+    <td><%=h user.login %></td>
     <td><%=h user.email %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>

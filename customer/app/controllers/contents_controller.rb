@@ -94,7 +94,6 @@ private
   def user_checked
     unless params[:customer_id].to_i == current_customer.id
       redirect_to customer_contents_path(current_customer)
-      flash[:alert] = "アクセスに失敗しました"
       end
   end
 end

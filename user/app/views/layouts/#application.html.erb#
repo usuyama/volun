@@ -24,9 +24,9 @@
 
 	    <% form_tag session_path do %>
 	      <dl class="clearfix">
-		<dt><label for="login"><img src="images/img_login.jpg" alt="" /></label></dt>
+		<dt><img src="images/img_login.jpg" alt="" /></label></dt>
 		<dd><%= text_field_tag 'login' %></dd>
-		<dt><label for="password"><img src="images/img_pass.jpg" alt="" /></label></dt>
+		<dt><img src="images/img_pass.jpg" alt="" /></dt>
 		<dd><%= password_field_tag 'password' %></dd>
 		<dt><%= submit_tag 'Log in' %></dt> 
 	      </dl>

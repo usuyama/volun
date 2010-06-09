@@ -22,39 +22,31 @@
 
 <p>
   <%= f.label "サマリー" %><br />
-  <%= f.file_field :summary %>
+  <%= f.text_area :summary %>
 </p>
 
 <p>
   <%= f.label "コンテンツのバナー" %><br />
   <%= f.file_field :banner %>
 </p>
-
+<%= f.label :tag%>
+<% for tag in Tag.find(:all) %>
+  <div>
+    <%= check_box_tag "content[tag_ids][]", tag.id, @content.tags.include?(tag)\
+ %>
+    <%= tag.name %>
+  </div>
+<% end %>
   <p>
-    <%= f.label :display %><br />
+    <%= f.label "表示申請" %><br />
     <%= f.check_box :display %>
   </p>
+
   <p>
-    <%= f.label :banner_id %><br />
-    <%= f.text_field :banner_id %>
-  </p>
-  <p>
-    <%= f.label "特集記事" %><br />
-    <%= f.check_box :content_type %>
-  </p>
-  <p>
-    <%= f.label :customer_id %><br />
-    <%= f.text_field :customer_id %>
-  </p>
-  <p>
-    <%= f.label :banner_size_id %><br />
-    <%= f.text_field :banner_size_id %>
-  </p>
-  <p>
-    <%= f.label :publish_at %><br />
+    <%= f.label "表示開始" %><br />
     <%= f.datetime_select :publish_at %>
   </p>
   <p>
-    <%= f.label :close_at %><br />
+    <%= f.label "表示終了" %><br />
     <%= f.datetime_select :close_at %>
   </p>

@@ -8,4 +8,5 @@ class Tag < ActiveRecord::Base
     (tags.map { |tag| tag.contents }).flatten.uniq
   end
 
+
 end

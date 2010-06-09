@@ -19,7 +19,7 @@
 <p align = "right">
 <%=if (logged_in?) then current_customer.login end%>
 |<%= link_to_if logged_in?,'カスタマ情報編集',edit_customer_path(current_customer) do end%>
-|<%= link_to_if logged_in?,'Logout >>',session_path, :method => :delete do end %>
+|<%= link_to_if logged_in?,'Logout >>',logout_path do end %>
 </p>
 <p style="color: green"><%= flash[:notice] %></p>
 <p style="color: red"><%= flash[:alert] %></p>

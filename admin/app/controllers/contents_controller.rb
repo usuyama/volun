@@ -58,6 +58,7 @@ class ContentsController < ApplicationController
   # PUT /contents/1
   # PUT /contents/1.xml
   def update
+    params[:content][:tag_ids] ||=[]
     params[:content_image_ids] ||=[]
     @content = Content.find(params[:id])
     

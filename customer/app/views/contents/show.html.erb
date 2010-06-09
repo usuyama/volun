@@ -18,32 +18,31 @@
   <%=h @content.summary %>
 </p>
 <p>
-  <b>Display:</b>
+  <b>表示申請:</b>
   <%=h @content.display %>
 </p>
-
 <p>
-  <b>Banner:</b>
-  <%=h @content.banner_id %>
+  <b>表示許可:</b>
+  <%=h @content.display_permit %>
 </p>
-
 <p>
-  <b>Banner size:</b>
+  <b>バナーサイズ:</b>
   <%=h @content.banner_size_id %>
 </p>
 
 <p>
-  <b>Publish at:</b>
+  <b>表示開始:</b>
   <%=h @content.publish_at %>
 </p>
 
 <p>
-  <b>Close at:</b>
+  <b>表示終了:</b>
   <%=h @content.close_at %>
 </p>
-
-<%= image_tag @content.banner.url(:small) %>
-
+<p>
+  <b>Banner:</b>
+  <%= image_tag @content.banner.url(:small) %>
+</p>
 
 <%= link_to '編集', edit_customer_content_path(current_customer,@content) %> |
 <%= link_to '戻る', customer_contents_path %>

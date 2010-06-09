@@ -21,13 +21,8 @@
 </p>
 
 <p>
-  <b>Display:</b>
-  <%=h @content.display %>
-</p>
-
-<p>
-  <b>Banner:</b>
-  <%=h @content.banner_id %>
+  <b>表示許可:</b>
+  <%=h @content.display_permit %>
 </p>
 
 <p>
@@ -54,8 +49,9 @@
   <b>Close at:</b>
   <%=h @content.close_at %>
 </p>
-
-<%= image_tag @content.banner.url(:small) %>
-
+<p>
+  <b>Banner:</b>
+  <%= image_tag @content.banner.url(:small) %>
+</p>
 <%= link_to 'Edit', edit_content_path(@content) %> |
 <%= link_to 'Back', contents_path %>

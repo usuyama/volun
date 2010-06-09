@@ -4,7 +4,7 @@ class CreateContents < ActiveRecord::Migration
       t.string :title
       t.string :body
       t.boolean :display
-      t.integer :banner_id
+      t.boolean :display_permit
       t.boolean :content_type 
       t.integer :customer_id
       t.integer :banner_size_id

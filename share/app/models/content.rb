@@ -26,5 +26,9 @@ after_update :save_content_images
       content_image.save(false)
     end
   end
+
+  named_scope :displayable, {:conditions => {:display => true,:display_permit => true}}
+
+
       
 end

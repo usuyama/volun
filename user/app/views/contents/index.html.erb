@@ -34,7 +34,7 @@
     var yDirection = -1;
     <% @contents.each_with_index do |content, i| %>
       var image<%= i %> = new Image();
-      image<%= i %>.src = '<%= content.content_image.url %>';
+      image<%= i %>.src = '<%= content.data.url %>';
     <% end %>
 
     var canvas = null;

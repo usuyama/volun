@@ -5,11 +5,11 @@
     <th>タイトル</th>
     <th>内容</th>
     <th>サマリー</th>
-    <th>表示するか</th>
-    <th>Banner</th>
-    <th>Banner size</th>
-    <th>Publish at</th>
-    <th>Close at</th>
+    <th>表示申請</th>
+    <th>表示許可</th>
+    <th>バナーサイズ</th>
+    <th>表示開始</th>
+    <th>表示終了</th>
   </tr>
 
 <% @contents.each do |content| %>
@@ -18,13 +18,12 @@
     <td><%=h content.body %></td>
     <td><%=h content.summary %></td>
     <td><%=h content.display %></td>
-    <td><%=h content.banner_id %></td>
+    <td><%=h content.display_permit %></td>
     <td><%=h content.banner_size_id %></td>
     <td><%=h content.publish_at %></td>
     <td><%=h content.close_at %></td>
     <td><%= link_to 'コンテンツを確認', [current_customer,content] %></td>
     <td><%= link_to 'コンテンツを編集', edit_customer_content_path(current_customer,content) %></td>
-    <td><%= link_to 'コンテンツを消す', [current_customer,content], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
