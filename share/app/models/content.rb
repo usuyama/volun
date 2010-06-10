@@ -27,7 +27,14 @@ after_update :save_content_images
     end
   end
 
-  named_scope :displayable, {:conditions => {:display => true,:display_permit => true}}
+
+  named_scope :in_tag, lambda{|tags|
+    { :joins => [:classifications],
+      :conditions => ["tag_id IN (?) ",tags]
+    }
+  }
+  named_scope :display, {:conditions => {:display => true}}
+  named_scope :display_permit, {:conditions => {:display_permit => true}}
 
 
       

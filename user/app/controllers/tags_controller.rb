@@ -1,14 +1,14 @@
 class TagsController < ApplicationController
   def index
     @tags = Tag.all
-    @contents = Tag.get_contents(@tags)
-    while @contents.count % 3 != 0
+    @contents = Content.display.display_permit.in_tag(@tags)
+    while @contents && (@contents.count % 3 != 0)
       @contents << Content.all.rand
     end
   end
 
   def show
-    @contents = Tag.find(params[:tag]).contents
+    @contents = Content.display.display_permit.in_tag(params[:tag])
     while @contents.count % 3 != 0
       @contents << Content.all.rand
     end
