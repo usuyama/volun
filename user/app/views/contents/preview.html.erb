@@ -1,5 +1,5 @@
 <h1><%= @content.title %></h1>
 
-<p><%= @content.summary %></p>
+<div class="content-region"><%= @content.summary_html %></div>
 
 <a href="#" onclick='Lightview.hide();window.open("contents/<%= @content.id %>");return false;'>more</a>

@@ -13,11 +13,28 @@
     <%= image_tag content_image.data.url(:thumb), :alt => "" %>
     <%= h content_image.data.url(:original) %>
     </p>
-  <% end %>
+<% end %>
+
+<p>
+  <div class="preview_ex">body(actual)
+    <div class="preview_in" id="body_html">
+      <%= @content.body_html %>
+    </div>
+  </div>
+</p>
 
 <p>
   <b>Summary:</b>
   <%=h @content.summary %>
+</p>
+
+<p>
+  <div class="preview_ex">summary(actual)
+    <div class="preview_in" id="summary_html">
+  <%= @content.summary_html %>
+    </div>
+  </div>
+
 </p>
 
 <p>

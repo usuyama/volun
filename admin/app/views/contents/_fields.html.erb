@@ -1,4 +1,3 @@
-
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -6,6 +5,16 @@
   <p>
     <%= f.label :body %><br />
     <%= f.text_area :body %>
+    <%= link_to_remote "preview update",
+	:url => {:action => "update_body_html"},
+    :with => "'text=' +encodeURIComponent($('content_body').value)" %>
+  </p>
+  <p>
+    <div class="preview_ex">body(actual)
+    <div class="preview_in" id="body_html">
+      <%= @content.body_html %>
+    </div>
+    </div>
   </p>
 <div id = "content_images">
   <%= render :partial => 'content_image', :collection => @content.content_images %>
@@ -23,7 +32,19 @@
 <p>
   <%= f.label :summary %><br />
   <%= f.text_area :summary %>
+  <%= link_to_remote "preview update",
+      :url => {:action => "update_summary_html"},
+  :with => "'text=' +encodeURIComponent($('content_summary').value)" %>
+
 </p>
+  <p>
+    <div class="preview_ex">summary(actual)
+    <div class="preview_in" id="summary_html">
+      <%= @content.summary_html %>
+    </div>
+    </div>
+  </p>
+
 
 <p>
   <%= f.label "コンテンツのバナー" %><br />
