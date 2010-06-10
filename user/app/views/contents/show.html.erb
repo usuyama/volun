@@ -1,5 +1,5 @@
 <h2><%= @content.title %></h2>
 
-<p><%= @content.body %></p>
+<div class="content-region"><%= @content.body_html %></div>
 
 <p><%= link_to 'close', '#', :onclick => 'window.close();' %></p>

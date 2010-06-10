@@ -1,0 +1,15 @@
+.preview_ex{
+  font-size: 10pt;/*文字サイズ*/
+  width: 700px;
+  text-align: center;/*タイトルを中央寄せ*/
+  border: solid 1px #868689;/*外周枠の色*/
+  background-color: #E9E9EC;/*枠の背景色*/
+  padding-top: 4px;
+  }
+.preview_in{
+  text-align: left;
+  border: dashed 1px #ACACAE;
+  padding: 1em;
+  margin: 4px;
+  background-color: #FFFFFF;/*文章部分の背景色*/
+  }
