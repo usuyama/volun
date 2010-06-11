@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
       flash[:notice] = "Logged in successfully"
     else
-      render :action => 'new'
+      redirect_back_or_default('/') 
     end
   end
 
