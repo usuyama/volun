@@ -31,13 +31,20 @@ class Content < ActiveRecord::Base
     end
   end
 
+
+
   def convert_textile
     self.body_html = RedCloth.new(self.body).to_html
     self.summary_html = RedCloth.new(self.summary).to_html
   end
 
   named_scope :displayable, {:conditions => {:display => true,:display_permit => true}}
-
-
+  named_scope :in_tag, lambda{|tags|
+    { :joins => [:classifications],
+      :conditions => ["tag_id IN (?) ",tags]
+    }
+  }
+  named_scope :display, {:conditions => {:display => true}}
+  named_scope :display_permit, {:conditions => {:display_permit => true}}
       
 end
