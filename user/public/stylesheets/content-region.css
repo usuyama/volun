@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+/* コンテンツ表示領域用スタイル */
+
+div.content-region
+{
+    margin:20px;
+    padding:20px;
+}
+
+div.content-region ul
+{
+     list-style-type: disc;
+}
+
+div.content-region ol
+{
+    list-style-type: decimal;
+}
+
+div.content-region li
+{
+    list-style-type: inherit;
+}
+
+div.content-region h1
+{
+    float:none;
+}
+
+
+div.content-region a
+{
+	text-decoration: underline;
+}
