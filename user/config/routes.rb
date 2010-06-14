@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.signup '/signup', :controller => 'users', :action => 'new'
 
   map.root :controller => 'tags', :action => 'index'
+  map.search '/search', :controller => 'contents', :action => 'search'
 
   map.resources :users
 

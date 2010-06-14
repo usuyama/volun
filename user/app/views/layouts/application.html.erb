@@ -45,6 +45,14 @@
 
 
 	</div>
+	<div class="search" style="float:right;margin:5px">
+<% form_tag('/search', :method => :get) do %>
+  <p>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+	</div>
         <%= yield :tags %>
 	<div class ="top-right clearfix">
           <h1><a href="/"><img src="/images/img_logo.jpg" alt="" /></a></h1>

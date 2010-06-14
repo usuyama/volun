@@ -1,0 +1,26 @@
+<div class="search">
+
+<h1 class="search_title">検索</h1>
+
+<div class="search_query_box">
+<% form_tag('/search', :method => :get) do %>
+  <p>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+</div>
+
+<div class="search_contens_region">
+<% for content in @contents %>
+<div class="search_content">
+    <h2 class="search_title"><%= link_to content.title, content %></h2>
+    <p class="search_body"><%= content.excerpts.body_html %></p>
+</div>
+<% end %>
+</div>
+
+<br />
+<%= link_to "TOP", root_url %>
+
+</div>

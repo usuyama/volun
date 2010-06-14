@@ -46,5 +46,11 @@ class Content < ActiveRecord::Base
   }
   named_scope :display, {:conditions => {:display => true}}
   named_scope :display_permit, {:conditions => {:display_permit => true}}
-      
+
+
+  define_index do
+    set_property :html_strip => true
+    indexes body_html
+  end
+
 end

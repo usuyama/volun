@@ -1,0 +1,11 @@
+development:
+  html_strip: true
+test:
+  html_strip: true
+production:
+  html_strip: true
+
+
+
+
+  

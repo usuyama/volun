@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+div.search {
+    margin:80px 30px;
+    padding:12px;
+    border-style:dashed;
+    border-width:1px;
+    width:80%;
+}
+
+div.search_content{
+    margin-top:10px;
+    margin-left:5px;
+}
+
+p.search_body {
+    margin-top:5px;
+    margin-left:20px;
+}
+
+span.match {
+    background-color: yellow
+}
+
+h1.search_title {
+    margin: .67em 0;
+    clear:both;
+    float:none;
+}

@@ -10,4 +10,9 @@ class ContentsController < ApplicationController
   def preview
     @content = Content.find(params[:id])
   end
+
+  def search
+    @contents = Content.search params[:query]
+  end
+
 end
