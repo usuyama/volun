@@ -2,14 +2,14 @@ window.onload = init;
 
 function clickHandler(e)
 {
-//  alert("x:" + (e.clientX-canvas.offsetLeft+window.pageXOffset)
-//        +" y:" + (e.clientY-canvas.offsetTop+window.pageYOffset) + " id:" + calcPosition(e) + " now:" + MYAPP.y);
-  MYAPP.id = calcPosition(e);
-//  MYAPP.id && (window.location = "/contents/" + MYAPP.id);
-  MYAPP.id && (MYAPP.href = "/contents/preview/" + MYAPP.id) && (Lightview.show({
-    href: MYAPP.href,
-    rel: 'ajax'
-  }));
+    //  alert("x:" + (e.clientX-canvas.offsetLeft+window.pageXOffset)
+    //        +" y:" + (e.clientY-canvas.offsetTop+window.pageYOffset) + " id:" + calcPosition(e) + " now:" + MYAPP.y);
+    MYAPP.id = calcPosition(e);
+    //  MYAPP.id && (window.location = "/contents/" + MYAPP.id);
+    MYAPP.id && (MYAPP.href = "/contents/preview/" + MYAPP.id) && (Lightview.show({
+		href: MYAPP.href,
+		    rel: 'ajax'
+		    }));
 }
 
 function init()
@@ -29,18 +29,29 @@ function calcPosition(e)
   var pos_y = e.clientY-canvas.offsetTop - MYAPP.y + window.pageYOffset;
   var pos_x = e.clientX-canvas.offsetLeft + window.pageXOffset;
 
-  for (var i=0; i < MYAPP.content.length; i++)
-  {
-    for (var j=0; j < 3; j++)
-    {
-      if ((pos_x >= MYAPP.content[i].start_x) && (pos_x <= (MYAPP.content[i].start_x + MYAPP.content[i].width)) && (pos_y >= MYAPP.content[i].start_y + j*MYAPP.loop) && (pos_y <= (MYAPP.content[i].start_y + MYAPP.content[i].height + j*MYAPP.loop)))
-      {
-        return MYAPP.content[i].id;
+  for (var i=0; i < MYAPP.content.length; i++){
+
+
+		    var ci = MYAPP.content[i];
+		    var ci_start_x = ci.start_x;
+		    var ci_start_y = ci.start_y;
+		    var ci_width = ci.width;
+		    var ci_height = ci.height;
+		    var ci_id = ci.id;
+      if ((pos_x >= ci_start_x) && (pos_x <= (ci_start_x + ci_width)) && (pos_y >= ci_start_y) && (pos_y <= (ci_start_y + ci_height))){
+	  return ci_id;
       }
-    }
+      
+      if ((pos_x >= ci_start_x) && (pos_x <= (ci_start_x + ci_width)) && (pos_y >= ci_start_y + MYAPP.loop) && (pos_y <= (ci_start_y + ci_height + MYAPP.loop))){
+	  return ci_id;
+      }
+      
+      if ((pos_x >= ci_start_x) && (pos_x <= (ci_start_x + ci_width)) && (pos_y >= ci_start_y + 2*MYAPP.loop) && (pos_y <= (ci_start_y + ci_height + 2*MYAPP.loop))){
+	  return ci_id;
+      }
+      
   }
-
+  
   return false;
-
 }
 
