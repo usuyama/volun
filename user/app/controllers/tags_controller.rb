@@ -3,7 +3,7 @@ class TagsController < ApplicationController
     @tags = Tag.all
     @contents = Content.display.display_permit.in_tag(@tags).flatten.uniq
     while @contents.count % 6 != 0 
-      @randcontent = Content.display.display_permit.rand  
+      @randcontent = Content.display.display_permit.in_tag(@tags).rand  
       if @randcontent != @contents.last && @randcontent != @contents[@contents.size - 3] then
         @contents << @randcontent
       end
@@ -13,7 +13,7 @@ class TagsController < ApplicationController
   def show
     @contents = Content.display.display_permit.in_tag(params[:tag]).flatten.uniq
     while @contents.count % 6 != 0
-      @randcontent = Content.display.display_permit.rand  
+      @randcontent = Content.display.display_permit.in_tag(params[:tag]).rand  
       if @randcontent != @contents.last && @randcontent != @contents[@contents.size - 3] then
         @contents << @randcontent
       end
