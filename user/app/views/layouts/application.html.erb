@@ -7,10 +7,11 @@
     <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.2/scriptaculous.js" %>
     <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/prototype/1.6.1/prototype.js" %>
     <%= javascript_include_tag "lightview" %>
-	
-	<link rel="stylesheet" type="text/css" href="/stylesheets/foundation.css" media="screen, print" />
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/foundation.css" media="screen, print" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/layout_base.css" media="screen, print" />
-	<link rel="stylesheet" type="text/css" href="/stylesheets/common.css" media="screen, print" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/common.css" media="screen, print" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/content-region.css" media="screen, print" />
     <%= yield :head %>
   </head>
   <body>
@@ -18,47 +19,39 @@
       <div id="head">
 	<div class="login">
 	  <% if logged_in? %>
-	    Hello, <%= current_user.login %>
-	    <%=link_to "logout", logout_path%>
+	  Hello, <%= current_user.login %>
+	  <%=link_to "logout", logout_path%>
 	  <% else %>
 
-	    <% form_tag session_path do %>
-	      <dl class="clearfix">
-		<dt><label for="login"><img src="images/img_login.jpg" alt="" /></label></dt>
-		<dd><%= text_field_tag 'login' %></dd>
-		<dt><label for="password"><img src="images/img_pass.jpg" alt="" /></label></dt>
-		<dd><%= password_field_tag 'password' %></dd>
-		<dt><%= submit_tag 'Log in' %></dt> 
-	      </dl>
-	    <% end %>
-
-
-	      <p>create new account <%= link_to "here", signup_path %></p>
+	  <% form_tag session_path do %>
+	  <dl class="clearfix">
+	    <dt><label for="login"><img src="images/img_login.jpg" alt="" /></label></dt>
+	    <dd><%= text_field_tag 'login' %></dd>
+	    <dt><label for="password"><img src="images/img_pass.jpg" alt="" /></label></dt>
+	    <dd><%= password_field_tag 'password' %></dd>
+	    <dt><%= submit_tag 'Log in' %></dt> 
+	  </dl>
 	  <% end %>
 
 
-
-
-
-
-
-
+	  <p>create new account <%= link_to "here", signup_path %></p>
+	  <% end %>
 
 	</div>
 	<div class="search" style="float:right;margin:5px">
-<% form_tag('/search', :method => :get) do %>
-  <p>
-    <%= text_field_tag :query, params[:query] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
+	  <% form_tag('/search', :method => :get) do %>
+	  <p>
+	    <%= text_field_tag :query, params[:query] %>
+	    <%= submit_tag "Search", :name => nil %>
+	  </p>
+	  <% end %>
 	</div>
         <%= yield :tags %>
 	<div class ="top-right clearfix">
           <h1><a href="/"><img src="/images/img_logo.jpg" alt="" /></a></h1>
           <ul class="global-navi clearfix">
 	    <% @tags.each do |tag| %>
-	      <li><%= link_to_remote(image_tag(tag.icon.url), :url => { :action => :show, :tag => tag.id }) %></li>
+	    <li><%= link_to_remote(image_tag(tag.icon.url), :url => { :action => :show, :tag => tag.id }) %></li>
 	    <% end %>  
           </ul>                  
         </div><!-- /.top-right -->
