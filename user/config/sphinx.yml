@@ -1,6 +1,9 @@
 development:
+  port: 9876
   html_strip: true
 test:
+  port: 9876
   html_strip: true
 production:
+  port: 9876
   html_strip: true
