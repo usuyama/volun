@@ -1,10 +1,9 @@
 class CreateBannerSizes < ActiveRecord::Migration
   def self.up
     create_table :banner_sizes do |t|
+      t.string :name
       t.integer :height
       t.integer :width
-      t.string :name
-
       t.timestamps
     end
   end

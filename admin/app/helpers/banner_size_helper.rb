@@ -1,0 +1,2 @@
+module BannerSizeHelper
+end

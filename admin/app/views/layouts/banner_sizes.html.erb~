@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Users: <%= controller.action_name %></title>
+  <title>Tags: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
@@ -14,8 +14,8 @@
  | <%=link_to 'カスタマーリストへ',customers_path %>
  | <%=link_to 'タグリストへ',tags_path %>
  | <%=link_to 'ユーザーリストへ',users_path %>
- | <%=link_to 'バナーサイズリストへ',banner_sizes_path %>
- | <%= link_to_if logged_in?,'Logout >>',session_path, :method => :delete do end        %>
+ | <%= link_to_if logged_in?,'Logout >>',session_path, :method => :delete do end       
+%>
 </p>
 
 <p style="color: green"><%= flash[:notice] %></p>

@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" media="screen, projection" href="stylesheets/slider.css" />
 
 <script type="text/javascript">
-MYAPP = {};
+MYAPP = {}; <!-- オブジェクトの生成 -->
 MYAPP.FPS = 50;
 MYAPP.cell_width = 360;
 MYAPP.cell_height = 240;
@@ -17,7 +17,7 @@ MYAPP.contents_num = <%= @contents.count %>;
 MYAPP.banners = new Array();
 <% @contents.each_with_index do |content, i| %>
   MYAPP.banners[<%= i %>] = new Image();
-  MYAPP.banners[<%= i %>].src = "<%= content.banner.url(:small) %>";
+  MYAPP.banners[<%= i %>].src = "<%= content.banner.url(:medium) %>";
   MYAPP.banners[<%= i %>].id  = <%= content.id %>;
 <% end %>
 
@@ -39,57 +39,19 @@ function reload()
 }
 </script>
 
-<script id="canvas_js" type="text/javascript">
+<script id ="canvas_js" type="text/javascript">
   <%= render :partial => 'content', :collection => @contents %>
 </script>
 
-<script type="text/javascript">
-function draw()
-{
-
-  for (var i=0; i < MYAPP.banners.length; i++)
-  {
-		    
-    MYAPP.drow_position_x = MYAPP.cell_width * (i % 3);
-    MYAPP.drow_position_y = MYAPP.cell_height * Math.floor(i / 3) + MYAPP.y;
-var mybi = MYAPP.banners[i];
-var mdpx = MYAPP.drow_position_x | 0;
-var mdpy = MYAPP.drow_position_y | 0;
-
-    if (mdpy + MYAPP.cell_height >= 0 && mdpy <= canvas.height)
-    {
-      context2D.drawImage(mybi, mdpx, mdpy); 
-      context2D.clearRect(mdpx, mdpy + mybi.height, mybi.width, 2);
-    }
-
-    mdpy += MYAPP.loop;
-    if (mdpy <= canvas.height)
-    {
-      context2D.drawImage(mybi, mdpx, mdpy);
-      context2D.clearRect(mdpx, mdpy + mybi.height, mybi.width, 2);
-    }
-    if (MYAPP.loop / canvas.height < 1)
-    {
-				     mdpy += MYAPP.loop;
-      if (mdpy <= canvas.height)
-      {
-        context2D.drawImage(mybi, mdpx, mdpy);
-        context2D.clearRect(mdpx, mdpy + mybi.height, mybi.width, 2);
-      }
-    }
-  }
-				   MYAPP.drow_position_y = mdpy
-  MYAPP.y -= 2;
-
-  if (MYAPP.y <= - MYAPP.loop) MYAPP.y = 0;
-}
+<script id = "image_draw" type="text/javascript">
+ <%= render :partial => 'draw', :object => @contents %>
 </script>
 
-<script id="image_flow" type="text/javascript">
+<script id ="image_flow" type="text/javascript">
   <%= render :partial => 'flow', :object => @contents %>
 </script>
 
-<div id="canvas_div">
+<div id = "canvas_div">
   <%= render :partial => 'canvas' %>
 </div>
 

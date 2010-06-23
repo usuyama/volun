@@ -5,7 +5,7 @@ require 'RedCloth'
 class Content < ActiveRecord::Base
 
   belongs_to :customer
-  has_one :banner_image
+  belongs_to :banner_size
   has_many :content_images, :dependent => :destroy
   has_many :users, :through => :appliers
   has_many :classifications
@@ -15,8 +15,8 @@ class Content < ActiveRecord::Base
   validates_numericality_of :banner_size_id,:customer_id
 
   has_attached_file :banner, :styles => { :small => "360x240>", :medium => "360x480>", :large => "720x480>" },
-                    :url  => "/assets/banner/:id/:style/:basename.:extension",
-                    :path => ":rails_root/public/assets/banner/:id/:style/:basename.:extension"
+  :url  => "/assets/banner/:id/:style/:basename.:extension",
+  :path => ":rails_root/public/assets/banner/:id/:style/:basename.:extension"
   after_update :save_content_images
   before_save :convert_textile
 
@@ -38,14 +38,14 @@ class Content < ActiveRecord::Base
     self.summary_html = RedCloth.new(self.summary).to_html
   end
 
-  named_scope :displayable, {:conditions => {:display => true,:display_permit => true}}
+  
   named_scope :in_tag, lambda{|tags|
     { :joins => [:classifications],
       :conditions => ["tag_id IN (?) ",tags]
     }
   }
-  named_scope :display, {:conditions => {:display => true}}
-  named_scope :display_permit, {:conditions => {:display_permit => true}}
+  named_scope :displayable, {:conditions => ["(display = ? or content_type = ?) and display_permit = ?", true, true, true]}
+  named_scope :intime, lambda{{:conditions => ["publish_at < ? and ? < close_at", Time.now,Time.now]}}
 
 
   define_index do

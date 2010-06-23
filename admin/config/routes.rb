@@ -11,6 +11,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :tags
 
+  map.resources :banner_sizes
+
   map.resources :content_images
 
   map.resources :contents
