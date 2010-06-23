@@ -1,0 +1,38 @@
+.header{
+    text-align:right;
+    margin:5px;
+}
+
+.login{
+    float:right;
+    margin-left:20px;
+    margin-top:3px;
+}
+
+.search{
+    float:right;
+}
+
+#login-form{
+    border: dashed 2px #CCCCCC;
+    background-color: #FFFFFF;
+    z-index:100;
+    padding: 10px 10px;
+    position:absolute;
+    border-radius: 2px;        /* CSS3草案 */  
+    -webkit-border-radius: 2px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius: 2px;   /* Firefox用 */ 
+    //display:noneはここに書くと、toggleされません。style="..."で書きます。
+
+}
+
+#signup{
+    background-color:#a0522d;
+    padding: 4px;
+    margin:0px;
+    border: dashed 1px #CCCCCC;
+}
+
+#signup a{
+    color: #FFFFFF;
+}
