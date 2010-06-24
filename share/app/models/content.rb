@@ -46,7 +46,9 @@ class Content < ActiveRecord::Base
   }
   named_scope :displayable, {:conditions => ["(display = ? or content_type = ?) and display_permit = ?", true, true, true]}
   named_scope :intime, lambda{{:conditions => ["publish_at < ? and ? < close_at", Time.now,Time.now]}}
-
+ # named_scope :banner_size,lambda{:conditions => ["banner_size = ?",3] }
+  named_scope :banner_size, {:conditions => ["banner_size = ?",2] }
+  named_scope :banner_size, {:conditions => ["banner_size = ?",1] }
 
   define_index do
     set_property :html_strip => true

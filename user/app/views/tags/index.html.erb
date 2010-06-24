@@ -17,7 +17,10 @@ MYAPP.contents_num = <%= @contents.count %>;
 MYAPP.banners = new Array();
 <% @contents.each_with_index do |content, i| %>
   MYAPP.banners[<%= i %>] = new Image();
-  MYAPP.banners[<%= i %>].src = "<%= content.banner.url(:medium) %>";
+  MYAPP.banners[<%= i %>].src = "<%= if content.banner_size_id == 1
+				     content.banner.url(:small) 
+else 			     content.banner.url(:medium) end 
+				     %>";
   MYAPP.banners[<%= i %>].id  = <%= content.id %>;
 <% end %>
 
@@ -28,13 +31,15 @@ function reload()
   MYAPP.content = new Array();
   for (var i=0; i < MYAPP.banners.length; i++)
   {
+    if <!-- XXX -->
+      MYAPP.content[i].start_x = MYAPP.cell_width * (i % 3);
     MYAPP.content[i] = {
-          start_x : MYAPP.cell_width * (i % 3),
-          start_y : MYAPP.cell_height * Math.floor(i / 3),
+      start_y : MYAPP.cell_height * Math.floor(i / 3),
           width   : MYAPP.banners[i].width,
           height  : MYAPP.banners[i].height,
           id      : MYAPP.banners[i].id
     };
+	
   }
 }
 </script>
