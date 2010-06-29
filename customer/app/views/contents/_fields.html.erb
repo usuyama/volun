@@ -5,7 +5,8 @@
   </p>
   <p>
     <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <a href="http://redcloth.org/hobix.com/textile/quick.html">quick ref</a><br />
+    <%= f.textile_editor :body %>
     <%= link_to_remote "preview update",
 	:url => {:action => "update_body_html"},
     :with => "'text=' +encodeURIComponent($('content_body').value)" %>
@@ -33,7 +34,8 @@
 
 <p>
   <%= f.label "サマリー" %><br />
-  <%= f.text_area :summary %>
+    <a href="http://redcloth.org/hobix.com/textile/quick.html">quick ref</a><br />
+    <%= f.textile_editor :summary %>
   <%= link_to_remote "preview update",
       :url => {:action => "update_summary_html"},
   :with => "'text=' +encodeURIComponent($('content_summary').value)" %>
@@ -72,3 +74,4 @@
     <%= f.label "表示終了" %><br />
     <%= f.datetime_select :close_at %>
   </p>
+<%= textile_editor_initialize -%>

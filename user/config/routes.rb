@@ -12,7 +12,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
 
   map.resources :contents, :only => [:index, :show]
-
+  map.mark_as_favorite '/mark_as_favorite', :controller => 'contents', :action => 'mark_as_favorite'
+  map.mypage '/mypage', :controller => 'users', :action => 'show'
   map.resources :tags, :only => [:index]
 
   map.connect ':controller/:action/:id'

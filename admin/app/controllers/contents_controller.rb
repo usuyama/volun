@@ -45,6 +45,8 @@ class ContentsController < ApplicationController
   def new
     @content = Content.new
     @content.content_images.build
+    @customers = Customer.fuzzy_search(params[:search])
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @content }
@@ -54,6 +56,8 @@ class ContentsController < ApplicationController
   # GET /contents/1/edit
   def edit
     @content = Content.find(params[:id])
+    @customers = Customer.fuzzy_search(params[:search])
+
   end
 
   # POST /contents

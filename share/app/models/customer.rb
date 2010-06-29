@@ -14,7 +14,9 @@ class Customer < ActiveRecord::Base
   validates_uniqueness_of   :login, :email, :case_sensitive => false
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   before_save :encrypt_password
-  
+
+  named_scope :fuzzy_search, lambda { |query| { :limit => 7, :conditions => ["login LIKE ?", "%#{query}%"]}}
+
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
   attr_accessible :login, :email, :password, :password_confirmation,:organization_name,:address, :person_in_charge

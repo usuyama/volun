@@ -4,13 +4,15 @@
   </p>
   <p>
     <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <a href="http://redcloth.org/hobix.com/textile/quick.html">quick ref</a><br />
+    <%= f.textile_editor :body %>
     <%= link_to_remote "preview update",
 	:url => {:action => "update_body_html"},
     :with => "'text=' +encodeURIComponent($('content_body').value)" %>
   </p>
   <p>
-    <div class="preview_ex">body(actual)
+    <div class="preview_ex">
+      <h3>body(actual)</h3>
     <div class="preview_in" id="body_html">
       <%= @content.body_html %>
     </div>
@@ -19,7 +21,8 @@
 <div id = "content_images">
   <%= render :partial => 'content_image', :collection => @content.content_images %>
 </div>
-<p><%= add_content_image_link "Add a content_image" %>
+<p>
+<%= add_content_image_link "Add a content_image" %>
 </p>
 
 <% @content.content_images.each do | content_image | %>
@@ -29,22 +32,22 @@
   </div>
 <% end unless @content.content_images.first.new_record? rescue nil %>
 
-<p>
-  <%= f.label :summary %><br />
-  <%= f.text_area :summary %>
-  <%= link_to_remote "preview update",
-      :url => {:action => "update_summary_html"},
-  :with => "'text=' +encodeURIComponent($('content_summary').value)" %>
-
-</p>
-  <p>
-    <div class="preview_ex">summary(actual)
+<div style="width:450px";>
+  <div>
+    <%= f.label :summary %><br />
+    <a href="http://redcloth.org/hobix.com/textile/quick.html">quick ref</a><br />
+    <%= f.textile_editor :summary %>
+    <%= link_to_remote "preview update",
+	:url => {:action => "update_summary_html"},
+    :with => "'text=' +encodeURIComponent($('content_summary').value)" %>
+  </div>
+  <div class="preview_ex">
+    <h3>summary(actual)</h3>
     <div class="preview_in" id="summary_html">
       <%= @content.summary_html %>
     </div>
-    </div>
-  </p>
-
+  </div>
+</div>
 
 <p>
   <%= f.label "コンテンツのバナー" %><br />
@@ -52,10 +55,10 @@
 </p>
 <%= f.label :tag%>
 <% for tag in Tag.find(:all) %>
-  <div>
-    <%= check_box_tag "content[tag_ids][]", tag.id, @content.tags.include?(tag) %>
-    <%= tag.name %>
-  </div>
+<div>
+  <%= check_box_tag "content[tag_ids][]", tag.id, @content.tags.include?(tag) %>
+  <%= tag.name %>
+</div>
 <% end %>
 <p>
   <%= f.label "表示許可"%><br />
@@ -67,16 +70,25 @@
 </p>
 <p>
   <%= f.label :customer_id %><br />
-  <%= f.text_field :customer_id %>
+  <%= f.text_field :customer_id , :onfocus => "$('customer_id_input_helper').show();", :autocomplete => 'off' %>
+<div id="customer_id_input_helper" style="display:none; border: 2px dashed gray; padding:5px; width:300px">
+  <form>
+    <%= text_field_tag :customer_search, '', {:autocomplete => 'off',  }%>
+    <%= observe_field :customer_search, :frequency => 0.5, :url => { :controller => :customers, :action => :search }, :with => "'search=' + value" %>
+  </form>
+  <div id="customer_suggests" style="padding: 5px; width: 200px; border: 1px dashed gray;margin:2px;"><%= render :partial => 'customers/customer_suggests', :local => { :customers => @customers } %>
+  </div>
+  <a onclick="$('customer_id_input_helper').hide();">close</a>
+</div>
 </p>
 <p>
-    <%= label_tag("バナーサイズ")%>
-    <%= f.radio_button :banner_size_id, 1,:checked => "checked" %>
-    <%= f.label :banner_size_id_1, "サイズ１（小）" %>
-    <%= f.radio_button :banner_size_id, 2 %>
-    <%= f.label :banner_size_id_2, "サイズ２（中）" %>
-    <%= f.radio_button :banner_size_id, 3 %>
-    <%= f.label :banner_size_id_3, "サイズ３（大）" %>
+  <%= label_tag("バナーサイズ")%>
+  <%= f.radio_button :banner_size_id, 1,:checked => "checked" %>
+  <%= f.label :banner_size_id_1, "サイズ１（小）" %>
+  <%= f.radio_button :banner_size_id, 2 %>
+  <%= f.label :banner_size_id_2, "サイズ２（中）" %>
+  <%= f.radio_button :banner_size_id, 3 %>
+  <%= f.label :banner_size_id_3, "サイズ３（大）" %>
 </p>
 <p>
   <%= f.label :publish_at %><br />
@@ -86,3 +98,5 @@
   <%= f.label :close_at %><br />
   <%= f.datetime_select :close_at %>
 </p>
+<%= textile_editor_initialize -%>
+

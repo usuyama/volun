@@ -11,6 +11,13 @@ class CustomersController < ApplicationController
     end
   end
 
+  def search
+    @customers = Customer.fuzzy_search(params[:search])
+    render :update do |page|
+      page.replace_html 'customer_suggests', :partial => 'customer_suggests', :locals => { :customers => @customers }
+    end
+  end
+
   # GET /customers/1
   # GET /customers/1.xml
   def show
