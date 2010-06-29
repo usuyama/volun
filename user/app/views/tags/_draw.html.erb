@@ -11,29 +11,32 @@ function draw()
     var mdpy = MYAPP.drow_position_y | 0;
 
     if (mdpy + MYAPP.cell_height >= 0 && mdpy <= canvas.height)
+    //表示される位置に少しでもある場合
+    {
+      context2D.drawImage(mybi, mdpx, mdpy);
+     // context2D.clearRect(mdpx, mdpy + mybi.height, mybi.width, 0);
+    }
+
+    mdpy += MYAPP.loop;
+    if (mdpy <= canvas.height)
+    //次がすでに表示される位置にある場合
     {
       context2D.drawImage(mybi, mdpx, mdpy);
       context2D.clearRect(mdpx, mdpy + mybi.height, mybi.width, 2);
     }
 
-    mdpy += MYAPP.loop;
-    if (mdpy <= canvas.height)
-    {
-      context2D.drawImage(mybi, mdpx, mdpy);
-      context2D.clearRect(mdpx, mdpy + mybi.height, mybi.width, 2);
-    }
-    if (MYAPP.loop < canvas.height)
-    {
-      mdpy += MYAPP.loop;
-      if (mdpy <= canvas.height)
-      {
-        context2D.drawImage(mybi, mdpx, mdpy);
-        context2D.clearRect(mdpx, mdpy + mybi.height, mybi.width, 2);
-      }
-    }
+// if (MYAPP.loop < canvas.height)
+//     {
+//       mdpy += MYAPP.loop;
+//       if (mdpy <= canvas.height)
+//       {
+//         context2D.drawImage(mybi, mdpx, mdpy);
+//         context2D.clearRect(mdpx, mdpy + mybi.height, mybi.width, 2);
+//       }
+//     }
   }
-  MYAPP.drow_position_y = mdpy;
-  MYAPP.y -= 2;
+
+  MYAPP.y -= 2;//キャリアによってここを変えることができれば
 
   if (MYAPP.y <= - MYAPP.loop) MYAPP.y = 0;
 }
