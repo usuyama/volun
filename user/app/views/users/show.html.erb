@@ -1,0 +1,15 @@
+<% unless logged_in? -%>
+  <div id="user-bar-greeting">
+    <%= link_to "Log in",  login_path,  { :title => "Log in" } %> /
+<% else -%>
+  <h1>my page</h1>
+  <p>user : <%= @user.login %></p>
+  <h1>お気に入りリスト</h1>
+  <ul>
+  <% @user.contents.each do |c| %>
+  <li><%= link_to c.title, c %></li>
+  <% end %>
+  </ul>
+<% end -%>
+
+<p><%= link_to 'TOP', root_url %></p>

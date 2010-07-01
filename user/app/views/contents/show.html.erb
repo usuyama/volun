@@ -2,4 +2,19 @@
 
 <div class="content-region"><%= @content.body_html %></div>
 
+
+<% if logged_in? %>
+<% unless @content.is_favorite_of?(current_user) %>
+<% form_for @content, :url => 'mark_as_favorite' do |f| -%>
+<%= f.hidden_field :id, :value => @content.id %>
+<%= f.submit 'お気に入りに追加' %>
+<% end %>
+<% else %>
+<% form_for @content, :url => 'unmark_as_favorite' do |f| -%>
+<%= f.hidden_field :id, :value => @content.id %>
+<%= f.submit 'お気に入りから削除' %>
+<% end %>
+<% end %>
+<% end %>
+<br />
 <p><%= link_to 'TOP', root_url %></p>

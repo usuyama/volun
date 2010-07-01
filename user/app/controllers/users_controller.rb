@@ -7,6 +7,13 @@ class UsersController < ApplicationController
   def new
   end
 
+  def show
+    @user = current_user
+    if @user.nil?
+      flash[:notice] = "Plase, login"
+    end
+  end
+
   def create
     cookies.delete :auth_token
     # protects against session fixation attacks, wreaks havoc with 

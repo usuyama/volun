@@ -10,6 +10,8 @@ class Content < ActiveRecord::Base
   has_many :users, :through => :appliers
   has_many :classifications
   has_many :tags, :through => :classifications
+  has_many :favorites
+  has_many :users, :through => :favorites
 
   validates_presence_of :title,:customer_id, :body, :summary,:message =>"未記入の項目があります"
   validates_numericality_of :banner_size_id,:customer_id
@@ -29,6 +31,10 @@ class Content < ActiveRecord::Base
     content_images.each do |content_image|
       content_image.save(false)
     end
+  end
+
+  def is_favorite_of?(user)
+    users.include?(user)
   end
 
 

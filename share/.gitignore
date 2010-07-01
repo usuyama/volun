@@ -1,4 +1,2 @@
 db/schema.rb
 db/*.sqlite3
-public/assets/*
-public/system/*
