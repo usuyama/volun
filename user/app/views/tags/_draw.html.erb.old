@@ -1,12 +1,11 @@
 function draw()
 {
-  pos_x = 0;
-  pos_y = 0;
+
   for (var i=0; i < MYAPP.banners.length; i++)
   {
 
-    MYAPP.drow_position_x = pos_x;
-    MYAPP.drow_position_y = pos_y + MYAPP.y;
+    MYAPP.drow_position_x = MYAPP.cell_width * (i % 3);
+    MYAPP.drow_position_y = MYAPP.cell_height * Math.floor(i / 3) + MYAPP.y;
     var mybi = MYAPP.banners[i];
     var mdpx = MYAPP.drow_position_x | 0;
     var mdpy = MYAPP.drow_position_y | 0;
@@ -15,6 +14,7 @@ function draw()
     //表示される位置に少しでもある場合
     {
       context2D.drawImage(mybi, mdpx, mdpy);
+     // context2D.clearRect(mdpx, mdpy + mybi.height, mybi.width, 0);
     }
 
     mdpy += MYAPP.loop;
@@ -22,17 +22,21 @@ function draw()
     //次がすでに表示される位置にある場合
     {
       context2D.drawImage(mybi, mdpx, mdpy);
-      context2D.clearRect(mdpx, mdpy + mybi.height, mybi.width, 4);
+      context2D.clearRect(mdpx, mdpy + mybi.height, mybi.width, 2);
     }
 
-    pos_x = pos_x + MYAPP.banners[i].width;
-
-    if (pos_x == MYAPP.cell_width * 3){
-      pos_x = 0;
-      pos_y = pos_y + MYAPP.cell_height;
-    }
+// if (MYAPP.loop < canvas.height)
+//     {
+//       mdpy += MYAPP.loop;
+//       if (mdpy <= canvas.height)
+//       {
+//         context2D.drawImage(mybi, mdpx, mdpy);
+//         context2D.clearRect(mdpx, mdpy + mybi.height, mybi.width, 2);
+//       }
+//     }
   }
-  MYAPP.y -= 4;//キャリアによってここを変えることができれば
-  if (MYAPP.y <= - MYAPP.loop) MYAPP.y = 0;
 
+  MYAPP.y -= 4;//キャリアによってここを変えることができれば
+
+  if (MYAPP.y <= - MYAPP.loop) MYAPP.y = 0;
 }

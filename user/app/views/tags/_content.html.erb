@@ -1,2 +1,2 @@
 var image<%= content.id %> = new Image();
-image<%= content.id %>.src = '<%= content.banner.url(:small) %>';
+image<%= content.id %>.src = '<%= if content.banner_size_id = 1 then content.banner.url(:small) else content.banner.url(:medium) end %>';
