@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+/* 基本レイアウト */
+
+/* ２カラム */
+#sub {
+	float: left;
+	width: 150px;
+}
+
+#main {
+	float:right;
+	width: 640px;
+}
+
+/* ３カラム:#mainの中に２カラム */
+.center {
+	float: left;
+	width: px;
+}
+
+.side {
+	float: right;
+	width: px;
+}

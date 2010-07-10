@@ -1,24 +1,24 @@
-<h1>Listing Bannersizes</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Height</th>
-    <th>Width</th>
-  </tr>
-
-<% @banner_sizes.each do |banner_size| %>
-  <tr>
-    <td><%=h banner_size.name %></td>
-    <td><%= banner_size.height %></td>
-    <td><%= banner_size.width %></td>
-    <td><%= link_to 'Show', banner_size %></td>
-    <td><%= link_to 'Edit', edit_banner_size_path(banner_size) %></td>
-    <td><%= link_to 'Destroy', banner_size, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New banner_size', new_banner_size_path %>
+<div id="main">
+    <h1 class="title">バナーサイズ</h1>
+	<table class="list-table">
+	    <tr>
+		    <th>サイズ名</th>
+			<th>タテ</th>
+			<th>ヨコ</th>
+			<th>&nbsp</th>
+		</tr>
+      <% @banner_sizes.each do |banner_size| %>
+        <tr>
+            <td><%=h banner_size.name %></td>
+            <td><%= banner_size.height %></td>
+            <td><%= banner_size.width %></td>
+			<td class="right">
+                <%= link_to '表示', banner_size %>
+                <%= link_to '編集', edit_banner_size_path(banner_size) %>
+                <%= link_to '削除', banner_size, :confirm => 'Are you sure?', :method => :delete %>
+			</td>
+        </tr>
+      <% end %>
+    </table>
+	<p class="btn-area"><%= link_to 'バナーサイズ新規作成', new_banner_size_path %></p>
+</div><!-- /#main -->

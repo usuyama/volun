@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/* リストテーブル */
+table.list-table {
+	width: 100%;
+}
+
+	table.list-table th {
+		border-bottom: 1px solid #E5EFF8;
+		background-color: #F4F9FE;
+		text-align: left;
+		color: #66A3D3;
+		padding: 8px;
+	}
+	
+	table.list-table td {
+		border-top: 1px solid #E5EFF8;
+		border-bottom: 1px solid #E5EFF8;
+		padding: 8px;
+	}
+	
+	table.list-table td.right {
+		text-align: right;
+	}
+	
+		table.list-table td a {
+			color: #999999;
+		}
+
+table.edit-table {
+	width: 100%;
+}
+
+	table.edit-table tr.bg {
+		background-color: #F4F9FE;
+	}
+
+	table.edit-table th {
+		width: 150px;
+		text-align: left;
+		color: #66A3D3;
+		padding: 8px;
+	}
+	
+	table.edit-table td {
+		padding: 8px;
+	}
+	
+		table.edit-table td a {
+			color: #999999;
+		}
+
+.btn-area {
+	text-align: right;
+	margin: 20px 0 0 0;
+}
+
+.btn-area a {
+	color: #999999;
+	font-size:  12px;
+}
+
+
+
+
+
+
+
+
+
+
+

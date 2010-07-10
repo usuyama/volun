@@ -1,28 +1,29 @@
-<h1>Listing customers</h1>
+<div id="main">
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Organization name</th>
-    <th>Address</th>
-    <th>Email</th>
-    <th>Person in charge</th>
-  </tr>
-
-<% @customers.each do |customer| %>
-  <tr>
-    <td><%=h customer.login %></td>
-    <td><%=h customer.organization_name %></td>
-    <td><%=h customer.address %></td>
-    <td><%=h customer.email %></td>
-    <td><%=h customer.person_in_charge %></td>
-    <td><%= link_to 'Show', customer %></td>
-    <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-    <td><%= link_to 'Destroy', customer, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New customer', new_customer_path %>
+<h1 class="title">カスタマー</h1>
+	<table class="list-table">
+	    <tr>
+		    <th>アカウント名</th>
+			<th>会社名</th>
+			<th>住所</th>
+			<th>メール</th>
+			<th>責任者</th>
+			<th>&nbsp</th>
+		</tr>
+      <% @customers.each do |customer| %>
+        <tr>
+            <td><%=h customer.login %></td>
+			<td><%=h customer.organization_name %></td>
+			<td><%=h customer.address %></td>
+			<td><%=h customer.email %></td>
+			<td><%=h customer.person_in_charge %></td>
+			<td class="right">
+                <%= link_to '表示', customer %>
+				<%= link_to '編集', edit_customer_path(customer) %>
+				<%= link_to '削除', customer, :confirm => 'Are you sure?', :method => :delete %>
+			</td>
+        </tr>
+      <% end %>
+    </table>
+	<p class="btn-area"><%= link_to 'カスタマー新規作成', new_customer_path %></p>
+</div><!-- /#main -->

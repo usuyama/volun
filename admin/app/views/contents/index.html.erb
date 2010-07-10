@@ -1,38 +1,39 @@
-<h1>Listing contents</h1>
+<div id="main">
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th>Summary</th>
-    <th>表示申請</th>
-    <th>表示許可</th>
-    <th>Type</th>
-    <th>Customer</th>
-    <th>Banner size</th>
-    <th>Publish at</th>
-    <th>Close at</th>
-  </tr>
-
-<% @contents.each do |content| %>
-  <tr>
-    <td><%=h content.title %></td>
-    <td><%=h content.body %></td>
-    <td><%=h content.summary %></td>
-    <td><%=h content.display %></td>
-    <td><%=h content.display_permit %></td>
-    <td><%=h content.content_type %></td>
-    <td><%=h content.customer_id %></td>
-    <td><%=h content.banner_size_id %></td>
-    <td><%=h content.publish_at %></td>
-    <td><%=h content.close_at %></td>
-    <td><%= link_to 'Show', content %></td>
-    <td><%= link_to 'Edit', edit_content_path(content) %></td>
-    <td><%= link_to 'Destroy', content, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New content', new_content_path %>
+<h1 class="title">コンテンツ</h1>
+	<table class="list-table">
+	    <tr>
+		    <th>タイトル</th>
+			<th>本文</th>
+			<th>要約</th>
+			<th>表示申請</th>
+			<th>表示許可</th>
+			<th>タイプ</th>
+			<th>カスタマーID</th>
+			<th>バナーサイズ</th>
+			<th>掲載開始日</th>
+			<th>掲載終了日</th>
+			<th>&nbsp</th>
+		</tr>
+      <% @contents.each do |content| %>
+        <tr>
+            <td><%=h content.title %></td>
+			<td><%=h content.body %></td>
+			<td><%=h content.summary %></td>
+			<td><%=h content.display %></td>
+			<td><%=h content.display_permit %></td>
+			<td><%=h content.content_type %></td>
+			<td><%=h content.customer_id %></td>
+			<td><%=h content.banner_size_id %></td>
+			<td><%=h content.publish_at %></td>
+			<td><%=h content.close_at %></td>
+			<td class="right">
+                <%= link_to '表示', content %>
+				<%= link_to '編集', edit_content_path(content) %>
+				<%= link_to '削除', content, :confirm => 'Are you sure?', :method => :delete %>
+			</td>
+        </tr>
+      <% end %>
+    </table>
+	<p class="btn-area"><%= link_to 'コンテンツ新規作成', new_content_path %></p>
+</div><!-- /#main -->

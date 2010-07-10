@@ -1,15 +1,18 @@
-<p>
-  <b>Name:</b>
-  <%=h @banner_size.name %>
-</p>
-<p>
-  <b>Height:</b>
-  <%=h @banner_size.height %>
-</p>
-<p>
-  <b>Width:</b>
-  <%=h @banner_size.width %>
-</p>
-
-<%= link_to 'Edit', edit_banner_size_path(@banner_size) %> |
-<%= link_to 'Back', banner_sizes_path %>
+<div id="main">
+	
+	<p>
+	  <b>Name:</b>
+	  <%=h @banner_size.name %>
+	</p>
+	<p>
+	  <b>Height:</b>
+	  <%=h @banner_size.height %>
+	</p>
+	<p>
+	  <b>Width:</b>
+	  <%=h @banner_size.width %>
+	</p>
+	
+	<%= link_to 'Edit', edit_banner_size_path(@banner_size) %> |
+	<%= link_to 'Back', banner_sizes_path %>
+</div><!-- /#main -->

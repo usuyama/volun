@@ -1,28 +1,31 @@
-<p>
-  <b>login:</b>
-  <%=h @customer.login %>
-</p>
+<div id="main">
 
-<p>
-  <b>Organization name:</b>
-  <%=h @customer.organization_name %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%=h @customer.address %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%=h @customer.email %>
-</p>
-
-<p>
-  <b>Person in charge:</b>
-  <%=h @customer.person_in_charge %>
-</p>
-
-
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+	<p>
+	  <b>login:</b>
+	  <%=h @customer.login %>
+	</p>
+	
+	<p>
+	  <b>Organization name:</b>
+	  <%=h @customer.organization_name %>
+	</p>
+	
+	<p>
+	  <b>Address:</b>
+	  <%=h @customer.address %>
+	</p>
+	
+	<p>
+	  <b>Email:</b>
+	  <%=h @customer.email %>
+	</p>
+	
+	<p>
+	  <b>Person in charge:</b>
+	  <%=h @customer.person_in_charge %>
+	</p>
+	
+	
+	<%= link_to 'Edit', edit_customer_path(@customer) %> |
+	<%= link_to 'Back', customers_path %>
+</div><!-- /#main -->

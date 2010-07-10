@@ -1,21 +1,23 @@
-<h1>Listing tags</h1>
+<div id="main">
+    <h1 class="title">タグ</h1>
+	<table class="list-table">
+	    <tr>
+		    <th>タグ名</th>
+			<th>画像</th>
+			<th>&nbsp</th>
+		</tr>
+      <% @tags.each do |tag| %>
+        <tr>
+            <td><%=h tag.name %></td>
+            <td><%= image_tag tag.icon.url %></td>
+			<td class="right">
+                <%= link_to '表示', tag %>
+				<%= link_to '編集', edit_tag_path(tag) %>
+				<%= link_to '削除', tag, :confirm => 'Are you sure?', :method => :delete %>
+			</td>
+        </tr>
+      <% end %>
+    </table>
+	<p class="btn-area"><%= link_to 'タグ新規作成', new_tag_path %></p>
+</div><!-- /#main -->
 
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
-
-<% @tags.each do |tag| %>
-  <tr>
-    <td><%=h tag.name %></td>
-    <td><%= image_tag tag.icon.url %></td>
-    <td><%= link_to 'Show', tag %></td>
-    <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-    <td><%= link_to 'Destroy', tag, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New tag', new_tag_path %>
