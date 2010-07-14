@@ -3,16 +3,7 @@ module Tiling
   
   def array_merge (a_array,b_array)
     @column = 0
-    if b_array.empty? then
-      @contents = a_array
-      while @contents.count % 6 != 0 
-        randcontent = a_array.rand  
-        if randcontent != @contents.last && randcontent != @contents[@contents.size - 3] then
-          @contents << randcontent
-        end
-      end
-      @column = @contents.count / 3
-    else
+    if not b_array.empty? then
       @contents = []
       c_array = Marshal.load(Marshal.dump(a_array))
       while (! b_array.empty?)
@@ -26,8 +17,8 @@ module Tiling
           else
             randcontent = a_array.rand  
             if randcontent != @contents.last && 
-                randcontent != @contents[@contents.size - 3] &&
-              (! (randcontent == @contents[@contents.size - 2] && @contents.last.banner_size_id == 2 ))
+                randcontent != @contents[@contents.size - 2] &&
+              (! (randcontent == @contents[@contents.size - 4] && (@contents.last.banner_size_id == 2 || @contents[@contents.size - 2].banner_size_id == 2)))
             then
               @contents << randcontent
               i = i + 1
@@ -35,9 +26,27 @@ module Tiling
           end
         end        
       end
+    else
+      onesize_am(a_array)
     end
     return @contents, @column
   end
 
+  def onesize_am(array)
+    @contents = array
+    if @contents.size == 2 then 
+      @contents = @contents + array.reverse
+      @contents = @contents + array
+    else
+      while @contents.count % 6 != 0 
+        randcontent = array.rand  
+        if randcontent != @contents.last && randcontent != @contents[@contents.size - 2] then
+          @contents << randcontent
+        end
+      end
+    end
+    @column = @contents.count / 3
+  end
+  
 end
 

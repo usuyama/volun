@@ -10,6 +10,7 @@ MYAPP.loop = MYAPP.cell_height * <%= @column %>;
 MYAPP.content = new Array();
 pos_x = 0;
 pos_y = 0;
+base_y = 0;
 for (var i=0; i < MYAPP.banners.length; i++)
 {
   MYAPP.content[i] = {
@@ -20,12 +21,17 @@ for (var i=0; i < MYAPP.banners.length; i++)
 	  id      : MYAPP.banners[i].id
   };
 
-  pos_x = pos_x + MYAPP.banners[i].width;
+    pos_y = pos_y + MYAPP.banners[i].height;
 
-  if (pos_x == MYAPP.cell_width * 3){
-    pos_x = 0;
-    pos_y = pos_y + MYAPP.cell_height;
-  }
+    if (pos_y == base_y + MYAPP.cell_height * 2){
+      pos_y = base_y;
+      pos_x = pos_x + MYAPP.cell_width;
+    }
+    if (pos_x == MYAPP.cell_width * 3){
+      pos_x = 0;
+      base_y = base_y + MYAPP.cell_height * 2;
+      pos_y = base_y;
+    }
 
 }
 

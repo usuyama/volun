@@ -16,7 +16,7 @@ class Content < ActiveRecord::Base
   validates_presence_of :title,:customer_id, :body, :summary,:message =>"未記入の項目があります"
   validates_numericality_of :banner_size_id,:customer_id
 
-  has_attached_file :banner, :styles => { :small => "360x240\!", :medium => "720x240\!", :large => "720x480\!" },
+  has_attached_file :banner, :styles => { :small => "360x240\!", :medium => "360x480\!", :large => "720x480\!" },
   :url  => "/assets/banner/:id/:style/:basename.:extension",
   :path => ":rails_root/public/assets/banner/:id/:style/:basename.:extension"
   after_update :save_content_images

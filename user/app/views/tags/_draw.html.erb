@@ -2,6 +2,7 @@ function draw()
 {
   pos_x = 0;
   pos_y = 0;
+base_y =0;
   for (var i=0; i < MYAPP.banners.length; i++)
   {
 
@@ -11,7 +12,7 @@ function draw()
     var mdpx = MYAPP.drow_position_x | 0;
     var mdpy = MYAPP.drow_position_y | 0;
 
-    if (mdpy + MYAPP.cell_height >= 0 && mdpy <= canvas.height)
+    if (mdpy + MYAPP.cell_height >= 0 || mdpy <= canvas.height)
     //表示される位置に少しでもある場合
     {
       context2D.drawImage(mybi, mdpx, mdpy);
@@ -25,12 +26,18 @@ function draw()
       context2D.clearRect(mdpx, mdpy + mybi.height, mybi.width, 4);
     }
 
-    pos_x = pos_x + MYAPP.banners[i].width;
+    pos_y = pos_y + MYAPP.banners[i].height;
 
+    if (pos_y == base_y + MYAPP.cell_height * 2){
+      pos_y = base_y;
+      pos_x = pos_x + MYAPP.cell_width;
+    }
     if (pos_x == MYAPP.cell_width * 3){
       pos_x = 0;
-      pos_y = pos_y + MYAPP.cell_height;
+      base_y = base_y + MYAPP.cell_height * 2;
+      pos_y = base_y;
     }
+
   }
   MYAPP.y -= 4;//キャリアによってここを変えることができれば
   if (MYAPP.y <= - MYAPP.loop) MYAPP.y = 0;
