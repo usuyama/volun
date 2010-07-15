@@ -21,7 +21,13 @@ class Content < ActiveRecord::Base
   :path => ":rails_root/public/assets/banner/:id/:style/:basename.:extension"
   after_update :save_content_images
   before_save :convert_textile
-
+ 
+  def validate
+    if content_type == "1" && customer_id != "0"
+      errors.add(:customer_id, 'customerid need 0')
+    end
+  end
+  
   def content_image_attributes=(content_image_attributes)
     content_image_attributes.each do |attributes|
       content_images.build(attributes)

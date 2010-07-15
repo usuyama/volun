@@ -1,7 +1,7 @@
 MYAPP.banners = new Array();
 <% @contents.each_with_index do |content, i| %>
   MYAPP.banners[<%= i %>] = new Image();
-  MYAPP.banners[<%= i %>].src = "<%= if content.banner_size_id == 1 then content.banner.url(:small) else content.banner.url(:medium) end%>";
+  MYAPP.banners[<%= i %>].src = "<%= if content.banner_size_id == 1 then content.banner.url(:small) else if content.banner_size_id == 2 then content.banner.url(:medium) else content.banner.url(:large) end end%>";
   MYAPP.banners[<%= i %>].id  = <%= content.id %>;
 <% end %>
 
@@ -25,7 +25,7 @@ for (var i=0; i < MYAPP.banners.length; i++)
 
     if (pos_y == base_y + MYAPP.cell_height * 2){
       pos_y = base_y;
-      pos_x = pos_x + MYAPP.cell_width;
+      pos_x = pos_x + MYAPP.banners[i].width;
     }
     if (pos_x == MYAPP.cell_width * 3){
       pos_x = 0;
