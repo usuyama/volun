@@ -1,0 +1,29 @@
+
+<div style="margin:5px;padding:5px;border:solid 1px gray">
+<%= flash[:notice] %>
+
+<p>
+  <b>Category:</b>
+  <%=h @contact.category %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @contact.body %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @contact.email %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @contact.name %>
+</p>
+</div>
+
+<%= link_to '記事に戻る', @contact.content %>
+<%= link_to 'トップページへ', root_url %>
+
+

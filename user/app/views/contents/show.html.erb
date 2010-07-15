@@ -1,7 +1,15 @@
 <h2><%= @content.title %></h2>
 
-<div class="content-region"><%= @content.body_html %></div>
-
+<div class="content-region"><%= @content.body %></div>
+<div style="margin:10px;padding:5px;border:1px solid gray;width:500px;">
+<h2>お問い合せ </h2>
+<% form_for @contact, :url => { :controller => :contacts, :action => :new } do |f|%>
+<%= f.hidden_field :category %>
+<%= f.hidden_field :content_id %>
+<%= f.hidden_field :customer_id %>
+<%= f.submit 'お問い合せ' %>
+<% end %>
+</div>
 
 <% if logged_in? %>
 <% unless @content.is_favorite_of?(current_user) %>

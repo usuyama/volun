@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 require 'rubygems'
-require 'RedCloth'
 
 class Content < ActiveRecord::Base
 
@@ -20,7 +19,6 @@ class Content < ActiveRecord::Base
   :url  => "/assets/banner/:id/:style/:basename.:extension",
   :path => ":rails_root/public/assets/banner/:id/:style/:basename.:extension"
   after_update :save_content_images
-  before_save :convert_textile
 
   def content_image_attributes=(content_image_attributes)
     content_image_attributes.each do |attributes|
@@ -38,11 +36,6 @@ class Content < ActiveRecord::Base
   end
 
 
-
-  def convert_textile
-    self.body_html = RedCloth.new(self.body).to_html
-    self.summary_html = RedCloth.new(self.summary).to_html
-  end
 
   
   named_scope :in_tag, lambda{|tags|

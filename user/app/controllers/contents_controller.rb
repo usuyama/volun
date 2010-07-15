@@ -5,6 +5,7 @@ class ContentsController < ApplicationController
 
   def show
     @content = Content.find(params[:id])
+    @contact = Contact.new(:content_id => @content.id, :customer_id => @content.customer_id, :category => :content)
   end
 
   def preview

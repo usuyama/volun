@@ -2,22 +2,12 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </p>
+ <div>
   <p>
     <%= f.label :body %><br />
-    <a href="http://redcloth.org/hobix.com/textile/quick.html">quick ref</a><br />
-    <%= f.textile_editor :body %>
-    <%= link_to_remote "preview update",
-	:url => {:action => "update_body_html"},
-    :with => "'text=' +encodeURIComponent($('content_body').value)" %>
+    <%= f.text_area :body, :class => 'rich_text_editor', :style => "width:550px" %>
   </p>
-  <p>
-    <div class="preview_ex">
-      <h3>body(actual)</h3>
-    <div class="preview_in" id="body_html">
-      <%= @content.body_html %>
-    </div>
-    </div>
-  </p>
+  </div>
 <div id = "content_images">
   <%= render :partial => 'content_image', :collection => @content.content_images %>
 </div>
@@ -32,22 +22,10 @@
   </div>
 <% end unless @content.content_images.first.new_record? rescue nil %>
 
-<div style="width:450px";>
   <div>
     <%= f.label :summary %><br />
-    <a href="http://redcloth.org/hobix.com/textile/quick.html">quick ref</a><br />
-    <%= f.textile_editor :summary %>
-    <%= link_to_remote "preview update",
-	:url => {:action => "update_summary_html"},
-    :with => "'text=' +encodeURIComponent($('content_summary').value)" %>
+    <%= f.text_area :summary, :class => 'rich_text_editor', :style => "width:550px" %>
   </div>
-  <div class="preview_ex">
-    <h3>summary(actual)</h3>
-    <div class="preview_in" id="summary_html">
-      <%= @content.summary_html %>
-    </div>
-  </div>
-</div>
 
 <p>
   <%= f.label "コンテンツのバナー" %><br />
@@ -98,5 +76,5 @@
   <%= f.label :close_at %><br />
   <%= f.datetime_select :close_at %>
 </p>
-<%= textile_editor_initialize -%>
+
 

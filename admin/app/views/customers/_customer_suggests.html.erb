@@ -1,3 +1,7 @@
+<% unless @customers.nil? %>
 <% @customers.each do |c| %>
 <a onclick="$('content_customer_id').writeAttribute('value','<%= c.id %>')"><%= c.login %> (id = <%= c.id %> )</a><br />
+<% end %>
+<% else %>
+No Customer Exists!
 <% end %>
