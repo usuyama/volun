@@ -1,0 +1,8 @@
+
+<% if @contact.category = :content %>
+<div style="margin:5px;padding:5px;border:solid 1px gray">
+<%= render :partial => 'content_field' %>
+</div>
+<% end %>
+
+<%= link_to 'Back', contacts_path %>

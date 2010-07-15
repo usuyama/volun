@@ -3,6 +3,7 @@ $KCODE = "UTF"
 
 
 class ContentsController < ApplicationController
+  uses_yui_editor
   before_filter :login_required
   # GET /contents
   # GET /contents.xml
@@ -12,20 +13,6 @@ class ContentsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @contents }
-    end
-  end
-
-  def update_body_html
-    render :update do |page|
-      page.replace_html :body_html, RedCloth.new(URI.unescape(params[:text])).to_html
-      page.visual_effect :highlight, :body_html
-    end
-  end
-
-    def update_summary_html
-    render :update do |page|
-      page.replace_html :summary_html, RedCloth.new(URI.unescape(params[:text])).to_html
-      page.visual_effect :highlight, :summary_html
     end
   end
 

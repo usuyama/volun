@@ -3,6 +3,7 @@ require "uri"
 $KCODE = "UTF"
 
 class ContentsController < ApplicationController
+  uses_yui_editor
   before_filter :login_required
   before_filter :user_checked
   # GET /contents
@@ -16,21 +17,6 @@ class ContentsController < ApplicationController
     end
   end
 
-  def update_body_html
-    render :update do |page|
-      page.replace_html :body_html, RedCloth.new(URI.unescape(params[:text])).to_html
-      page.visual_effect :highlight, :body_html
-    end
-  end
-
-    def update_summary_html
-    render :update do |page|
-      page.replace_html :summary_html, RedCloth.new(URI.unescape(params[:text])).to_html
-      page.visual_effect :highlight, :summary_html
-    end
-  end
-
-  
   # GET /contents/1
   # GET /contents/1.xml
   def show

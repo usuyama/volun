@@ -1,0 +1,26 @@
+<h1><%= @contact.content.title %> に対するお問い合せ</h1>
+
+<% form_for(@contact) do |f| %>
+  <%= f.error_messages %>
+
+  <%= f.hidden_field :category %>
+  <%= f.hidden_field :customer_id %>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :content_id %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit '送信' %>
+  </p>
+<% end %>

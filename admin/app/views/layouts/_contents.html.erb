@@ -8,11 +8,12 @@
   <%= stylesheet_link_tag 'scaffold' %>
   <%= stylesheet_link_tag 'preview_box' %>
   <%= javascript_include_tag :defaults %>
+  <%= include_yui_editor_if_used %>
 
 <script type = "text/javascript">
   <!--
       function remove_field(element, item) {
-      element.up(item).remove();
+        element.up(item).remove();
       }
     -->
 </script>
