@@ -3,6 +3,9 @@ function draw()
   pos_x = 0;
   pos_y = 0;
 base_y =0;
+  context2D.font = "30px 'Osaka'";
+  
+
   for (var i=0; i < MYAPP.banners.length; i++)
   {
 
@@ -15,14 +18,28 @@ base_y =0;
     if (mdpy + MYAPP.cell_height >= 0 || mdpy <= canvas.height)
     //表示される位置に少しでもある場合
     {
+context2D.globalAlpha = 1.0;
       context2D.drawImage(mybi, mdpx, mdpy);
+  context2D.globalAlpha = 0.5;
+      context2D.fillStyle = "black";
+      context2D.fillRect(mdpx + 25, mdpy + 5 ,MYAPP.banners[i].width - 50,40);
+      context2D.fillStyle = "white";
+context2D.globalAlpha = 1.0;
+      context2D.fillText(MYAPP.banners[i].title, mdpx + 30, mdpy + 35 , 100);
     }
 
     mdpy += MYAPP.loop;
     if (mdpy <= canvas.height)
     //次がすでに表示される位置にある場合
     {
+context2D.globalAlpha = 1.0;
       context2D.drawImage(mybi, mdpx, mdpy);
+  context2D.globalAlpha = 0.5;
+      context2D.fillStyle = "black";
+      context2D.fillRect(mdpx + 25, mdpy + 5 ,MYAPP.banners[i].width - 50,40);
+      context2D.fillStyle = "white";
+context2D.globalAlpha = 1.0;
+      context2D.fillText(MYAPP.banners[i].title, mdpx + 30, mdpy + 35 , 100);
       context2D.clearRect(mdpx, mdpy + mybi.height, mybi.width, 4);
     }
 
@@ -30,7 +47,7 @@ base_y =0;
 
     if (pos_y == base_y + MYAPP.cell_height * 2){
       pos_y = base_y;
-      pos_x = pos_x + MYAPP.cell_width;
+      pos_x = pos_x + MYAPP.banners[i].width;
     }
     if (pos_x == MYAPP.cell_width * 3){
       pos_x = 0;
@@ -39,7 +56,7 @@ base_y =0;
     }
 
   }
-  MYAPP.y -= 4;//キャリアによってここを変えることができれば
+  MYAPP.y -= 3;//キャリアによってここを変えることができれば
   if (MYAPP.y <= - MYAPP.loop) MYAPP.y = 0;
 
 }
