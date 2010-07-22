@@ -3,7 +3,7 @@ $KCODE = "UTF"
 
 
 class ContentsController < ApplicationController
-  uses_yui_editor
+
   before_filter :login_required
   # GET /contents
   # GET /contents.xml

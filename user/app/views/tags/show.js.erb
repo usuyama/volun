@@ -3,6 +3,7 @@ MYAPP.banners = new Array();
   MYAPP.banners[<%= i %>] = new Image();
   MYAPP.banners[<%= i %>].src = "<%= if content.banner_size_id == 1 then content.banner.url(:small) else if content.banner_size_id == 2 then content.banner.url(:medium) else content.banner.url(:large) end end%>";
   MYAPP.banners[<%= i %>].id  = <%= content.id %>;
+  MYAPP.banners[<%= i %>].title  = "<%= content.title %>";  
 <% end %>
 
 MYAPP.contents_num = <%= @contents.count %>;
